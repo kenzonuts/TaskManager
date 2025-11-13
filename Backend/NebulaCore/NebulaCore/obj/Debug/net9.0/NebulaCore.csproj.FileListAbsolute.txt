@@ -1,0 +1,776 @@
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\appsettings.Development.json
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\appsettings.json
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.staticwebassets.endpoints.json
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.exe
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.deps.json
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.runtimeconfig.json
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.pdb
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Azure.Core.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Azure.Identity.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Drawing.Common.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Memory.Data.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Runtime.Caching.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Security.Permissions.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Windows.Extensions.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.Application.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.Domain.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.Infrastruktur.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.Application.pdb
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.Infrastruktur.pdb
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.Domain.pdb
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.csproj.AssemblyReference.cache
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.AssemblyInfoInputs.cache
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.AssemblyInfo.cs
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.csproj.CoreCompileInputs.cache
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.MvcApplicationPartsAssemblyInfo.cs
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.MvcApplicationPartsAssemblyInfo.cache
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\scopedcss\bundle\NebulaCore.styles.css
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\staticwebassets.build.json
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\staticwebassets.development.json
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\staticwebassets\msbuild.NebulaCore.Microsoft.AspNetCore.StaticWebAssets.props
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\staticwebassets\msbuild.NebulaCore.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\staticwebassets\msbuild.build.NebulaCore.props
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.NebulaCore.props
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.NebulaCore.props
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\staticwebassets.pack.json
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.csproj.Up2Date
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.dll
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\refint\NebulaCore.dll
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.pdb
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.genruntimeconfig.cache
+D:\NebulaCore\NebulaCore\obj\Debug\net9.0\ref\NebulaCore.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Humanizer.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Mono.TextTemplating.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.CodeDom.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Composition.Convention.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Composition.Hosting.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Composition.Runtime.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\System.Composition.TypedParts.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\MediatR.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\MediatR.Contracts.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\FluentValidation.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\NebulaCore\NebulaCore\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.csproj.AssemblyReference.cache
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.AssemblyInfoInputs.cache
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.AssemblyInfo.cs
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.csproj.CoreCompileInputs.cache
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.MvcApplicationPartsAssemblyInfo.cs
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.MvcApplicationPartsAssemblyInfo.cache
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.dll
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\refint\NebulaCore.dll
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.pdb
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\appsettings.Development.json
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\appsettings.json
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.staticwebassets.endpoints.json
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.exe
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.deps.json
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.runtimeconfig.json
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.pdb
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Azure.Core.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Azure.Identity.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\FluentValidation.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Humanizer.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\MediatR.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\MediatR.Contracts.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Mono.TextTemplating.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.CodeDom.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.Convention.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.Hosting.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.Runtime.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.TypedParts.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Drawing.Common.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Memory.Data.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Runtime.Caching.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Security.Permissions.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\System.Windows.Extensions.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Application.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Domain.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Infrastruktur.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Application.pdb
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Infrastruktur.pdb
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Domain.pdb
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\obj\Debug\net9.0\scopedcss\bundle\NebulaCore.styles.css
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.build.json
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.development.json
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.NebulaCore.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.NebulaCore.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.build.NebulaCore.props
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.NebulaCore.props
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.NebulaCore.props
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.pack.json
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.csproj.Up2Date
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.genruntimeconfig.cache
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore\obj\Debug\net9.0\ref\NebulaCore.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Scrutor.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Filters.dll
+D:\Belajar magang\Project kuiz\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\refint\NebulaCore.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.pdb
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\appsettings.Development.json
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.staticwebassets.endpoints.json
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\appsettings.json
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.exe
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.deps.json
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore\bin\Debug\net9.0\NebulaCore.runtimeconfig.json
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.pdb
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Azure.Core.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Azure.Identity.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\FluentValidation.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Humanizer.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\MediatR.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\MediatR.Contracts.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Mono.TextTemplating.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Scrutor.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Filters.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.CodeDom.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.Convention.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.Hosting.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.Runtime.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.TypedParts.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Drawing.Common.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Memory.Data.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Runtime.Caching.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Security.Permissions.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\System.Windows.Extensions.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Application.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Domain.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Infrastruktur.dll
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Application.pdb
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Infrastruktur.pdb
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Domain.pdb
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.csproj.AssemblyReference.cache
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.AssemblyInfoInputs.cache
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.AssemblyInfo.cs
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.csproj.CoreCompileInputs.cache
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.MvcApplicationPartsAssemblyInfo.cs
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.MvcApplicationPartsAssemblyInfo.cache
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\scopedcss\bundle\NebulaCore.styles.css
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.build.json
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.development.json
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.NebulaCore.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.NebulaCore.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.build.NebulaCore.props
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.NebulaCore.props
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.NebulaCore.props
+D:\Belajar magang\TaskManagger\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.pack.json
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.csproj.Up2Date
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore\obj\Debug\net9.0\NebulaCore.genruntimeconfig.cache
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore\obj\Debug\net9.0\ref\NebulaCore.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\appsettings.Development.json
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\appsettings.json
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.staticwebassets.endpoints.json
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.exe
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.deps.json
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.runtimeconfig.json
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.pdb
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Azure.Core.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Azure.Identity.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\FluentValidation.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Humanizer.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\MediatR.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\MediatR.Contracts.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Mono.TextTemplating.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Scrutor.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Filters.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.CodeDom.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Composition.Convention.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Composition.Hosting.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Composition.Runtime.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Composition.TypedParts.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Drawing.Common.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Memory.Data.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Runtime.Caching.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Security.Permissions.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\System.Windows.Extensions.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.Application.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.Domain.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.Infrastruktur.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.Application.pdb
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.Infrastruktur.pdb
+D:\TaskManagger\Backend\nebulacore\nebulacore\bin\Debug\net9.0\NebulaCore.Domain.pdb
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.csproj.AssemblyReference.cache
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.AssemblyInfoInputs.cache
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.AssemblyInfo.cs
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.csproj.CoreCompileInputs.cache
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.MvcApplicationPartsAssemblyInfo.cs
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.MvcApplicationPartsAssemblyInfo.cache
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\scopedcss\bundle\NebulaCore.styles.css
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\staticwebassets.build.json
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\staticwebassets.development.json
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.NebulaCore.Microsoft.AspNetCore.StaticWebAssets.props
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.NebulaCore.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.build.NebulaCore.props
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.NebulaCore.props
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.NebulaCore.props
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\staticwebassets.pack.json
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.csproj.Up2Date
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\refint\NebulaCore.dll
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.pdb
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\NebulaCore.genruntimeconfig.cache
+D:\TaskManagger\Backend\nebulacore\nebulacore\obj\Debug\net9.0\ref\NebulaCore.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\appsettings.Development.json
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\appsettings.json
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.staticwebassets.endpoints.json
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.exe
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.deps.json
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.runtimeconfig.json
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.pdb
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Azure.Core.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Azure.Identity.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\FluentValidation.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Humanizer.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\MediatR.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\MediatR.Contracts.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Identity.Client.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Mono.TextTemplating.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Scrutor.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Filters.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.CodeDom.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.Convention.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.Hosting.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.Runtime.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Composition.TypedParts.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Drawing.Common.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Memory.Data.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Runtime.Caching.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Security.Permissions.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\System.Windows.Extensions.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Application.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Domain.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Infrastruktur.dll
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Application.pdb
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Infrastruktur.pdb
+D:\Backend\NebulaCore\nebulacore\bin\Debug\net9.0\NebulaCore.Domain.pdb
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.csproj.AssemblyReference.cache
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.AssemblyInfoInputs.cache
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.AssemblyInfo.cs
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.csproj.CoreCompileInputs.cache
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.MvcApplicationPartsAssemblyInfo.cs
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.MvcApplicationPartsAssemblyInfo.cache
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\scopedcss\bundle\NebulaCore.styles.css
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.build.json
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.development.json
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.NebulaCore.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.NebulaCore.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.build.NebulaCore.props
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.NebulaCore.props
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.NebulaCore.props
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\staticwebassets.pack.json
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.csproj.Up2Date
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.dll
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\refint\NebulaCore.dll
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.pdb
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\NebulaCore.genruntimeconfig.cache
+D:\Backend\NebulaCore\nebulacore\obj\Debug\net9.0\ref\NebulaCore.dll

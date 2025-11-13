@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "j0RKt3yrQGUQf5NkrSlssKPM0ba4APEG5gVjlzdHnuA=",
+  "Source": "NebulaCore",
+  "BasePath": "_content/NebulaCore",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,75 @@
+D:\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.deps.json
+D:\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.dll
+D:\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.pdb
+D:\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Domain.dll
+D:\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Domain.pdb
+D:\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.csproj.AssemblyReference.cache
+D:\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.AssemblyInfoInputs.cache
+D:\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.AssemblyInfo.cs
+D:\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.csproj.CoreCompileInputs.cache
+D:\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCo.90E34197.Up2Date
+D:\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.dll
+D:\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\refint\NebulaCore.Application.dll
+D:\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.pdb
+D:\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\ref\NebulaCore.Application.dll
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.deps.json
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.dll
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.pdb
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Domain.dll
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Domain.pdb
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.csproj.AssemblyReference.cache
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.AssemblyInfoInputs.cache
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.AssemblyInfo.cs
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.csproj.CoreCompileInputs.cache
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCo.90E34197.Up2Date
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.dll
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\refint\NebulaCore.Application.dll
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.pdb
+D:\Belajar magang\Project kuiz\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\ref\NebulaCore.Application.dll
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.dll
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\refint\NebulaCore.Application.dll
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.pdb
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.csproj.AssemblyReference.cache
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.AssemblyInfoInputs.cache
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.AssemblyInfo.cs
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.csproj.CoreCompileInputs.cache
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.deps.json
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.dll
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.pdb
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Domain.dll
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Domain.pdb
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCo.90E34197.Up2Date
+D:\Belajar magang\TaskManagger\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\ref\NebulaCore.Application.dll
+D:\TaskManagger\Backend\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.deps.json
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.dll
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.pdb
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Domain.dll
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Domain.pdb
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.csproj.AssemblyReference.cache
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.AssemblyInfoInputs.cache
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.AssemblyInfo.cs
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.csproj.CoreCompileInputs.cache
+D:\TaskManagger\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCo.90E34197.Up2Date
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.dll
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\obj\Debug\net8.0\refint\NebulaCore.Application.dll
+D:\TaskManagger\Backend\nebulacore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.pdb
+D:\TaskManagger\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\ref\NebulaCore.Application.dll
+D:\Backend\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.deps.json
+D:\Backend\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.dll
+D:\Backend\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Application.pdb
+D:\Backend\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Domain.dll
+D:\Backend\NebulaCore\NebulaCore.Application\bin\Debug\net8.0\NebulaCore.Domain.pdb
+D:\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.csproj.AssemblyReference.cache
+D:\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.AssemblyInfoInputs.cache
+D:\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.AssemblyInfo.cs
+D:\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.csproj.CoreCompileInputs.cache
+D:\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCo.90E34197.Up2Date
+D:\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.dll
+D:\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\refint\NebulaCore.Application.dll
+D:\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\NebulaCore.Application.pdb
+D:\Backend\NebulaCore\NebulaCore.Application\obj\Debug\net8.0\ref\NebulaCore.Application.dll
