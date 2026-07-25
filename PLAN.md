@@ -116,22 +116,22 @@ Hilangkan naming lama: `NebulaCore`, `Kenzo`, `Bagelen Bakery`, `Kenzonuts`, typ
 
 ### Checklist — package & config
 
-- [ ] Di Infrastructure: hapus `Microsoft.EntityFrameworkCore.SqlServer`
-- [ ] Pasang `Npgsql.EntityFrameworkCore.PostgreSQL` (versi selaras EF)
-- [ ] `UseSqlServer(...)` → `UseNpgsql(...)` di `Program.cs` dan `DesignTimeDbContextFactory`
-- [ ] Connection string dari env / User Secrets (bukan hardcoded)
+- [x] Di Infrastructure: hapus `Microsoft.EntityFrameworkCore.SqlServer`
+- [x] Pasang `Npgsql.EntityFrameworkCore.PostgreSQL` (8.0.11)
+- [x] `UseSqlServer(...)` → `UseNpgsql(...)` di `Program.cs` dan `DesignTimeDbContextFactory`
+- [x] Connection string dari env / User Secrets (bukan hardcoded)
 
 ### Checklist — migration
 
-- [ ] Hapus folder `Migrations` SQL Server lama
-- [ ] Buat migration baru: `dotnet ef migrations add InitialCreate`
-- [ ] Apply ke Supabase: `dotnet ef database update`
+- [x] Hapus folder `Migrations` SQL Server lama
+- [x] Buat migration baru: `InitialCreate` (Postgres: `uuid`, `text`, `timestamptz`)
+- [ ] Apply ke Supabase: `dotnet ef database update` — **nanti setelah User Secrets diisi**
 - [ ] Verifikasi tabel di Supabase Table Editor:
   - `Users`
   - `Categories`
   - `Tasks`
   - `Reminders`
-- [ ] Pastikan default timestamp / FK / unique index (email, username) benar di Postgres
+- [x] Model config: PK, FK, unique email/username, default timestamp (siap Postgres)
 
 ### Checklist — smoke test
 
@@ -143,9 +143,9 @@ Hilangkan naming lama: `NebulaCore`, `Kenzo`, `Bagelen Bakery`, `Kenzonuts`, typ
 
 ### Definition of done
 
-- App berjalan full terhadap Supabase Postgres
-- Tidak ada dependency SQL Server tersisa
-- Data baru terlihat di Supabase dashboard
+- [ ] App berjalan full terhadap Supabase Postgres — **menunggu setup kredensial**
+- [x] Tidak ada dependency SQL Server tersisa
+- [ ] Data baru terlihat di Supabase dashboard — **menunggu `database update`**
 
 ---
 
@@ -278,7 +278,7 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 |------|--------|---------|
 | 0 — Stabilisasi & keamanan | Mostly done | Sisa: buat project Supabase + set User Secrets + rotate SMTP |
 | 1 — Rebrand & struktur | Done | Build BE+FE hijau; smoke test CRUD menunggu secrets/DB |
-| 2 — Migrasi Supabase | Not started | |
+| 2 — Migrasi Supabase | Code done | Npgsql + InitialCreate siap; `database update` menunggu User Secrets |
 | 3 — Frontend hygiene | Not started | JWT Bearer sudah diganti di Fase 1 |
 | 4 — Fitur sisa | Not started | |
 | 5 — Docs & test | Not started | |

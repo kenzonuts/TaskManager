@@ -1,9 +1,9 @@
-# Backend setup (Fase 0+)
+# Backend setup
 
 ## Prasyarat
 
 - .NET 8 SDK
-- Akun [Supabase](https://supabase.com) (project akan dipakai penuh di Fase 2)
+- Akun [Supabase](https://supabase.com)
 
 ## 1. Buat project Supabase
 
@@ -15,52 +15,43 @@
    - `anon` key
    - `service_role` key (**jangan pernah** masuk ke frontend)
 
-Connection string: **Project Settings → Database → Connection string → URI / .NET**
+Connection string: **Project Settings → Database → Connection string** (URI / ADO.NET).  
+Untuk .NET/Npgsql biasanya mirip:
+
+```text
+Host=db.<project-ref>.supabase.co;Port=5432;Database=postgres;Username=postgres;Password=<DB_PASSWORD>;SSL Mode=Require;Trust Server Certificate=true
+```
 
 ## 2. User Secrets (wajib untuk local run)
 
-Dari folder API project:
-
 ```bash
 cd backend/src/TaskManager.Api
-dotnet user-secrets init   # sudah ada UserSecretsId di csproj; aman dijalankan ulang
+dotnet user-secrets init   # sudah ada UserSecretsId di csproj
 ```
 
-Set nilai (ganti placeholder):
-
 ```bash
-dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=...;Port=5432;Database=postgres;Username=postgres;Password=...;SSL Mode=Require;Trust Server Certificate=true"
+dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=db.<ref>.supabase.co;Port=5432;Database=postgres;Username=postgres;Password=<DB_PASSWORD>;SSL Mode=Require;Trust Server Certificate=true"
 dotnet user-secrets set "Jwt:Key" "ganti-dengan-secret-panjang-minimal-32-karakter"
 dotnet user-secrets set "Jwt:Issuer" "TaskManager"
 dotnet user-secrets set "Jwt:Audience" "TaskManager"
 ```
 
-SMTP (opsional; **rotate** dulu password yang pernah ter-commit):
+SMTP opsional — **rotate** dulu password yang pernah ter-commit. Referensi: `backend/secrets.example.json`.
+
+## 3. Apply schema ke Supabase (Fase 2)
+
+Setelah User Secrets berisi connection string Postgres:
 
 ```bash
-dotnet user-secrets set "SmtpSettings:Host" "smtp.gmail.com"
-dotnet user-secrets set "SmtpSettings:Port" "587"
-dotnet user-secrets set "SmtpSettings:EnableSsl" "true"
-dotnet user-secrets set "SmtpSettings:UserName" "email@gmail.com"
-dotnet user-secrets set "SmtpSettings:Password" "app-password-baru"
+cd backend/src
+dotnet ef database update \
+  --project TaskManager.Infrastructure/TaskManager.Infrastructure.csproj \
+  --startup-project TaskManager.Api/TaskManager.Api.csproj
 ```
 
-Referensi bentuk nilai: `backend/secrets.example.json`.
-
-## 3. Keamanan — action manual
-
-- [ ] **Rotate** App Password Gmail yang pernah ada di `appsettings.json` (anggap sudah bocor)
-- [ ] Buat JWT key baru (random, ≥ 32 karakter); jangan pakai key lama yang pernah di-commit
-- [ ] Jangan commit `secrets.json`, `.env`, atau User Secrets store
+Cek di Supabase **Table Editor**: `Users`, `Categories`, `Tasks`, `Reminders`.
 
 ## 4. Run API
-
-```bash
-cd backend/src/TaskManager.Api
-dotnet run --launch-profile http
-```
-
-Atau dari solution:
 
 ```bash
 cd backend/src
@@ -77,4 +68,8 @@ npm install
 npm run dev
 ```
 
-> Catatan: sampai Fase 2 selesai, connection string masih boleh mengarah ke SQL Server lokal **atau** langsung ke Supabase Postgres setelah Npgsql dipasang.
+## Keamanan
+
+- [ ] Rotate App Password Gmail yang pernah bocor di repo
+- [ ] JWT key baru (≥ 32 karakter)
+- [ ] Jangan commit secrets / `.env`
