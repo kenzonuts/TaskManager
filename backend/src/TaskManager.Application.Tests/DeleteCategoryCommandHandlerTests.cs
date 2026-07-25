@@ -2,6 +2,8 @@ using Moq;
 using TaskManager.Application.Category.Command.Delete;
 using TaskManager.Domain.Data;
 using TaskManager.Domain.Repositories;
+using DomainCategory = TaskManager.Domain.Data.Category;
+using DomainTask = TaskManager.Domain.Data.TaskItem;
 
 namespace TaskManager.Application.Tests;
 
@@ -12,14 +14,14 @@ public class DeleteCategoryCommandHandlerTests
     {
         var userId = Guid.NewGuid();
         var categoryId = Guid.NewGuid();
-        var category = new Category
+        var category = new DomainCategory
         {
             CategoryId = categoryId,
             Name = "Work",
             UserId = userId,
             Tasks =
             {
-                new TaskItem
+                new DomainTask
                 {
                     TaskId = Guid.NewGuid(),
                     Title = "Open",
@@ -48,14 +50,14 @@ public class DeleteCategoryCommandHandlerTests
     {
         var userId = Guid.NewGuid();
         var categoryId = Guid.NewGuid();
-        var category = new Category
+        var category = new DomainCategory
         {
             CategoryId = categoryId,
             Name = "Work",
             UserId = userId,
             Tasks =
             {
-                new TaskItem
+                new DomainTask
                 {
                     TaskId = Guid.NewGuid(),
                     Title = "Done",

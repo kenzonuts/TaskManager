@@ -202,24 +202,20 @@ Hilangkan naming lama: `NebulaCore`, `Kenzo`, `Bagelen Bakery`, `Kenzonuts`, typ
 
 ### Checklist
 
-- [ ] Tulis `README.md` root:
-  - Prasyarat (.NET, Node, akun Supabase)
-  - Cara set User Secrets / `.env`
-  - Cara run backend + frontend
-  - Cara migrate DB
-- [ ] Pastikan `.gitignore` menutupi: `bin/`, `obj/`, `.vs/`, `.env`, secrets, `node_modules/`
-- [ ] Unit test minimal untuk handler penting:
-  - Login (password valid/invalid)
+- [x] Tulis `README.md` root (prasyarat, secrets, run BE/FE, migrate DB)
+- [x] Pastikan `.gitignore` menutupi: `bin/`, `obj/`, `.vs/`, `.env`, secrets, `node_modules/`
+- [x] Unit test minimal untuk handler penting:
+  - Login (password valid/invalid + email unknown)
   - Delete category (ada unfinished task vs aman dihapus)
-  - Create task
-- [ ] (Opsional) `docker-compose` untuk local Postgres mirror — atau dokumentasikan hanya pakai Supabase
-- [ ] Checklist manual QA sebelum merge/release
+  - Create task (sukses + category milik user lain)
+- [x] Dokumentasikan Supabase only (tanpa docker-compose)
+- [x] Checklist manual QA: `QA.md`
 
 ### Definition of done
 
-- README cukup untuk run dari nol
-- Test minimal hijau
-- Repo bersih dari artifact build & secret
+- [x] README cukup untuk run dari nol
+- [x] Test minimal hijau (`dotnet test` — 7 passed)
+- [x] Repo bersih dari artifact build & secret (via `.gitignore`)
 
 ---
 
@@ -281,7 +277,7 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 | 2 — Migrasi Supabase | Code done | Npgsql + InitialCreate siap; `database update` menunggu User Secrets |
 | 3 — Frontend hygiene | Done | API client, Router auth, CORS, Authorize |
 | 4 — Fitur sisa | Done | Reminder UI, middleware, validators, SMTP removed |
-| 5 — Docs & test | Not started | |
+| 5 — Docs & test | Done | README, QA.md, 7 unit tests hijau |
 | 6 — Supabase Auth | Optional | |
 
 Update kolom Status: `Not started` → `In progress` → `Done`.

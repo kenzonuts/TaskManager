@@ -10,15 +10,14 @@ namespace TaskManager.Application.Tests;
 
 public class LoginCommandHandlerTests
 {
-    private static IConfiguration CreateJwtConfig() =>
-        new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string?>
-            {
-                ["Jwt:Key"] = "taskmanager-test-secret-key-32chars!",
-                ["Jwt:Issuer"] = "TaskManager",
-                ["Jwt:Audience"] = "TaskManager",
-            })
-            .Build();
+    private static IConfiguration CreateJwtConfig()
+    {
+        var config = new Mock<IConfiguration>();
+        config.Setup(c => c["Jwt:Key"]).Returns("taskmanager-test-secret-key-32chars!");
+        config.Setup(c => c["Jwt:Issuer"]).Returns("TaskManager");
+        config.Setup(c => c["Jwt:Audience"]).Returns("TaskManager");
+        return config.Object;
+    }
 
     [Fact]
     public async Task Handle_ValidPassword_ReturnsAuthResult()

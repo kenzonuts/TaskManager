@@ -1,7 +1,8 @@
 using Moq;
 using TaskManager.Application.TaskItem.Command.Create;
-using TaskManager.Domain.Data;
 using TaskManager.Domain.Repositories;
+using DomainCategory = TaskManager.Domain.Data.Category;
+using DomainTask = TaskManager.Domain.Data.TaskItem;
 
 namespace TaskManager.Application.Tests;
 
@@ -11,12 +12,12 @@ public class CreateTaskCommandHandlerTests
     public async Task Handle_ValidRequest_CreatesTaskAndReturnsId()
     {
         var userId = Guid.NewGuid();
-        TaskItem? saved = null;
+        DomainTask? saved = null;
 
         var taskRepo = new Mock<IRepositoryTaskItem>();
         taskRepo
-            .Setup(r => r.AddAsync(It.IsAny<TaskItem>()))
-            .Callback<TaskItem>(t => saved = t)
+            .Setup(r => r.AddAsync(It.IsAny<DomainTask>()))
+            .Callback<DomainTask>(t => saved = t)
             .Returns(Task.CompletedTask);
 
         var categoryRepo = new Mock<ICategoryRepository>();
@@ -42,7 +43,7 @@ public class CreateTaskCommandHandlerTests
         Assert.Equal("Write tests", saved.Title);
         Assert.Equal(userId, saved.UserId);
         Assert.False(saved.IsCompleted);
-        taskRepo.Verify(r => r.AddAsync(It.IsAny<TaskItem>()), Times.Once);
+        taskRepo.Verify(r => r.AddAsync(It.IsAny<DomainTask>()), Times.Once);
     }
 
     [Fact]
@@ -54,7 +55,7 @@ public class CreateTaskCommandHandlerTests
 
         var taskRepo = new Mock<IRepositoryTaskItem>();
         var categoryRepo = new Mock<ICategoryRepository>();
-        categoryRepo.Setup(r => r.GetByIdAsync(categoryId)).ReturnsAsync(new Category
+        categoryRepo.Setup(r => r.GetByIdAsync(categoryId)).ReturnsAsync(new DomainCategory
         {
             CategoryId = categoryId,
             Name = "Other",
@@ -76,6 +77,6 @@ public class CreateTaskCommandHandlerTests
                 },
                 CancellationToken.None));
 
-        taskRepo.Verify(r => r.AddAsync(It.IsAny<TaskItem>()), Times.Never);
+        taskRepo.Verify(r => r.AddAsync(It.IsAny<DomainTask>()), Times.Never);
     }
 }
