@@ -36,7 +36,6 @@ dotnet user-secrets set "Jwt:Issuer" "TaskManager"
 dotnet user-secrets set "Jwt:Audience" "TaskManager"
 ```
 
-SMTP opsional — **rotate** dulu password yang pernah ter-commit. Referensi: `backend/secrets.example.json`.
 
 ## 3. Apply schema ke Supabase (Fase 2)
 
@@ -73,6 +72,5 @@ Default Vite: `http://localhost:5173` (sudah diizinkan di CORS API).
 
 ## Keamanan
 
-- [ ] Rotate App Password Gmail yang pernah bocor di repo
 - [ ] JWT key baru (≥ 32 karakter)
 - [ ] Jangan commit secrets / `.env`
