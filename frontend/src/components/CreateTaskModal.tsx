@@ -11,7 +11,16 @@ interface CreateTaskModalProps {
   onTaskCreated: (newTask: TaskItem) => void;
 }
 
-export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: CreateTaskModalProps) => {
+const fieldClass =
+  'w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900';
+const labelClass = 'mb-2 block text-sm font-medium text-zinc-700';
+
+export const CreateTaskModal = ({
+  isOpen,
+  onClose,
+  categories,
+  onTaskCreated,
+}: CreateTaskModalProps) => {
   const { user } = useAuth();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -65,60 +74,64 @@ export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-slate-800 border border-white/20 rounded-xl p-6 w-full max-w-md">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-white">Create New Task</h2>
-          <button onClick={onClose} className="text-slate-400 hover:text-white transition-colors">
-            <X className="w-6 h-6" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
+      <div className="w-full max-w-md rounded-xl border border-zinc-200 bg-white p-6 shadow-lg">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-xl font-semibold text-zinc-900">Create New Task</h2>
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-lg p-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
+          >
+            <X className="h-6 w-6" />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">Title *</label>
+            <label className={labelClass}>Title *</label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              className={fieldClass}
               placeholder="Enter task title"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">Description</label>
+            <label className={labelClass}>Description</label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 resize-none"
+              className={`${fieldClass} resize-none`}
               placeholder="Enter task description (optional)"
               rows={3}
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">Due Date</label>
+            <label className={labelClass}>Due Date</label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Calendar className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
               <input
                 type="datetime-local"
                 value={dueDate}
                 onChange={(e) => setDueDate(e.target.value)}
-                className="w-full pl-10 pr-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                className={`${fieldClass} pl-10`}
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">Priority</label>
+            <label className={labelClass}>Priority</label>
             <div className="relative">
-              <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Clock className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
               <select
                 value={priority}
                 onChange={(e) => setPriority(Number(e.target.value) as PriorityLevel)}
-                className="w-full pl-10 pr-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                className={`${fieldClass} pl-10`}
               >
                 <option value={PriorityLevel.Low}>Low</option>
                 <option value={PriorityLevel.Medium}>Medium</option>
@@ -129,13 +142,13 @@ export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: 
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">Category</label>
+            <label className={labelClass}>Category</label>
             <div className="relative">
-              <Tag className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Tag className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
               <select
                 value={categoryId}
                 onChange={(e) => setCategoryId(e.target.value)}
-                className="w-full pl-10 pr-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                className={`${fieldClass} pl-10`}
               >
                 <option value="">No Category</option>
                 {categories.map((category) => (
@@ -151,14 +164,14 @@ export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: 
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 bg-slate-600 hover:bg-slate-500 text-white rounded-lg transition-colors"
+              className="flex-1 rounded-lg border border-zinc-300 px-4 py-2 text-zinc-700 transition-colors hover:bg-zinc-50"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting || !title.trim()}
-              className="flex-1 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-lg shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 rounded-lg bg-zinc-900 px-4 py-2 font-semibold text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {isSubmitting ? 'Creating...' : 'Create Task'}
             </button>

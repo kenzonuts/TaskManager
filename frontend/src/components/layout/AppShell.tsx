@@ -27,27 +27,39 @@ function userInitial(username?: string) {
   return username.trim().charAt(0).toUpperCase();
 }
 
-export const AppShell = () => {
-  const { user, logout } = useAuth();
+type SidebarProps = {
+  onNavigate?: () => void;
+  onClose?: () => void;
+};
+
+const Sidebar = ({ onNavigate, onClose }: SidebarProps) => {
+  const { logout } = useAuth();
   const location = useLocation();
-  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const pageTitle = pageTitles[location.pathname] ?? 'TaskManager';
-
-  const closeMobile = () => setMobileOpen(false);
-
-  const sidebar = (
+  return (
     <div className="flex h-full flex-col">
-      <div className="flex items-center gap-3 px-5 py-6">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-zinc-950">
-          <CheckSquare className="h-5 w-5" strokeWidth={2.25} />
+      <div className="flex items-center justify-between gap-2 px-5 py-6">
+        <div className="flex min-w-0 items-center gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-zinc-950">
+            <CheckSquare className="h-5 w-5" strokeWidth={2.25} />
+          </div>
+          <div className="min-w-0">
+            <p className="truncate text-base font-semibold tracking-tight text-white">
+              TaskManager
+            </p>
+            <p className="truncate text-xs text-zinc-400">Keep it simple.</p>
+          </div>
         </div>
-        <div className="min-w-0">
-          <p className="truncate text-base font-semibold tracking-tight text-white">
-            TaskManager
-          </p>
-          <p className="truncate text-xs text-zinc-400">Keep it simple.</p>
-        </div>
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-lg p-2 text-zinc-400 hover:bg-white/10 hover:text-white lg:hidden"
+            aria-label="Close sidebar"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        )}
       </div>
 
       <nav className="flex-1 space-y-1 px-3">
@@ -58,7 +70,7 @@ export const AppShell = () => {
             <Link
               key={item.path}
               to={item.path}
-              onClick={closeMobile}
+              onClick={onNavigate}
               className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
                 active
                   ? 'bg-white text-zinc-950'
@@ -76,7 +88,7 @@ export const AppShell = () => {
         <button
           type="button"
           onClick={() => {
-            closeMobile();
+            onNavigate?.();
             logout();
           }}
           className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-400 transition-colors hover:bg-white/10 hover:text-white"
@@ -87,15 +99,22 @@ export const AppShell = () => {
       </div>
     </div>
   );
+};
+
+export const AppShell = () => {
+  const { user } = useAuth();
+  const location = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const pageTitle = pageTitles[location.pathname] ?? 'TaskManager';
+  const closeMobile = () => setMobileOpen(false);
 
   return (
     <div className="min-h-screen bg-zinc-100">
-      {/* Desktop sidebar */}
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 bg-zinc-950 lg:block">
-        {sidebar}
+        <Sidebar />
       </aside>
 
-      {/* Mobile drawer */}
       {mobileOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <button
@@ -104,18 +123,8 @@ export const AppShell = () => {
             className="absolute inset-0 bg-black/50"
             onClick={closeMobile}
           />
-          <aside className="absolute inset-y-0 left-0 flex w-64 max-w-[85vw] flex-col bg-zinc-950 shadow-xl">
-            <div className="flex justify-end p-3">
-              <button
-                type="button"
-                onClick={closeMobile}
-                className="rounded-lg p-2 text-zinc-400 hover:bg-white/10 hover:text-white"
-                aria-label="Close sidebar"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            <div className="-mt-10 flex-1">{sidebar}</div>
+          <aside className="absolute inset-y-0 left-0 w-64 max-w-[85vw] bg-zinc-950 shadow-xl">
+            <Sidebar onNavigate={closeMobile} onClose={closeMobile} />
           </aside>
         </div>
       )}

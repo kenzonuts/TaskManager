@@ -42,35 +42,40 @@ export const CreateCategoryButton = ({ onCategoryCreated }: CreateCategoryButton
   return (
     <>
       <button
+        type="button"
         onClick={() => setIsModalOpen(true)}
-        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-lg shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+        className="flex w-full items-center justify-center gap-2 rounded-lg bg-zinc-900 px-4 py-3 font-semibold text-white transition-colors hover:bg-zinc-800"
       >
-        <Plus className="w-4 h-4" />
+        <Plus className="h-4 w-4" />
         <span>Create Category</span>
       </button>
 
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-6 border border-white/20 w-full max-w-md">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-white">Create New Category</h2>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
+          <div className="w-full max-w-md rounded-2xl border border-zinc-200 bg-white p-6 shadow-lg">
+            <div className="mb-6 flex items-center justify-between">
+              <h2 className="text-xl font-bold text-zinc-900">Create New Category</h2>
               <button
+                type="button"
                 onClick={() => setIsModalOpen(false)}
-                className="text-slate-400 hover:text-white transition-colors"
+                className="rounded-lg p-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
               >
-                <X className="w-6 h-6" />
+                <X className="h-6 w-6" />
               </button>
             </div>
 
             {error && (
-              <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-sm">
+              <div className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
                 {error}
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="categoryName" className="block text-sm font-medium text-slate-200 mb-2">
+                <label
+                  htmlFor="categoryName"
+                  className="mb-2 block text-sm font-medium text-zinc-700"
+                >
                   Category Name
                 </label>
                 <input
@@ -80,7 +85,7 @@ export const CreateCategoryButton = ({ onCategoryCreated }: CreateCategoryButton
                   onChange={(e) => setCategoryName(e.target.value)}
                   required
                   placeholder="Enter category name"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all"
+                  className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900"
                   disabled={isLoading}
                 />
               </div>
@@ -89,7 +94,7 @@ export const CreateCategoryButton = ({ onCategoryCreated }: CreateCategoryButton
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-1 px-4 py-3 bg-slate-500/20 hover:bg-slate-500/30 text-slate-300 rounded-lg transition-all border border-slate-500/30"
+                  className="flex-1 rounded-lg border border-zinc-300 px-4 py-3 text-zinc-700 transition-colors hover:bg-zinc-50"
                   disabled={isLoading}
                 >
                   Cancel
@@ -97,7 +102,7 @@ export const CreateCategoryButton = ({ onCategoryCreated }: CreateCategoryButton
                 <button
                   type="submit"
                   disabled={isLoading || !categoryName.trim()}
-                  className="flex-1 px-4 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-lg shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98]"
+                  className="flex-1 rounded-lg bg-zinc-900 px-4 py-3 font-semibold text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {isLoading ? 'Creating...' : 'Create'}
                 </button>

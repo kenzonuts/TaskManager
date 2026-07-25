@@ -88,99 +88,105 @@ export const Categories = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
-        <div className="text-white text-xl">Loading categories...</div>
+      <div className="flex items-center justify-center py-24">
+        <div className="text-lg text-zinc-500">Loading categories...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-white mb-2">Categories</h2>
-            <p className="text-slate-300">Kelola kategori tugas Anda</p>
-          </div>
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mb-8">
+        <h2 className="mb-1 text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+          Categories
+        </h2>
+        <p className="text-zinc-500">Organize tasks into groups that make sense.</p>
+      </div>
 
-          <div className="max-w-2xl">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-6 mb-6">
-              <CreateCategoryButton onCategoryCreated={handleCategoryCreated} />
+      <div className="max-w-2xl">
+        <div className="mb-6 rounded-xl border border-zinc-200 bg-white p-6">
+          <CreateCategoryButton onCategoryCreated={handleCategoryCreated} />
+        </div>
+
+        <div className="space-y-3">
+          {categories.length === 0 ? (
+            <div className="rounded-xl border border-dashed border-zinc-300 bg-white px-6 py-12 text-center">
+              <Folder className="mx-auto mb-4 h-14 w-14 text-zinc-300" />
+              <p className="text-lg font-medium text-zinc-800">No categories found</p>
+              <p className="mt-1 text-sm text-zinc-500">
+                Create your first category to get started
+              </p>
             </div>
-
-            <div className="space-y-4">
-              {categories.length === 0 ? (
-                <div className="text-center py-12 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl">
-                  <Folder className="w-16 h-16 text-slate-600 mx-auto mb-4" />
-                  <p className="text-slate-400 text-lg">No categories found</p>
-                  <p className="text-slate-500 text-sm mt-2">Create your first category to get started</p>
-                </div>
-              ) : (
-                categories.map((category) => (
-                  <div
-                    key={category.categoryId}
-                    className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/10 transition-all duration-200"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3 flex-1">
-                        <Folder className="w-5 h-5 text-cyan-400" />
-                        {editingCategory === category.categoryId ? (
-                          <input
-                            type="text"
-                            value={editName}
-                            onChange={(e) => setEditName(e.target.value)}
-                            className="flex-1 px-3 py-1 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter') handleSaveEdit(category.categoryId);
-                              if (e.key === 'Escape') handleCancelEdit();
-                            }}
-                            autoFocus
-                            disabled={savingCategory === category.categoryId}
-                          />
-                        ) : (
-                          <span className="text-white font-medium">{category.name}</span>
-                        )}
-                      </div>
-
-                      <div className="flex items-center gap-2">
-                        {editingCategory === category.categoryId ? (
-                          <>
-                            <button
-                              onClick={() => handleSaveEdit(category.categoryId)}
-                              className="p-2 text-emerald-400 hover:text-emerald-300 transition-colors"
-                            >
-                              <CheckCircle2 className="w-4 h-4" />
-                            </button>
-                            <button
-                              onClick={handleCancelEdit}
-                              className="p-2 text-slate-400 hover:text-slate-300 transition-colors"
-                            >
-                              ✕
-                            </button>
-                          </>
-                        ) : (
-                          <>
-                            <button
-                              onClick={() => handleEditCategory(category.categoryId, category.name)}
-                              className="p-2 text-slate-400 hover:text-cyan-400 transition-colors"
-                            >
-                              <Edit className="w-4 h-4" />
-                            </button>
-                            <button
-                              onClick={() => handleDeleteCategory(category.categoryId)}
-                              className="p-2 text-slate-400 hover:text-red-400 transition-colors"
-                            >
-                              <Trash2 className="w-4 h-4" />
-                            </button>
-                          </>
-                        )}
-                      </div>
-                    </div>
+          ) : (
+            categories.map((category) => (
+              <div
+                key={category.categoryId}
+                className="rounded-xl border border-zinc-200 bg-white p-4 transition-shadow hover:shadow-sm"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-1 items-center gap-3">
+                    <Folder className="h-5 w-5 text-zinc-700" />
+                    {editingCategory === category.categoryId ? (
+                      <input
+                        type="text"
+                        value={editName}
+                        onChange={(e) => setEditName(e.target.value)}
+                        className="flex-1 rounded-lg border border-zinc-300 bg-white px-3 py-1.5 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-zinc-900"
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') handleSaveEdit(category.categoryId);
+                          if (e.key === 'Escape') handleCancelEdit();
+                        }}
+                        autoFocus
+                        disabled={savingCategory === category.categoryId}
+                      />
+                    ) : (
+                      <span className="font-medium text-zinc-900">{category.name}</span>
+                    )}
                   </div>
-                ))
-              )}
-            </div>
-          </div>
+
+                  <div className="flex items-center gap-1">
+                    {editingCategory === category.categoryId ? (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => handleSaveEdit(category.categoryId)}
+                          className="rounded-lg p-2 text-emerald-600 transition-colors hover:bg-emerald-50"
+                        >
+                          <CheckCircle2 className="h-4 w-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleCancelEdit}
+                          className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-700"
+                        >
+                          ✕
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleEditCategory(category.categoryId, category.name)
+                          }
+                          className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
+                        >
+                          <Edit className="h-4 w-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteCategory(category.categoryId)}
+                          className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-red-50 hover:text-red-600"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>

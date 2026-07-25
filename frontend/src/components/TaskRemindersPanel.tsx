@@ -61,38 +61,36 @@ export const TaskRemindersPanel = ({ taskId }: TaskRemindersPanelProps) => {
   };
 
   return (
-    <div className="border-t border-white/10 pt-4 mt-2">
-      <div className="flex items-center gap-2 mb-3">
-        <Bell className="w-4 h-4 text-cyan-400" />
-        <h3 className="text-sm font-medium text-slate-200">Reminders</h3>
+    <div className="mt-2 border-t border-zinc-100 pt-4">
+      <div className="mb-3 flex items-center gap-2">
+        <Bell className="h-4 w-4 text-zinc-700" />
+        <h3 className="text-sm font-medium text-zinc-800">Reminders</h3>
       </div>
 
-      {error && (
-        <p className="text-xs text-red-300 mb-2">{error}</p>
-      )}
+      {error && <p className="mb-2 text-xs text-red-600">{error}</p>}
 
       {loading ? (
-        <p className="text-xs text-slate-400">Loading reminders...</p>
+        <p className="text-xs text-zinc-500">Loading reminders...</p>
       ) : reminders.length === 0 ? (
-        <p className="text-xs text-slate-500 mb-3">Belum ada reminder untuk task ini.</p>
+        <p className="mb-3 text-xs text-zinc-500">Belum ada reminder untuk task ini.</p>
       ) : (
-        <ul className="space-y-2 mb-3">
+        <ul className="mb-3 space-y-2">
           {reminders.map((reminder) => (
             <li
               key={reminder.reminderId}
-              className="flex items-center justify-between gap-2 rounded-lg bg-slate-700/60 px-3 py-2"
+              className="flex items-center justify-between gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2"
             >
-              <span className="text-sm text-slate-200">
+              <span className="text-sm text-zinc-700">
                 {new Date(reminder.remindAt).toLocaleString()}
                 {reminder.isSent ? ' · sent' : ''}
               </span>
               <button
                 type="button"
                 onClick={() => handleDelete(reminder.reminderId)}
-                className="p-1 text-slate-400 hover:text-red-400 transition-colors"
+                className="rounded p-1 text-zinc-400 transition-colors hover:text-red-600"
                 aria-label="Delete reminder"
               >
-                <Trash2 className="w-4 h-4" />
+                <Trash2 className="h-4 w-4" />
               </button>
             </li>
           ))}
@@ -104,15 +102,15 @@ export const TaskRemindersPanel = ({ taskId }: TaskRemindersPanelProps) => {
           type="datetime-local"
           value={remindAt}
           onChange={(e) => setRemindAt(e.target.value)}
-          className="flex-1 px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          className="flex-1 rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-zinc-900"
           required
         />
         <button
           type="submit"
           disabled={saving || !remindAt}
-          className="inline-flex items-center gap-1 px-3 py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-sm rounded-lg disabled:opacity-50"
+          className="inline-flex items-center gap-1 rounded-lg bg-zinc-900 px-3 py-2 text-sm text-white transition-colors hover:bg-zinc-800 disabled:opacity-50"
         >
-          <Plus className="w-4 h-4" />
+          <Plus className="h-4 w-4" />
           Add
         </button>
       </form>

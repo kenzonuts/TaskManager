@@ -82,22 +82,22 @@ Panduan teknis: `backend/SETUP.md`, `README.md`.
 
 ### Checklist
 
-- [ ] App shell: fixed dark sidebar + light main content
-- [ ] Sidebar branding: logo **TaskManager** + tagline (mis. “Keep it simple.”)
-- [ ] Nav aktif: Dashboard, Tasks, Categories
-- [ ] Nav belum siap: hide atau “Coming soon” — jangan dead link
-- [ ] Header: konteks halaman + profile dari user auth (tanpa branding lama)
-- [ ] Tanpa kartu “Upgrade to Pro”
-- [ ] Tanpa Dark Mode toggle sampai theme system nyata ada
-- [ ] Skin Login / Register selaras shell baru (logic auth tetap)
-- [ ] Responsive: sidebar collapse di mobile
-- [ ] Tasks & Categories memakai shell yang sama (konten boleh di-skin belakangan)
+- [x] App shell: fixed dark sidebar + light main content
+- [x] Sidebar branding: logo **TaskManager** + tagline (mis. “Keep it simple.”)
+- [x] Nav aktif: Dashboard, Tasks, Categories
+- [x] Nav belum siap: hide atau “Coming soon” — jangan dead link
+- [x] Header: konteks halaman + profile dari user auth (tanpa branding lama)
+- [x] Tanpa kartu “Upgrade to Pro”
+- [x] Tanpa Dark Mode toggle sampai theme system nyata ada
+- [x] Skin Login / Register selaras shell baru (logic auth tetap)
+- [x] Responsive: sidebar collapse di mobile
+- [x] Tasks & Categories memakai shell yang sama (konten boleh di-skin belakangan)
 
 ### Definition of done
 
-- [ ] Shell terasa selaras mockup monochrome
-- [ ] Route existing tetap berfungsi lewat API yang sama
-- [ ] Tidak ada menu yang mengaku ready padahal belum ada
+- [x] Shell terasa selaras mockup monochrome
+- [x] Route existing tetap berfungsi lewat API yang sama
+- [x] Tidak ada menu yang mengaku ready padahal belum ada
 
 ---
 
@@ -323,7 +323,7 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 | Phase | Status | Catatan |
 |-------|--------|---------|
 | Prasyarat (secrets + smoke CRUD) | Open | Lihat section Prasyarat |
-| 1 — App Shell | Not started | Sidebar gelap + layout monochrome |
+| 1 — App Shell | Done | `AppShell` sidebar gelap + konten terang; Login/Register diselaraskan |
 | 2 — Dashboard Batch A | Not started | Summary, upcoming, recent, calendar, search, +Task |
 | 3 — Data foundation | Not started | `CompletedAt`, `UpdatedAt`, `WeeklyGoal` |
 | 4 — Dashboard Batch B | Not started | Focus, weekly ring, chart, streak |

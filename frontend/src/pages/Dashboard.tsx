@@ -77,85 +77,80 @@ export const Dashboard = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <div className="text-white text-xl">Loading dashboard...</div>
+        <div className="text-lg text-zinc-500">Loading dashboard...</div>
       </div>
     );
   }
 
   return (
-    <div className="relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-white mb-2">Welcome back, {user?.username}!</h2>
-          <p className="text-slate-300">Here&apos;s an overview of your tasks</p>
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mb-8">
+        <h2 className="mb-1 text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+          Welcome back, {user?.username}!
+        </h2>
+        <p className="text-zinc-500">Here&apos;s an overview of your tasks and progress.</p>
+      </div>
+
+      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <StatsCard title="Total Tasks" value={stats.total} icon={ListTodo} />
+        <StatsCard
+          title="Completed"
+          value={stats.completed}
+          icon={CheckCircle2}
+          filter="completed"
+        />
+        <StatsCard
+          title="In Progress"
+          value={stats.pending}
+          icon={Clock}
+          filter="pending"
+        />
+        <StatsCard
+          title="Overdue"
+          value={stats.overdue}
+          icon={AlertCircle}
+          filter="overdue"
+        />
+      </div>
+
+      <div>
+        <div className="mb-6 flex items-center justify-between">
+          <h3 className="text-lg font-semibold text-zinc-900">Recent Tasks</h3>
+          <Link
+            to="/tasks"
+            className="flex items-center gap-2 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900"
+          >
+            <span>View All Tasks</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <StatsCard
-            title="Total Tasks"
-            value={stats.total}
-            icon={ListTodo}
-            color="text-cyan-400"
-            bgColor="bg-cyan-500/20"
-          />
-          <StatsCard
-            title="Completed"
-            value={stats.completed}
-            icon={CheckCircle2}
-            color="text-emerald-400"
-            bgColor="bg-emerald-500/20"
-            filter="completed"
-          />
-          <StatsCard
-            title="In Progress"
-            value={stats.pending}
-            icon={Clock}
-            color="text-yellow-400"
-            bgColor="bg-yellow-500/20"
-            filter="pending"
-          />
-          <StatsCard
-            title="Overdue"
-            value={stats.overdue}
-            icon={AlertCircle}
-            color="text-red-400"
-            bgColor="bg-red-500/20"
-            filter="overdue"
-          />
-        </div>
-
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-semibold text-white">Recent Tasks</h3>
-            <Link
-              to="/tasks"
-              className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
-            >
-              <span className="text-sm font-medium">View All</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="space-y-3">
-            {recentTasks.length === 0 ? (
-              <div className="text-center py-12 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl">
-                <ListTodo className="w-16 h-16 text-slate-600 mx-auto mb-4" />
-                <p className="text-slate-400 text-lg">No tasks yet</p>
-                <p className="text-slate-500 text-sm mt-2">Create your first task to get started</p>
-                <Link
-                  to="/tasks"
-                  className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 rounded-lg transition-all border border-cyan-500/30"
-                >
-                  <span>Go to Tasks</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            ) : (
-              recentTasks.map((task) => (
-                <TaskCard key={task.taskId} task={task} onToggle={handleToggleTask} onEdit={() => {}} />
-              ))
-            )}
-          </div>
+        <div className="space-y-3">
+          {recentTasks.length === 0 ? (
+            <div className="rounded-xl border border-dashed border-zinc-300 bg-white px-6 py-16 text-center">
+              <ListTodo className="mx-auto mb-4 h-14 w-14 text-zinc-300" />
+              <p className="text-lg font-medium text-zinc-800">No tasks yet</p>
+              <p className="mt-1 text-sm text-zinc-500">
+                Create your first task to get started.
+              </p>
+              <Link
+                to="/tasks"
+                className="mt-6 inline-flex items-center gap-2 rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800"
+              >
+                <span>Go to Tasks</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          ) : (
+            recentTasks.map((task) => (
+              <TaskCard
+                key={task.taskId}
+                task={task}
+                onToggle={handleToggleTask}
+                onEdit={() => {}}
+              />
+            ))
+          )}
         </div>
       </div>
     </div>
