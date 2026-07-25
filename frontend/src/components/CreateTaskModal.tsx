@@ -14,6 +14,7 @@ import {
 import { createTask } from '../api/tasks';
 import * as projectsApi from '../api/projects';
 import * as remindersApi from '../api/reminders';
+import { DatePicker } from './DatePicker';
 
 interface CreateTaskModalProps {
   isOpen: boolean;
@@ -359,11 +360,10 @@ export const CreateTaskModal = ({
                   <label className="mb-1.5 block text-xs font-medium text-zinc-600 dark:text-zinc-400">
                     Due Date
                   </label>
-                  <input
-                    type="date"
+                  <DatePicker
                     value={dueDate}
-                    onChange={(e) => setDueDate(e.target.value)}
-                    className={inputClass}
+                    onChange={setDueDate}
+                    placeholder="Pick a due date"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
