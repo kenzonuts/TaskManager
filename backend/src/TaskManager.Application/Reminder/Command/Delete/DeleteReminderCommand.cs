@@ -1,13 +1,9 @@
+using MediatR;
 
 namespace TaskManager.Application.Reminder.Command.Delete
 {
-    public class DeleteReminderCommand
+    public class DeleteReminderCommand : IRequest
     {
         public Guid ReminderId { get; set; }
-
-        public DeleteReminderCommand(Guid reminderId)
-        {
-            ReminderId = reminderId;
-        }
     }
 }

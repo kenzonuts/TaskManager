@@ -24,29 +24,15 @@ namespace TaskManager.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterCommand command)
         {
-            try
-            {
-                var result = await _mediator.Send(command);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { Error = ex.Message });
-            }
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginCommand command)
         {
-            try
-            {
-                var result = await _mediator.Send(command);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return Unauthorized(new { Error = ex.Message });
-            }
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
 
         [HttpPut("me/password")]
@@ -54,20 +40,17 @@ namespace TaskManager.Api.Controllers
         public async Task<IActionResult> UpdatePassword([FromBody] UpdatePasswordDto dto)
         {
             var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
             if (string.IsNullOrEmpty(userIdClaim))
-                return Unauthorized("User tidak terautentikasi");
+                throw new UnauthorizedAccessException("User tidak terautentikasi");
 
-            var command = new UpdatePasswordCommand
+            var result = await _mediator.Send(new UpdatePasswordCommand
             {
                 UserId = Guid.Parse(userIdClaim),
                 Password = dto.Password
-            };
+            });
 
-            var result = await _mediator.Send(command);
-
-            if (!(bool)result)
-                return BadRequest("Gagal update password");
+            if (!result)
+                throw new InvalidOperationException("Gagal update password");
 
             return Ok(new { Message = "Password berhasil diperbarui" });
         }
@@ -77,9 +60,8 @@ namespace TaskManager.Api.Controllers
         public async Task<IActionResult> DeleteUser(Guid id)
         {
             var result = await _mediator.Send(new DeleteUserCommand { UserId = id });
-
             if (!result)
-                return NotFound("User tidak ditemukan");
+                throw new KeyNotFoundException("User tidak ditemukan");
 
             return Ok(new { Message = "User berhasil dihapus" });
         }

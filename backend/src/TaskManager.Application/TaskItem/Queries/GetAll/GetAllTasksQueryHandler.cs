@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using TaskManager.Application.TaskItem.Command.Dtos;
+using TaskManager.Application.TaskItem.Dtos;
 using TaskManager.Domain.Repositories;
 
 namespace TaskManager.Application.TaskItem.Queries.GetAll

@@ -1,42 +1,49 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Security.Claims;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 using TaskManager.Domain.Repositories;
 
 namespace TaskManager.Application.Reminder.Command.Update
 {
- public class UpdateReminderCommandHandler
+    public class UpdateReminderCommandHandler : IRequestHandler<UpdateReminderCommand>
     {
         private readonly IReminderRepository _reminderRepo;
         private readonly IRepositoryTaskItem _taskRepo;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UpdateReminderCommandHandler(IReminderRepository reminderRepo, IRepositoryTaskItem taskRepo)
+        public UpdateReminderCommandHandler(
+            IReminderRepository reminderRepo,
+            IRepositoryTaskItem taskRepo,
+            IHttpContextAccessor httpContextAccessor)
         {
             _reminderRepo = reminderRepo;
             _taskRepo = taskRepo;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<(bool success, string message)> HandleAsync(Guid userId, Guid reminderId, DateTime newRemindAt)
+        public async Task Handle(UpdateReminderCommand request, CancellationToken cancellationToken)
         {
-            var reminder = await _reminderRepo.GetByIdAsync(reminderId);
-            if (reminder == null)
-                return (false, "Reminder tidak ditemukan.");
+            var userId = _httpContextAccessor.HttpContext?.User?
+                .FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (string.IsNullOrEmpty(userId))
+                throw new UnauthorizedAccessException("User not logged in");
+
+            if (request.RemindAt <= DateTime.UtcNow)
+                throw new InvalidOperationException("Waktu reminder tidak boleh di masa lalu.");
+
+            var reminder = await _reminderRepo.GetByIdAsync(request.ReminderId)
+                ?? throw new KeyNotFoundException("Reminder tidak ditemukan.");
 
             var task = await _taskRepo.GetByIdAsync(reminder.TaskId);
-            if (task == null || task.UserId != userId)
-                return (false, "Reminder ini bukan milik kamu.");
+            if (task == null || task.UserId != Guid.Parse(userId))
+                throw new UnauthorizedAccessException("Reminder ini bukan milik Anda.");
 
-            if (newRemindAt <= DateTime.UtcNow)
-                return (false, "Waktu reminder tidak boleh di masa lalu.");
-
-            reminder.RemindAt = newRemindAt;
+            reminder.RemindAt = request.RemindAt.ToUniversalTime();
             reminder.IsSent = false;
 
             await _reminderRepo.UpdateAsync(reminder);
             await _reminderRepo.SaveChangesAsync();
-
-            return (true, "Reminder berhasil diupdate!");
         }
     }
 }

@@ -1,41 +1,52 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Security.Claims;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 using TaskManager.Domain.Repositories;
-using TaskManager.Domain.Data;
 
 namespace TaskManager.Application.Reminder.Command.Create
 {
-    public class CreateReminderCommandHandler
+    public class CreateReminderCommandHandler : IRequestHandler<CreateReminderCommand, Guid>
     {
         private readonly IReminderRepository _repo;
         private readonly IRepositoryTaskItem _taskRepo;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CreateReminderCommandHandler(IReminderRepository repo, IRepositoryTaskItem taskRepo)
+        public CreateReminderCommandHandler(
+            IReminderRepository repo,
+            IRepositoryTaskItem taskRepo,
+            IHttpContextAccessor httpContextAccessor)
         {
             _repo = repo;
             _taskRepo = taskRepo;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task HandleAsync(CreateReminderCommand cmd)
+        public async Task<Guid> Handle(CreateReminderCommand request, CancellationToken cancellationToken)
         {
-            var reminder = new TaskManager.Domain.Data.Reminder
+            var userId = _httpContextAccessor.HttpContext?.User?
+                .FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (string.IsNullOrEmpty(userId))
+                throw new UnauthorizedAccessException("User not logged in");
+
+            if (request.RemindAt <= DateTime.UtcNow)
+                throw new InvalidOperationException("Waktu reminder tidak boleh di masa lalu.");
+
+            var task = await _taskRepo.GetByIdAsync(request.TaskId);
+            if (task == null || task.UserId != Guid.Parse(userId))
+                throw new UnauthorizedAccessException("Task ini bukan milik Anda.");
+
+            var reminder = new Domain.Data.Reminder
             {
                 ReminderId = Guid.NewGuid(),
-                TaskId = cmd.TaskId,
-                RemindAt = cmd.RemindAt,
+                TaskId = request.TaskId,
+                RemindAt = request.RemindAt.ToUniversalTime(),
                 IsSent = false
             };
 
             await _repo.AddAsync(reminder);
             await _repo.SaveChangesAsync();
-        }
-
-        public async Task<bool> ValidateTaskOwnershipAsync(Guid taskId, Guid userId)
-        {
-            var task = await _taskRepo.GetByIdAsync(taskId);
-            return task != null && task.UserId == userId;
+            return reminder.ReminderId;
         }
     }
 }

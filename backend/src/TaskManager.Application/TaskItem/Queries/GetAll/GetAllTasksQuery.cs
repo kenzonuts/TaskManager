@@ -1,5 +1,5 @@
 using MediatR;
-using TaskManager.Application.TaskItem.Command.Dtos;
+using TaskManager.Application.TaskItem.Dtos;
 
 namespace TaskManager.Application.TaskItem.Queries.GetAll
 {

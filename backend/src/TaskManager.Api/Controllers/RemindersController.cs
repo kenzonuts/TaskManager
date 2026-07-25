@@ -1,12 +1,10 @@
-using System.Security.Claims;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaskManager.Application.Reminder.Command.Create;
 using TaskManager.Application.Reminder.Command.Delete;
 using TaskManager.Application.Reminder.Command.Update;
-using TaskManager.Application.Reminder.Queries.GetId;
-using TaskManager.Domain.Data;
-
+using TaskManager.Application.Reminder.Queries.GetByTask;
 
 namespace TaskManager.Api.Controllers
 {
@@ -15,94 +13,42 @@ namespace TaskManager.Api.Controllers
     [Authorize]
     public class RemindersController : ControllerBase
     {
-        private readonly CreateReminderCommandHandler _createHandler;
-        private readonly GetRemindersByTaskQueryHandler _getHandler;
-        private readonly DeleteReminderCommandHandler _deleteHandler;
-        private readonly UpdateReminderCommandHandler _updateHandler;
+        private readonly IMediator _mediator;
 
-        public RemindersController(
-            CreateReminderCommandHandler createHandler,
-            GetRemindersByTaskQueryHandler getHandler,
-            DeleteReminderCommandHandler deleteHandler,
-            UpdateReminderCommandHandler updateHandler)
+        public RemindersController(IMediator mediator)
         {
-            _createHandler = createHandler;
-            _getHandler = getHandler;
-            _deleteHandler = deleteHandler;
-            _updateHandler = updateHandler;
+            _mediator = mediator;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateReminder([FromBody] CreateReminderCommand command)
+        public async Task<IActionResult> Create([FromBody] CreateReminderCommand command)
         {
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (userIdClaim == null)
-                return Unauthorized("Token tidak valid, userId tidak ditemukan.");
-
-            var userId = Guid.Parse(userIdClaim);
-
-            if (command.RemindAt <= DateTime.UtcNow)
-                return BadRequest("Waktu reminder gak boleh di masa lalu.");
-
-            if (!await _createHandler.ValidateTaskOwnershipAsync(command.TaskId, userId))
-                return Forbid("Task ini bukan milik kamu, bro.");
-
-            await _createHandler.HandleAsync(command);
-            return Ok("Reminder berhasil dibuat!");
+            var id = await _mediator.Send(command);
+            return Ok(new { Id = id, Message = "Reminder created successfully" });
         }
 
-        [HttpGet("task/{taskId}")]
-        public async Task<ActionResult<IEnumerable<Reminder>>> GetRemindersByTask(Guid taskId)
+        [HttpGet("task/{taskId:guid}")]
+        public async Task<IActionResult> GetByTask(Guid taskId)
         {
-            // Ambil UserId dari JWT
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (userIdClaim == null)
-                return Unauthorized("Token tidak valid, userId tidak ditemukan.");
-
-            var userId = Guid.Parse(userIdClaim);
-
-            var query = new GetRemindersByTaskQuery(taskId, userId);
-            var reminders = await _getHandler.HandleAsync(query);
-
-            if (reminders == null || !reminders.Any())
-                return NotFound("Belum ada reminder untuk task ini.");
-
+            var reminders = await _mediator.Send(new GetRemindersByTaskQuery { TaskId = taskId });
             return Ok(reminders);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteReminder(Guid id)
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateReminderCommand command)
         {
-            // Ambil UserId dari JWT
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (userIdClaim == null)
-                return Unauthorized("Token tidak valid, userId tidak ditemukan.");
+            if (id != command.ReminderId)
+                return BadRequest(new { error = "ReminderId mismatch" });
 
-            var userId = Guid.Parse(userIdClaim);
-
-            var deleted = await _deleteHandler.HandleAsync(id, userId);
-
-            if (!deleted)
-                return Forbid("Gak bisa hapus reminder yang bukan milik kamu.");
-
-            return Ok("Reminder berhasil dihapus.");
-        }
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateReminder(Guid id, [FromBody] DateTime remindAt)
-        {
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (userIdClaim == null)
-                return Unauthorized("Token tidak valid, userId tidak ditemukan.");
-
-            var userId = Guid.Parse(userIdClaim);
-
-            var (success, message) = await _updateHandler.HandleAsync(userId, id, remindAt);
-
-            if (!success)
-                return BadRequest(message);
-
-            return Ok(message);
+            await _mediator.Send(command);
+            return Ok(new { Message = "Reminder updated successfully" });
         }
 
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _mediator.Send(new DeleteReminderCommand { ReminderId = id });
+            return Ok(new { Message = "Reminder deleted successfully" });
+        }
     }
 }
