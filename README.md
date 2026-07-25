@@ -48,12 +48,13 @@ dotnet ef database update \
   --startup-project TaskManager.Api/TaskManager.Api.csproj
 ```
 
-Confirm tables in Supabase Table Editor: `Users`, `Categories`, `Tasks`, `Reminders`.
+Confirm tables in Supabase Table Editor: `Users`, `Categories`, `Tasks`, `Reminders`, `Notes`.
 
 ## 3. Run API
 
 ```bash
 cd backend/src
+export ASPNETCORE_ENVIRONMENT=Development
 dotnet run --project TaskManager.Api --launch-profile http
 ```
 
@@ -70,6 +71,13 @@ npm run dev
 
 App: http://localhost:5173
 
+### Dashboard features (UI rebuild)
+
+- Productivity shell (dark sidebar / light content)
+- Summary, weekly progress, Today's Focus, upcoming deadlines
+- Weekly chart, streak, mini calendar, global search (`Ctrl+K`)
+- Quick Notes + Quick Actions
+
 ## Tests
 
 ```bash
@@ -83,6 +91,6 @@ See [QA.md](QA.md) before release.
 
 ## Roadmap
 
-Cleanup / migration progress: [PLAN.md](PLAN.md).
+UI rebuild + product progress: [PLAN.md](PLAN.md).
 
 Database hosting: **Supabase only** (no local docker-compose required).

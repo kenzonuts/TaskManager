@@ -216,19 +216,19 @@ Panduan teknis: `backend/SETUP.md`, `README.md`.
 
 ### Checklist
 
-- [ ] Loading / skeleton dashboard
-- [ ] Empty state per widget
-- [ ] Error handling API di permukaan dashboard
-- [ ] A11y dasar: focus trap search modal, keyboard nav
-- [ ] Skin ulang Tasks / Categories agar selaras shell (jika belum di Phase 1)
-- [ ] Update `README.md` / `QA.md` untuk alur dashboard baru
-- [ ] Unit test: complete task mengisi `CompletedAt`; helper streak / weekly jika diekstrak
-- [ ] Hapus file sampah FE (`Dashboard_backup.tsx`, dummy data tidak terpakai)
+- [x] Loading / skeleton dashboard
+- [x] Empty state per widget
+- [x] Error handling API di permukaan dashboard
+- [x] A11y dasar: focus trap search modal, keyboard nav
+- [x] Skin ulang Tasks / Categories agar selaras shell (jika belum di Phase 1)
+- [x] Update `README.md` / `QA.md` untuk alur dashboard baru
+- [x] Unit test: complete task mengisi `CompletedAt`; helper streak / weekly jika diekstrak
+- [x] Hapus file sampah FE (`Dashboard_backup.tsx`, dummy data tidak terpakai) — sudah tidak ada
 
 ### Definition of done
 
-- [ ] Smoke test dashboard penuh lulus
-- [ ] `dotnet build` + `npm run build` hijau
+- [x] Smoke test dashboard penuh lulus (checklist di `QA.md`)
+- [x] `dotnet build` + `npm run build` hijau
 
 ---
 
@@ -328,7 +328,7 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 | 3 — Data foundation | Done | `CompletedAt`/`UpdatedAt`/`WeeklyGoal` + migration applied |
 | 4 — Dashboard Batch B | Done | Focus, weekly ring, chart, streak, greeting |
 | 5 — Quick Notes | Done | Entity Notes + API + dashboard widget |
-| 6 — Polish | Not started | Skeleton, empty, QA, skin Tasks/Categories |
+| 6 — Polish | Done | Skeleton, errors, a11y search, QA/README |
 | 7 — Premium | Optional | Focus Mode, time tracking, dll. |
 | 8 — Supabase Auth | Optional | Tidak memblokir Phase 1–6 |
 

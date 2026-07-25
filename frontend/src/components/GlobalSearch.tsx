@@ -14,11 +14,14 @@ export const GlobalSearch = () => {
   const [loading, setLoading] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const previouslyFocused = useRef<HTMLElement | null>(null);
 
   const close = useCallback(() => {
     setOpen(false);
     setQuery('');
     setActiveIndex(0);
+    previouslyFocused.current?.focus();
   }, []);
 
   const loadTasks = useCallback(async () => {
@@ -34,27 +37,55 @@ export const GlobalSearch = () => {
     }
   }, [user]);
 
+  const openSearch = useCallback(() => {
+    previouslyFocused.current = document.activeElement as HTMLElement | null;
+    setOpen(true);
+    void loadTasks();
+  }, [loadTasks]);
+
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        setOpen((prev) => {
-          const next = !prev;
-          if (next) void loadTasks();
-          return next;
-        });
+        if (open) {
+          close();
+        } else {
+          openSearch();
+        }
       }
     };
 
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [loadTasks]);
+  }, [open, close, openSearch]);
 
   useEffect(() => {
-    if (open) {
-      const id = window.setTimeout(() => inputRef.current?.focus(), 0);
-      return () => window.clearTimeout(id);
-    }
+    if (!open) return;
+
+    const id = window.setTimeout(() => inputRef.current?.focus(), 0);
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab' || !dialogRef.current) return;
+      const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.clearTimeout(id);
+      document.removeEventListener('keydown', onKeyDown);
+    };
   }, [open]);
 
   const results = useMemo(() => {
@@ -73,7 +104,6 @@ export const GlobalSearch = () => {
   const selectTask = (task: TaskItem) => {
     close();
     navigate('/tasks');
-    // Keep selection context light for Phase 2 — land on tasks list
     void task;
   };
 
@@ -103,10 +133,7 @@ export const GlobalSearch = () => {
     <>
       <button
         type="button"
-        onClick={() => {
-          setOpen(true);
-          void loadTasks();
-        }}
+        onClick={openSearch}
         className="hidden items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-sm text-zinc-500 transition-colors hover:border-zinc-300 hover:bg-white md:flex"
       >
         <Search className="h-4 w-4" />
@@ -118,10 +145,7 @@ export const GlobalSearch = () => {
 
       <button
         type="button"
-        onClick={() => {
-          setOpen(true);
-          void loadTasks();
-        }}
+        onClick={openSearch}
         className="rounded-lg p-2 text-zinc-600 hover:bg-zinc-100 md:hidden"
         aria-label="Search tasks"
       >
@@ -132,23 +156,26 @@ export const GlobalSearch = () => {
         <div
           className="fixed inset-0 z-[60] flex items-start justify-center bg-black/40 px-4 pt-[12vh] backdrop-blur-sm"
           onClick={close}
-          onKeyDown={onDialogKeyDown}
         >
           <div
+            ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-label="Search tasks"
             className="w-full max-w-lg overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-xl"
             onClick={(e) => e.stopPropagation()}
+            onKeyDown={onDialogKeyDown}
           >
             <div className="flex items-center gap-3 border-b border-zinc-100 px-4">
-              <Search className="h-5 w-5 shrink-0 text-zinc-400" />
+              <Search className="h-5 w-5 shrink-0 text-zinc-400" aria-hidden />
               <input
                 ref={inputRef}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={onDialogKeyDown}
                 placeholder="Search tasks..."
+                aria-autocomplete="list"
+                aria-controls="global-search-results"
                 className="h-12 w-full bg-transparent text-sm text-zinc-900 outline-none placeholder:text-zinc-400"
               />
               <button
@@ -161,7 +188,7 @@ export const GlobalSearch = () => {
               </button>
             </div>
 
-            <div className="max-h-80 overflow-y-auto p-2">
+            <div id="global-search-results" className="max-h-80 overflow-y-auto p-2" role="listbox">
               {loading ? (
                 <p className="px-3 py-6 text-center text-sm text-zinc-500">
                   Loading...
@@ -173,7 +200,7 @@ export const GlobalSearch = () => {
               ) : (
                 <ul>
                   {results.map((task, index) => (
-                    <li key={task.taskId}>
+                    <li key={task.taskId} role="option" aria-selected={index === activeIndex}>
                       <button
                         type="button"
                         onClick={() => selectTask(task)}
@@ -193,13 +220,7 @@ export const GlobalSearch = () => {
                             }`}
                           />
                         ) : (
-                          <Circle
-                            className={`h-4 w-4 shrink-0 ${
-                              index === activeIndex
-                                ? 'text-zinc-400'
-                                : 'text-zinc-400'
-                            }`}
-                          />
+                          <Circle className="h-4 w-4 shrink-0 text-zinc-400" />
                         )}
                         <span className="min-w-0 flex-1 truncate font-medium">
                           {task.title}
@@ -221,7 +242,7 @@ export const GlobalSearch = () => {
             </div>
 
             <div className="border-t border-zinc-100 px-4 py-2 text-[11px] text-zinc-400">
-              ↑↓ navigate · Enter open · Esc close
+              ↑↓ navigate · Enter open · Esc close · Tab cycles
             </div>
           </div>
         </div>

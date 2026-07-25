@@ -88,8 +88,13 @@ export const Categories = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-24">
-        <div className="text-lg text-zinc-500">Loading categories...</div>
+      <div className="mx-auto max-w-7xl animate-pulse px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mb-8 h-8 w-48 rounded-lg bg-zinc-200" />
+        <div className="max-w-2xl space-y-3">
+          <div className="h-20 rounded-xl border border-zinc-200 bg-white" />
+          <div className="h-16 rounded-xl border border-zinc-200 bg-white" />
+          <div className="h-16 rounded-xl border border-zinc-200 bg-white" />
+        </div>
       </div>
     );
   }

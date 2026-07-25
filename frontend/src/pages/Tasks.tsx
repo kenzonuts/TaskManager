@@ -131,8 +131,12 @@ export const Tasks = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-24">
-        <div className="text-lg text-zinc-500">Loading tasks...</div>
+      <div className="mx-auto max-w-7xl animate-pulse px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mb-8 h-8 w-40 rounded-lg bg-zinc-200" />
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
+          <div className="h-64 rounded-xl border border-zinc-200 bg-white" />
+          <div className="h-64 rounded-xl border border-zinc-200 bg-white lg:col-span-3" />
+        </div>
       </div>
     );
   }
