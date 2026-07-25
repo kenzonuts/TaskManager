@@ -30,6 +30,14 @@ export interface Reminder {
   isSent: boolean;
 }
 
+export interface Note {
+  noteId: string;
+  userId: string;
+  content: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 export interface TaskItem {
   taskId: string;
   title: string;

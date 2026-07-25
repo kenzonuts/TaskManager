@@ -18,9 +18,11 @@ import { WeeklyProgressRing } from '../components/dashboard/WeeklyProgressRing';
 import { TodaysFocus } from '../components/dashboard/TodaysFocus';
 import { ProductivityChart } from '../components/dashboard/ProductivityChart';
 import { ProductivityStreak } from '../components/dashboard/ProductivityStreak';
-import { Category, TaskItem } from '../types';
+import { QuickNotes } from '../components/dashboard/QuickNotes';
+import { Category, Note, TaskItem } from '../types';
 import { getUserTasks, updateTaskCompletion } from '../api/tasks';
 import { getCategories } from '../api/categories';
+import * as notesApi from '../api/notes';
 import {
   computeStats,
   computeStreak,
@@ -40,8 +42,10 @@ export const Dashboard = () => {
   const { user } = useAuth();
   const [tasks, setTasks] = useState<TaskItem[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
+  const [notes, setNotes] = useState<Note[]>([]);
   const [loading, setLoading] = useState(true);
   const [createOpen, setCreateOpen] = useState(false);
+  const [focusNoteInput, setFocusNoteInput] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,6 +57,13 @@ export const Dashboard = () => {
         ]);
         if (Array.isArray(tasksData)) setTasks(tasksData);
         if (Array.isArray(categoriesData)) setCategories(categoriesData);
+
+        try {
+          const notesData = await notesApi.getNotes();
+          if (Array.isArray(notesData)) setNotes(notesData);
+        } catch {
+          setNotes([]);
+        }
       } catch {
         // empty dashboard on failure
       } finally {
@@ -105,6 +116,27 @@ export const Dashboard = () => {
 
   const handleTaskCreated = (newTask: TaskItem) => {
     setTasks((prev) => [newTask, ...prev]);
+  };
+
+  const handleAddNote = async (content: string) => {
+    if (!user) return;
+    const result = await notesApi.createNote(content);
+    const now = new Date();
+    setNotes((prev) => [
+      {
+        noteId: result.id,
+        userId: user.userId,
+        content,
+        createdAt: now,
+        updatedAt: now,
+      },
+      ...prev,
+    ]);
+  };
+
+  const handleDeleteNote = async (noteId: string) => {
+    await notesApi.deleteNote(noteId);
+    setNotes((prev) => prev.filter((n) => n.noteId !== noteId));
   };
 
   if (loading) {
@@ -165,8 +197,8 @@ export const Dashboard = () => {
         <ProductivityChart days={chartDays} />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
-        <div className="lg:col-span-3">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-2">
           <div className="mb-4 flex items-center justify-between">
             <h3 className="text-lg font-semibold text-zinc-900">Recent Tasks</h3>
             <Link
@@ -236,14 +268,24 @@ export const Dashboard = () => {
             </div>
           )}
         </div>
-        <div className="lg:col-span-2">
+        <div className="space-y-6">
           <MiniCalendar tasks={scoped} />
+          <QuickNotes
+            notes={notes}
+            onAdd={handleAddNote}
+            onDelete={handleDeleteNote}
+            focusAdd={focusNoteInput}
+            onFocusAddHandled={() => setFocusNoteInput(false)}
+          />
         </div>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <ProductivityStreak days={streak} />
-        <QuickActions onNewTask={() => setCreateOpen(true)} />
+        <QuickActions
+          onNewTask={() => setCreateOpen(true)}
+          onNewNote={() => setFocusNoteInput(true)}
+        />
       </div>
 
       <CreateTaskModal

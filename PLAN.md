@@ -192,21 +192,21 @@ Panduan teknis: `backend/SETUP.md`, `README.md`.
 
 ### Checklist — backend
 
-- [ ] Entity `Note`: `NoteId`, `UserId`, `Content`, `CreatedAt`, `UpdatedAt`
-- [ ] CRUD API Notes + authorize per user
-- [ ] FluentValidation: content required, max length wajar
-- [ ] Migration + apply ke Supabase
+- [x] Entity `Note`: `NoteId`, `UserId`, `Content`, `CreatedAt`, `UpdatedAt`
+- [x] CRUD API Notes + authorize per user
+- [x] FluentValidation: content required, max length wajar
+- [x] Migration + apply ke Supabase (`AddNotes`)
 
 ### Checklist — frontend
 
-- [ ] Widget Quick Notes di dashboard (list + add / hapus dasar)
-- [ ] Quick Action `+ New Note`
+- [x] Widget Quick Notes di dashboard (list + add / hapus dasar)
+- [x] Quick Action `+ New Note`
 - [ ] (Opsional) halaman Notes penuh — belakangan
 
 ### Definition of done
 
-- [ ] Notes end-to-end tanpa mencemari model Task
-- [ ] Isolasi per user
+- [x] Notes end-to-end tanpa mencemari model Task
+- [x] Isolasi per user
 
 ---
 
@@ -327,7 +327,7 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 | 2 — Dashboard Batch A | Done | Summary, upcoming, recent, calendar+dots, Ctrl+K, +Task |
 | 3 — Data foundation | Done | `CompletedAt`/`UpdatedAt`/`WeeklyGoal` + migration applied |
 | 4 — Dashboard Batch B | Done | Focus, weekly ring, chart, streak, greeting |
-| 5 — Quick Notes | Not started | Entity Notes + widget |
+| 5 — Quick Notes | Done | Entity Notes + API + dashboard widget |
 | 6 — Polish | Not started | Skeleton, empty, QA, skin Tasks/Categories |
 | 7 — Premium | Optional | Focus Mode, time tracking, dll. |
 | 8 — Supabase Auth | Optional | Tidak memblokir Phase 1–6 |

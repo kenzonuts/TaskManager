@@ -11,6 +11,7 @@ namespace TaskManager.Infrastructure.Persistence
         public DbSet<Category> Categories { get; set; }
         public DbSet<TaskItem> Tasks { get; set; }
         public DbSet<Reminder> Reminders { get; set; }
+        public DbSet<Note> Notes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -57,6 +58,18 @@ namespace TaskManager.Infrastructure.Persistence
                 entity.HasOne(r => r.Task)
                     .WithMany(t => t.Reminders)
                     .HasForeignKey(r => r.TaskId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            modelBuilder.Entity<Note>(entity =>
+            {
+                entity.HasKey(n => n.NoteId);
+                entity.Property(n => n.Content).IsRequired();
+                entity.Property(n => n.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
+                entity.Property(n => n.UpdatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
+                entity.HasOne(n => n.User)
+                    .WithMany(u => u.Notes)
+                    .HasForeignKey(n => n.UserId)
                     .OnDelete(DeleteBehavior.Cascade);
             });
         }

@@ -13,5 +13,6 @@ namespace TaskManager.Domain.Data
 
         public ICollection<Category> Categories { get; set; } = new List<Category>();
         public ICollection<TaskItem> Tasks { get; set; } = new List<TaskItem>();
+        public ICollection<Note> Notes { get; set; } = new List<Note>();
     }
 }

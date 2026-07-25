@@ -79,6 +79,7 @@ builder.Services.AddScoped<IRepositoryTaskItem, RepositoryTaskItem>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IReminderRepository, ReminderRepository>();
+builder.Services.AddScoped<INoteRepository, NoteRepository>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
