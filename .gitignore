@@ -55,3 +55,7 @@ TestResults/
 coverage/
 *.coverage
 *.coveragexml
+*.trx
+
+# User secrets / local overlays
+**/appsettings.Development.local.json
