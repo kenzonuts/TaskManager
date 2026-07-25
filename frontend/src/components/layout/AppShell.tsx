@@ -9,6 +9,7 @@ import {
   X,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { GlobalSearch } from '../GlobalSearch';
 
 const navItems = [
   { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -145,15 +146,18 @@ export const AppShell = () => {
             </h1>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-sm font-semibold text-white">
-              {userInitial(user?.username)}
-            </div>
-            <div className="hidden min-w-0 sm:block">
-              <p className="truncate text-sm font-medium text-zinc-900">
-                {user?.username}
-              </p>
-              <p className="truncate text-xs text-zinc-500">{user?.email}</p>
+          <div className="flex flex-1 items-center justify-end gap-3">
+            <GlobalSearch />
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-sm font-semibold text-white">
+                {userInitial(user?.username)}
+              </div>
+              <div className="hidden min-w-0 sm:block">
+                <p className="truncate text-sm font-medium text-zinc-900">
+                  {user?.username}
+                </p>
+                <p className="truncate text-xs text-zinc-500">{user?.email}</p>
+              </div>
             </div>
           </div>
         </header>

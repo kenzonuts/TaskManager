@@ -107,14 +107,14 @@ Panduan teknis: `backend/SETUP.md`, `README.md`.
 
 ### Checklist
 
-- [ ] Dashboard Summary: Total / Completed / Pending / Overdue
-- [ ] Upcoming Deadlines: top N unfinished, sort `DueDate` ascending
-- [ ] Recent Tasks: last N by `CreatedAt` (sementara; pindah ke `UpdatedAt` di Phase 4)
-- [ ] Mini Calendar: bulan berjalan, highlight hari ini
-- [ ] Dot indicator pada tanggal yang punya `DueDate`
-- [ ] Global Search (`Ctrl+K` / `Cmd+K`) — filter title task
-- [ ] Quick Actions: `+ New Task` → create modal (reuse existing)
-- [ ] Empty state jelas saat belum ada task
+- [x] Dashboard Summary: Total / Completed / Pending / Overdue
+- [x] Upcoming Deadlines: top N unfinished, sort `DueDate` ascending
+- [x] Recent Tasks: last N by `CreatedAt` (sementara; pindah ke `UpdatedAt` di Phase 4)
+- [x] Mini Calendar: bulan berjalan, highlight hari ini
+- [x] Dot indicator pada tanggal yang punya `DueDate`
+- [x] Global Search (`Ctrl+K` / `Cmd+K`) — filter title task
+- [x] Quick Actions: `+ New Task` → create modal (reuse existing)
+- [x] Empty state jelas saat belum ada task
 
 ### Aturan bisnis
 
@@ -127,9 +127,9 @@ Panduan teknis: `backend/SETUP.md`, `README.md`.
 
 ### Definition of done
 
-- [ ] Angka & list dari API real (bukan hardcode)
-- [ ] Shortcut search berfungsi
-- [ ] Create task dari Quick Action berfungsi
+- [x] Angka & list dari API real (bukan hardcode)
+- [x] Shortcut search berfungsi
+- [x] Create task dari Quick Action berfungsi
 
 ---
 
@@ -324,7 +324,7 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 |-------|--------|---------|
 | Prasyarat (secrets + smoke CRUD) | Open | Lihat section Prasyarat |
 | 1 — App Shell | Done | `AppShell` sidebar gelap + konten terang; Login/Register diselaraskan |
-| 2 — Dashboard Batch A | Not started | Summary, upcoming, recent, calendar, search, +Task |
+| 2 — Dashboard Batch A | Done | Summary, upcoming, recent, calendar+dots, Ctrl+K, +Task |
 | 3 — Data foundation | Not started | `CompletedAt`, `UpdatedAt`, `WeeklyGoal` |
 | 4 — Dashboard Batch B | Not started | Focus, weekly ring, chart, streak |
 | 5 — Quick Notes | Not started | Entity Notes + widget |
