@@ -13,8 +13,15 @@ using NebulaCore.Domain.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (string.IsNullOrWhiteSpace(connectionString))
+{
+    throw new InvalidOperationException(
+        "ConnectionStrings:DefaultConnection is not configured. Set it via User Secrets or environment variables (see Backend/SETUP.md).");
+}
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
@@ -65,6 +72,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IRepositoryTaskItem, RepositoryTaskItem>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IReminderRepository, ReminderRepository>();
 
 builder.Services.AddAuthentication(options =>
 {
