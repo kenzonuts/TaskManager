@@ -55,6 +55,7 @@ namespace TaskManager.Application.TaskItem.Command.UpdateTitle
             task.DueDate = request.DueDate;
             task.Priority = (PriorityLevel)request.Priority;
             task.CategoryId = request.CategoryId;
+            task.UpdatedAt = DateTime.UtcNow;
 
             await _taskRepository.UpdateAsync(task);
         }

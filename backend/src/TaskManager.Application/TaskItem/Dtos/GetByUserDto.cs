@@ -7,6 +7,9 @@ namespace TaskManager.Application.TaskItem.Dtos
         public Guid TaskId { get; set; }
         public string Title { get; set; } = null!;
         public string? Description { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public DateTime? CompletedAt { get; set; }
         public DateTime? DueDate { get; set; }
         public PriorityLevel Priority { get; set; }
         public bool IsCompleted { get; set; }

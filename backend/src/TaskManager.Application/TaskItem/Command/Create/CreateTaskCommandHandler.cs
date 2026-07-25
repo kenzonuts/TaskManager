@@ -47,6 +47,8 @@ namespace TaskManager.Application.TaskItem.Command.Create
                 Title = request.Title,
                 Description = request.Description,
                 CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
+                CompletedAt = null,
                 DueDate = request.DueDate,
                 Priority = (PriorityLevel)request.Priority,
                 UserId = Guid.Parse(userId),

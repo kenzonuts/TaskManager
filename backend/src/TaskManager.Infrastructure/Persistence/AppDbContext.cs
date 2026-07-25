@@ -22,6 +22,7 @@ namespace TaskManager.Infrastructure.Persistence
                 entity.HasIndex(u => u.Username).IsUnique();
                 entity.HasIndex(u => u.Email).IsUnique();
                 entity.Property(u => u.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
+                entity.Property(u => u.WeeklyGoal).HasDefaultValue(20);
             });
 
             modelBuilder.Entity<Category>(entity =>
@@ -38,6 +39,7 @@ namespace TaskManager.Infrastructure.Persistence
                 entity.HasKey(t => t.TaskId);
                 entity.Property(t => t.IsCompleted).HasDefaultValue(false);
                 entity.Property(t => t.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
+                entity.Property(t => t.UpdatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
                 entity.HasOne(t => t.User)
                     .WithMany(u => u.Tasks)
                     .HasForeignKey(t => t.UserId)

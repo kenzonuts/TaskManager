@@ -40,7 +40,8 @@ namespace TaskManager.Application.Users
                 Token = new JwtSecurityTokenHandler().WriteToken(token),
                 UserId = user.UserId,
                 Username = user.Username,
-                Email = user.Email
+                Email = user.Email,
+                WeeklyGoal = user.WeeklyGoal > 0 ? user.WeeklyGoal : 20
             };
         }
     }

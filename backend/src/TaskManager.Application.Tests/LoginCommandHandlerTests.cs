@@ -44,6 +44,7 @@ public class LoginCommandHandlerTests
         Assert.Equal(userId, result.UserId);
         Assert.Equal("alice", result.Username);
         Assert.Equal("alice@example.com", result.Email);
+        Assert.Equal(20, result.WeeklyGoal);
         Assert.False(string.IsNullOrWhiteSpace(result.Token));
     }
 

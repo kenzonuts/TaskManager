@@ -43,6 +43,8 @@ public class CreateTaskCommandHandlerTests
         Assert.Equal("Write tests", saved.Title);
         Assert.Equal(userId, saved.UserId);
         Assert.False(saved.IsCompleted);
+        Assert.Null(saved.CompletedAt);
+        Assert.True(saved.UpdatedAt >= saved.CreatedAt);
         taskRepo.Verify(r => r.AddAsync(It.IsAny<DomainTask>()), Times.Once);
     }
 

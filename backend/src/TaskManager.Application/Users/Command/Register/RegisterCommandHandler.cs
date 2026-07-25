@@ -32,7 +32,8 @@ namespace TaskManager.Application.Users.Command.Register
                 Username = request.Username,
                 Email = request.Email,
                 Password = hashedPassword,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                WeeklyGoal = 20
             };
 
             await _userRepository.AddAsync(user);

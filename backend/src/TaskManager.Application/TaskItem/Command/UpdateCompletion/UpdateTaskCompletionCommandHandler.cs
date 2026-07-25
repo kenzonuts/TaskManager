@@ -35,6 +35,8 @@ public class UpdateTaskCompletionCommandHandler : IRequestHandler<UpdateTaskComp
                 throw new UnauthorizedAccessException("You cannot update this task");
 
             task.IsCompleted = request.IsCompleted;
+            task.UpdatedAt = DateTime.UtcNow;
+            task.CompletedAt = request.IsCompleted ? DateTime.UtcNow : null;
 
             await _taskRepository.UpdateAsync(task);
         }

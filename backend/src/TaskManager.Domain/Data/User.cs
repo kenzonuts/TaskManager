@@ -7,6 +7,10 @@ namespace TaskManager.Domain.Data
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
+
+        /// <summary>Target number of tasks to complete per week (default 20).</summary>
+        public int WeeklyGoal { get; set; } = 20;
+
         public ICollection<Category> Categories { get; set; } = new List<Category>();
         public ICollection<TaskItem> Tasks { get; set; } = new List<TaskItem>();
     }
