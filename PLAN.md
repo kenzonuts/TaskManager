@@ -236,16 +236,16 @@ Panduan teknis: `backend/SETUP.md`, `README.md`.
 
 Kerjakan **hanya setelah** Phase 6 selesai.
 
-- [ ] Focus Mode (sidebar mengecil, noise disembunyikan, fokus ke Today's Focus)
-- [ ] Pomodoro timer
-- [ ] Estimated time / remaining pada Focus
-- [ ] Time Tracking (start / stop + elapsed)
-- [ ] Start–end time slot pada task
-- [ ] Monthly Completion
-- [ ] Pin manual Today's Focus
-- [ ] Dark mode theme system (toggle nyata)
-- [ ] In-app notifications dari Reminder
-- [ ] Projects (hanya jika Categories tidak cukup)
+- [x] Focus Mode (sidebar mengecil, noise disembunyikan, fokus ke Today's Focus)
+- [x] Pomodoro timer
+- [x] Estimated time / remaining pada Focus
+- [x] Time Tracking (start / stop + elapsed)
+- [x] Start–end time slot pada task
+- [x] Monthly Completion
+- [x] Pin manual Today's Focus
+- [x] Dark mode theme system (toggle nyata)
+- [x] In-app notifications dari Reminder
+- [ ] Projects (hanya jika Categories tidak cukup) — **dilewati** (Categories cukup)
 
 ---
 
@@ -253,11 +253,11 @@ Kerjakan **hanya setelah** Phase 6 selesai.
 
 Tidak memblokir UI rebuild. Kerjakan kapan saja setelah fondasi API stabil.
 
-- [ ] FE: register/login via `supabase.auth`
-- [ ] BE: validate JWT Supabase (`iss`, `aud`)
-- [ ] Sinkron `auth.users` ↔ profil `Users`
-- [ ] Pertimbangkan RLS jika FE akses table langsung
-- [ ] Migrasi user lama (jika ada)
+- [x] FE: register/login via `supabase.auth` (aktif jika `VITE_AUTH_PROVIDER=supabase`)
+- [x] BE: validate JWT Supabase (`iss`, `aud`) via `Auth:Provider=Supabase`
+- [x] Sinkron `auth.users` ↔ profil `Users` (auto-create on first validated token)
+- [ ] Pertimbangkan RLS jika FE akses table langsung — **opsional**; FE tetap lewat API
+- [x] Migrasi user lama (jika ada) — custom JWT tetap default; Supabase mode membuat baris `Users` baru dari `sub`
 
 ---
 

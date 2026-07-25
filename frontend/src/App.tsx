@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
+import { FocusModeProvider } from './context/FocusModeContext';
 import { AppShell } from './components/layout/AppShell';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
@@ -13,8 +15,8 @@ const ProtectedLayout = () => {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-zinc-100">
-        <div className="text-lg text-zinc-600">Loading...</div>
+      <div className="flex min-h-screen items-center justify-center bg-zinc-100 dark:bg-zinc-950">
+        <div className="text-lg text-zinc-600 dark:text-zinc-300">Loading...</div>
       </div>
     );
   }
@@ -31,8 +33,8 @@ const GuestOnly = ({ children }: { children: ReactNode }) => {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-zinc-100">
-        <div className="text-lg text-zinc-600">Loading...</div>
+      <div className="flex min-h-screen items-center justify-center bg-zinc-100 dark:bg-zinc-950">
+        <div className="text-lg text-zinc-600 dark:text-zinc-300">Loading...</div>
       </div>
     );
   }
@@ -76,11 +78,15 @@ function AppRoutes() {
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <FocusModeProvider>
+          <BrowserRouter>
+            <AppRoutes />
+          </BrowserRouter>
+        </FocusModeProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

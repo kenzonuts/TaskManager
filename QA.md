@@ -64,6 +64,23 @@ Run before merge/release. Check each item after API + frontend are running again
 - [ ] Reminder appears in list
 - [ ] Delete reminder
 - [ ] Reminder in the past is rejected
+- [ ] Header bell lists upcoming reminders
+
+## Premium (Phase 7)
+
+- [ ] Focus Mode collapses sidebar + shows only Today's Focus on dashboard
+- [ ] Pin / unpin Today's Focus
+- [ ] Pomodoro start / pause / reset
+- [ ] Time tracking start / stop updates elapsed
+- [ ] Create/Edit task: estimated minutes + schedule start/end
+- [ ] Monthly Completion widget shows this month's completions
+- [ ] Dark mode toggle persists across reload
+
+## Supabase Auth (Phase 8, optional)
+
+- [ ] With `VITE_AUTH_PROVIDER=supabase` + matching API `Auth:Provider=Supabase`, register/login via Supabase works
+- [ ] API accepts Supabase access token; creates `Users` row on first request if needed
+- [ ] Default Custom JWT still works when provider is unset / `Custom`
 
 ## Regression / quality
 
@@ -72,3 +89,4 @@ Run before merge/release. Check each item after API + frontend are running again
 - [ ] `npm run build` / `npm run typecheck` green
 - [ ] No secrets committed (`.env`, User Secrets, app passwords)
 - [ ] CORS allows only configured frontend origins
+- [ ] Tasks table has premium columns (`EstimatedMinutes`, schedule, pin, tracking) after migration

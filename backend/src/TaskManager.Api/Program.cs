@@ -4,13 +4,11 @@ using TaskManager.Infrastructure.Persistence;
 using System.Reflection;
 using TaskManager.Domain.Repositories;
 using TaskManager.Infrastructure.Repository;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Swashbuckle.AspNetCore.Filters;
-using System.Text;
 using FluentValidation.AspNetCore;
 using FluentValidation;
 using TaskManager.Api.Middleware;
+using TaskManager.Api.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -81,27 +79,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IReminderRepository, ReminderRepository>();
 builder.Services.AddScoped<INoteRepository, NoteRepository>();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-.AddJwtBearer(options =>
-{
-    var jwtKey = builder.Configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key tidak dikonfigurasi");
-    var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "TaskManager";
-    var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "TaskManager";
-
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtIssuer,
-        ValidAudience = jwtAudience,
-        IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(jwtKey))
-    };
-});
-
-builder.Services.AddAuthorization();
+builder.Services.AddTaskManagerAuth(builder.Configuration);
 
 var app = builder.Build();
 

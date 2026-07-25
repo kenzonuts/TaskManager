@@ -77,7 +77,31 @@ App: http://localhost:5173
 - Summary, weekly progress, Today's Focus, upcoming deadlines
 - Weekly chart, streak, mini calendar, global search (`Ctrl+K`)
 - Quick Notes + Quick Actions
+- Premium: Focus Mode, Pomodoro, time tracking, schedule slots, monthly completion, dark mode, reminder bell
 
+### Auth providers
+
+Default: **Custom JWT** (`/api/Auth/register` + `/api/Auth/login`).
+
+Optional Supabase Auth (Phase 8):
+
+**Frontend** `.env`:
+
+```bash
+VITE_AUTH_PROVIDER=supabase
+VITE_SUPABASE_URL=https://<project-ref>.supabase.co
+VITE_SUPABASE_ANON_KEY=<anon-key>
+```
+
+**API** User Secrets:
+
+```bash
+dotnet user-secrets set "Auth:Provider" "Supabase"
+dotnet user-secrets set "Supabase:Url" "https://<project-ref>.supabase.co"
+dotnet user-secrets set "Supabase:JwtSecret" "<JWT secret from Supabase Settings → API>"
+```
+
+Restart API after changing `Auth:Provider`. Custom and Supabase modes are mutually exclusive for token validation.
 ## Tests
 
 ```bash

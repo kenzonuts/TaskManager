@@ -8,7 +8,7 @@ export const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
+  const { login, authProvider } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,7 +34,10 @@ export const Login = () => {
             <h1 className="mb-1 text-2xl font-bold tracking-tight text-zinc-900">
               Welcome back
             </h1>
-            <p className="text-sm text-zinc-500">Sign in to TaskManager</p>
+            <p className="text-sm text-zinc-500">
+              Sign in to TaskManager
+              {authProvider === 'supabase' ? ' (Supabase Auth)' : ''}
+            </p>
           </div>
 
           {error && (

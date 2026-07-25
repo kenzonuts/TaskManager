@@ -52,4 +52,10 @@ export interface TaskItem {
   categoryId?: string;
   category?: Category;
   reminders: Reminder[];
+  estimatedMinutes?: number | null;
+  scheduleStartMinutes?: number | null;
+  scheduleEndMinutes?: number | null;
+  isPinnedFocus?: boolean;
+  trackingStartedAt?: Date | null;
+  trackingElapsedSeconds?: number;
 }

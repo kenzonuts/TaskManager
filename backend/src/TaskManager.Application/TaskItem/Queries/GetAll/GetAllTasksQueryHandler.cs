@@ -41,7 +41,13 @@ namespace TaskManager.Application.TaskItem.Queries.GetAll
                 Priority = task.Priority,
                 IsCompleted = task.IsCompleted,
                 UserId = task.UserId,
-                CategoryId = task.CategoryId
+                CategoryId = task.CategoryId,
+                EstimatedMinutes = task.EstimatedMinutes,
+                ScheduleStartMinutes = task.ScheduleStartMinutes,
+                ScheduleEndMinutes = task.ScheduleEndMinutes,
+                IsPinnedFocus = task.IsPinnedFocus,
+                TrackingStartedAt = task.TrackingStartedAt,
+                TrackingElapsedSeconds = task.TrackingElapsedSeconds
             });
         }
     }

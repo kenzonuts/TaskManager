@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { User } from '../types';
 import * as authApi from '../api/auth';
 import { ApiError } from '../api/client';
+import { getSupabase, isSupabaseAuthEnabled } from '../lib/supabase';
 
 interface AuthContextType {
   user: User | null;
@@ -10,11 +11,12 @@ interface AuthContextType {
   logout: () => void;
   isLoading: boolean;
   getAuthToken: () => string | null;
+  authProvider: 'custom' | 'supabase';
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-function toUser(result: authApi.AuthResult): User {
+function toUserFromCustom(result: authApi.AuthResult): User {
   return {
     userId: result.userId,
     username: result.username,
@@ -27,9 +29,9 @@ function toUser(result: authApi.AuthResult): User {
   };
 }
 
-function persistSession(result: authApi.AuthResult) {
+function persistCustom(result: authApi.AuthResult) {
   localStorage.setItem('authToken', result.token);
-  const user = toUser(result);
+  const user = toUserFromCustom(result);
   localStorage.setItem('taskManagerUser', JSON.stringify(user));
   return user;
 }
@@ -37,40 +39,126 @@ function persistSession(result: authApi.AuthResult) {
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const authProvider = isSupabaseAuthEnabled ? 'supabase' : 'custom';
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('taskManagerUser');
-    const token = localStorage.getItem('authToken');
-    if (storedUser && token) {
-      const parsed = JSON.parse(storedUser) as User;
-      if (!parsed.weeklyGoal || parsed.weeklyGoal <= 0) {
-        parsed.weeklyGoal = 20;
+    const boot = async () => {
+      if (isSupabaseAuthEnabled) {
+        const supabase = getSupabase();
+        if (!supabase) {
+          setIsLoading(false);
+          return;
+        }
+        const { data } = await supabase.auth.getSession();
+        const session = data.session;
+        if (session?.access_token && session.user) {
+          localStorage.setItem('authToken', session.access_token);
+          const meta = session.user.user_metadata ?? {};
+          const nextUser: User = {
+            userId: session.user.id,
+            username: (meta.username as string) || session.user.email?.split('@')[0] || 'user',
+            email: session.user.email || '',
+            password: '',
+            createdAt: new Date(),
+            weeklyGoal: 20,
+            categories: [],
+            tasks: [],
+          };
+          localStorage.setItem('taskManagerUser', JSON.stringify(nextUser));
+          setUser(nextUser);
+        }
+        setIsLoading(false);
+        return;
       }
-      setUser(parsed);
-    } else {
-      localStorage.removeItem('taskManagerUser');
-      localStorage.removeItem('authToken');
-    }
-    setIsLoading(false);
+
+      const storedUser = localStorage.getItem('taskManagerUser');
+      const token = localStorage.getItem('authToken');
+      if (storedUser && token) {
+        const parsed = JSON.parse(storedUser) as User;
+        if (!parsed.weeklyGoal || parsed.weeklyGoal <= 0) parsed.weeklyGoal = 20;
+        setUser(parsed);
+      } else {
+        localStorage.removeItem('taskManagerUser');
+        localStorage.removeItem('authToken');
+      }
+      setIsLoading(false);
+    };
+
+    void boot();
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
+      if (isSupabaseAuthEnabled) {
+        const supabase = getSupabase();
+        if (!supabase) return false;
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error || !data.session) return false;
+        localStorage.setItem('authToken', data.session.access_token);
+        const meta = data.user.user_metadata ?? {};
+        const nextUser: User = {
+          userId: data.user.id,
+          username: (meta.username as string) || email.split('@')[0],
+          email: data.user.email || email,
+          password: '',
+          createdAt: new Date(),
+          weeklyGoal: 20,
+          categories: [],
+          tasks: [],
+        };
+        localStorage.setItem('taskManagerUser', JSON.stringify(nextUser));
+        setUser(nextUser);
+        return true;
+      }
+
       const result = await authApi.login(email, password);
-      setUser(persistSession(result));
+      setUser(persistCustom(result));
       return true;
     } catch (error) {
       if (!(error instanceof ApiError)) {
-        // network / unexpected
+        // network
       }
       return false;
     }
   };
 
-  const register = async (username: string, email: string, password: string): Promise<boolean> => {
+  const register = async (
+    username: string,
+    email: string,
+    password: string
+  ): Promise<boolean> => {
     try {
+      if (isSupabaseAuthEnabled) {
+        const supabase = getSupabase();
+        if (!supabase) return false;
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: { data: { username } },
+        });
+        if (error) return false;
+        if (data.session?.access_token && data.user) {
+          localStorage.setItem('authToken', data.session.access_token);
+          const nextUser: User = {
+            userId: data.user.id,
+            username,
+            email: data.user.email || email,
+            password: '',
+            createdAt: new Date(),
+            weeklyGoal: 20,
+            categories: [],
+            tasks: [],
+          };
+          localStorage.setItem('taskManagerUser', JSON.stringify(nextUser));
+          setUser(nextUser);
+          return true;
+        }
+        // Email confirmation may be required — treat as success without session
+        return true;
+      }
+
       const result = await authApi.register(username, email, password);
-      setUser(persistSession(result));
+      setUser(persistCustom(result));
       return true;
     } catch {
       return false;
@@ -81,12 +169,25 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
     localStorage.removeItem('taskManagerUser');
     localStorage.removeItem('authToken');
+    if (isSupabaseAuthEnabled) {
+      void getSupabase()?.auth.signOut();
+    }
   };
 
   const getAuthToken = () => localStorage.getItem('authToken');
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout, isLoading, getAuthToken }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        register,
+        logout,
+        isLoading,
+        getAuthToken,
+        authProvider,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -5,6 +5,7 @@ using TaskManager.Application.Reminder.Command.Create;
 using TaskManager.Application.Reminder.Command.Delete;
 using TaskManager.Application.Reminder.Command.Update;
 using TaskManager.Application.Reminder.Queries.GetByTask;
+using TaskManager.Application.Reminder.Queries.GetUpcoming;
 
 namespace TaskManager.Api.Controllers
 {
@@ -25,6 +26,13 @@ namespace TaskManager.Api.Controllers
         {
             var id = await _mediator.Send(command);
             return Ok(new { Id = id, Message = "Reminder created successfully" });
+        }
+
+        [HttpGet("upcoming")]
+        public async Task<IActionResult> GetUpcoming()
+        {
+            var reminders = await _mediator.Send(new GetUpcomingRemindersQuery());
+            return Ok(reminders);
         }
 
         [HttpGet("task/{taskId:guid}")]

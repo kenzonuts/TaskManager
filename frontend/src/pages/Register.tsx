@@ -10,7 +10,7 @@ export const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { register } = useAuth();
+  const { register, authProvider } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,7 +60,10 @@ export const Register = () => {
             <h1 className="mb-1 text-2xl font-bold tracking-tight text-zinc-900">
               Create Account
             </h1>
-            <p className="text-sm text-zinc-500">Join TaskManager and keep it simple.</p>
+            <p className="text-sm text-zinc-500">
+              Join TaskManager and keep it simple.
+              {authProvider === 'supabase' ? ' (Supabase Auth)' : ''}
+            </p>
           </div>
 
           {error && (

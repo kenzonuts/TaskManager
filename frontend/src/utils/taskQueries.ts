@@ -203,12 +203,14 @@ export function computeStreak(tasks: TaskItem[], ref = new Date()) {
 
 /**
  * Today's Focus v1:
- * unfinished → prefer due today, then no due → highest priority.
- * Fallback: highest-priority unfinished overall.
+ * unfinished → pinned first → prefer due today, then no due → highest priority.
  */
 export function getTodaysFocus(tasks: TaskItem[], ref = new Date()): TaskItem | null {
   const unfinished = tasks.filter((t) => !t.isCompleted);
   if (unfinished.length === 0) return null;
+
+  const pinned = unfinished.find((t) => t.isPinnedFocus);
+  if (pinned) return pinned;
 
   const todayKey = toDateKey(ref);
 
@@ -228,6 +230,50 @@ export function getTodaysFocus(tasks: TaskItem[], ref = new Date()): TaskItem | 
     if (byDue !== 0) return byDue;
     return b.priority - a.priority;
   })[0];
+}
+
+export function monthlyCompletion(
+  tasks: TaskItem[],
+  weeklyGoal = DEFAULT_WEEKLY_GOAL,
+  ref = new Date()
+) {
+  const y = ref.getFullYear();
+  const m = ref.getMonth();
+  const completed = tasks.filter((t) => {
+    if (!t.isCompleted) return false;
+    const raw = t.completedAt || t.updatedAt;
+    if (!raw) return false;
+    const d = new Date(raw);
+    return d.getFullYear() === y && d.getMonth() === m;
+  }).length;
+
+  const goal = Math.max(1, Math.round(weeklyGoal * 4.3));
+  return {
+    completed,
+    goal,
+    monthLabel: ref.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+  };
+}
+
+export function formatMinutesClock(totalMinutes: number) {
+  const h = Math.floor(totalMinutes / 60);
+  const m = totalMinutes % 60;
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+}
+
+export function formatScheduleRange(
+  startMinutes?: number | null,
+  endMinutes?: number | null
+) {
+  if (startMinutes == null || endMinutes == null) return null;
+  return `${formatMinutesClock(startMinutes)} – ${formatMinutesClock(endMinutes)}`;
+}
+
+export function formatElapsed(seconds: number) {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
 export function remainingTasksToday(tasks: TaskItem[], ref = new Date()) {

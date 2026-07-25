@@ -8,6 +8,15 @@ export interface ReminderDto {
   isSent: boolean;
 }
 
+export function getUpcomingReminders() {
+  return apiRequest<
+    { reminderId: string; taskId: string; taskTitle: string; remindAt: string }[]
+  >('/api/Reminders/upcoming', {
+    method: 'GET',
+    auth: true,
+  });
+}
+
 export function getRemindersByTask(taskId: string) {
   return apiRequest<ReminderDto[]>(`/api/Reminders/task/${taskId}`, {
     method: 'GET',

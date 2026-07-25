@@ -78,7 +78,31 @@ npm run dev
 
 Default Vite: `http://localhost:5173` (sudah diizinkan di CORS API).
 
+## 6. Auth provider (opsional — Phase 8 Supabase Auth)
+
+Default: **Custom** JWT dari `/api/Auth/*`.
+
+Untuk Supabase Auth:
+
+```bash
+cd backend/src/TaskManager.Api
+dotnet user-secrets set "Auth:Provider" "Supabase"
+dotnet user-secrets set "Supabase:Url" "https://<project-ref>.supabase.co"
+dotnet user-secrets set "Supabase:JwtSecret" "<JWT secret dari Project Settings → API>"
+```
+
+Frontend `.env`:
+
+```bash
+VITE_AUTH_PROVIDER=supabase
+VITE_SUPABASE_URL=https://<project-ref>.supabase.co
+VITE_SUPABASE_ANON_KEY=<anon-key>
+```
+
+Pada request pertama dengan JWT Supabase valid, API membuat baris `Users` (`UserId` = `sub`) jika belum ada.
+
 ## Keamanan
 
 - [ ] JWT key baru (≥ 32 karakter)
 - [ ] Jangan commit secrets / `.env`
+- [ ] `Supabase:JwtSecret` / service role hanya di server / User Secrets

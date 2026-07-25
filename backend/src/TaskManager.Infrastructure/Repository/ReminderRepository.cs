@@ -37,6 +37,20 @@ namespace TaskManager.Infrastructure.Repository
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Reminder>> GetUpcomingByUserIdAsync(Guid userId, DateTime fromUtc, DateTime toUtc)
+        {
+            return await _context.Reminders
+                .Include(r => r.Task)
+                .Where(r =>
+                    r.Task.UserId == userId &&
+                    !r.IsSent &&
+                    r.RemindAt >= fromUtc &&
+                    r.RemindAt <= toUtc)
+                .OrderBy(r => r.RemindAt)
+                .Take(20)
+                .ToListAsync();
+        }
+
         public async Task AddAsync(Reminder reminder)
         {
             await _context.Reminders.AddAsync(reminder);

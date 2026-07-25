@@ -55,6 +55,24 @@ namespace TaskManager.Application.TaskItem.Command.UpdateTitle
             task.DueDate = request.DueDate;
             task.Priority = (PriorityLevel)request.Priority;
             task.CategoryId = request.CategoryId;
+            task.EstimatedMinutes = request.EstimatedMinutes;
+            task.ScheduleStartMinutes = request.ScheduleStartMinutes;
+            task.ScheduleEndMinutes = request.ScheduleEndMinutes;
+            if (request.IsPinnedFocus.HasValue)
+            {
+                if (request.IsPinnedFocus.Value)
+                {
+                    var userTasks = await _taskRepository.GetAllByUserIdAsync(Guid.Parse(userId));
+                    foreach (var t in userTasks.Where(t => t.IsPinnedFocus && t.TaskId != task.TaskId))
+                    {
+                        t.IsPinnedFocus = false;
+                        t.UpdatedAt = DateTime.UtcNow;
+                        await _taskRepository.UpdateAsync(t);
+                    }
+                }
+
+                task.IsPinnedFocus = request.IsPinnedFocus.Value;
+            }
             task.UpdatedAt = DateTime.UtcNow;
 
             await _taskRepository.UpdateAsync(task);

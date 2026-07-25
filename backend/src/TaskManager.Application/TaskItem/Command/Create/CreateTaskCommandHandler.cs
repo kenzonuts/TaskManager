@@ -53,7 +53,12 @@ namespace TaskManager.Application.TaskItem.Command.Create
                 Priority = (PriorityLevel)request.Priority,
                 UserId = Guid.Parse(userId),
                 CategoryId = request.CategoryId,
-                IsCompleted = false
+                IsCompleted = false,
+                EstimatedMinutes = request.EstimatedMinutes,
+                ScheduleStartMinutes = request.ScheduleStartMinutes,
+                ScheduleEndMinutes = request.ScheduleEndMinutes,
+                IsPinnedFocus = false,
+                TrackingElapsedSeconds = 0
             };
 
             await _taskRepository.AddAsync(task);
