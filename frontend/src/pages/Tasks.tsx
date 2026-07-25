@@ -95,7 +95,14 @@ export const Tasks = () => {
       await updateTaskCompletion(taskId, newCompletedStatus);
       setTasks((prev) =>
         prev.map((t) =>
-          t.taskId === taskId ? { ...t, isCompleted: newCompletedStatus } : t
+          t.taskId === taskId
+            ? {
+                ...t,
+                isCompleted: newCompletedStatus,
+                completedAt: newCompletedStatus ? new Date() : null,
+                updatedAt: new Date(),
+              }
+            : t
         )
       );
     } catch {

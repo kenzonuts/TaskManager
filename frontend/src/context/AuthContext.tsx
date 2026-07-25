@@ -21,6 +21,7 @@ function toUser(result: authApi.AuthResult): User {
     email: result.email,
     password: '',
     createdAt: new Date(),
+    weeklyGoal: result.weeklyGoal > 0 ? result.weeklyGoal : 20,
     categories: [],
     tasks: [],
   };
@@ -41,7 +42,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const storedUser = localStorage.getItem('taskManagerUser');
     const token = localStorage.getItem('authToken');
     if (storedUser && token) {
-      setUser(JSON.parse(storedUser));
+      const parsed = JSON.parse(storedUser) as User;
+      if (!parsed.weeklyGoal || parsed.weeklyGoal <= 0) {
+        parsed.weeklyGoal = 20;
+      }
+      setUser(parsed);
     } else {
       localStorage.removeItem('taskManagerUser');
       localStorage.removeItem('authToken');

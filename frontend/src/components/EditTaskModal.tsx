@@ -64,6 +64,7 @@ export const EditTaskModal = ({
         priority,
         categoryId: categoryId || undefined,
         category: categories.find((c) => c.categoryId === categoryId),
+        updatedAt: new Date(),
       });
       onClose();
     } catch {

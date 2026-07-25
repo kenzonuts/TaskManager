@@ -38,10 +38,12 @@ dotnet user-secrets set "Jwt:Audience" "TaskManager"
 ```
 
 Catatan:
-- User Secrets hanya terbaca jika `ASPNETCORE_ENVIRONMENT=Development` (default di `launchSettings.json`).
+- User Secrets hanya terbaca runtime API jika `ASPNETCORE_ENVIRONMENT=Development` (default di `launchSettings.json`).
 - Untuk `dotnet ef`, export juga: `export ASPNETCORE_ENVIRONMENT=Development`
+- `DesignTimeDbContextFactory` membaca User Secrets API (bukan fallback localhost).
 - Pooler **Transaction** (port `6543`) sering gagal/timeout untuk migrasi EF — pakai **Session** port `5432`.
 - Direct host `db.<ref>.supabase.co` butuh IPv6 di beberapa jaringan; pooler biasanya IPv4.
+- Kalau sudah di folder `backend/src`, **jangan** `cd backend/src` lagi.
 
 ## 3. Apply schema ke Supabase (Fase 2)
 

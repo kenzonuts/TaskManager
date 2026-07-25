@@ -141,25 +141,25 @@ Panduan teknis: `backend/SETUP.md`, `README.md`.
 
 ### Checklist — Task model & API
 
-- [ ] Tambah `CompletedAt` (`DateTime?`) di `TaskItem`
-- [ ] Tambah `UpdatedAt` (`DateTime`) di `TaskItem`
-- [ ] Create: set `CreatedAt` + `UpdatedAt`
-- [ ] Update field: set `UpdatedAt`
-- [ ] Mark complete: `CompletedAt = UtcNow`; uncomplete: `CompletedAt = null`
-- [ ] EF migration Postgres + apply ke Supabase
-- [ ] DTO / response FE mengekspos field baru
+- [x] Tambah `CompletedAt` (`DateTime?`) di `TaskItem`
+- [x] Tambah `UpdatedAt` (`DateTime`) di `TaskItem`
+- [x] Create: set `CreatedAt` + `UpdatedAt`
+- [x] Update field: set `UpdatedAt`
+- [x] Mark complete: `CompletedAt = UtcNow`; uncomplete: `CompletedAt = null`
+- [x] EF migration Postgres (`AddTaskAnalyticsFields`) — **applied ke Supabase**
+- [x] DTO / response FE mengekspos field baru (`createdAt`, `updatedAt`, `completedAt`)
 - [ ] (Opsional) endpoint summary dashboard
 
 ### Checklist — preferensi
 
-- [ ] `WeeklyGoal` (default **20**) — kolom di `Users` atau settings tipis
-- [ ] Boleh hardcode default dulu + TODO Settings UI, asal satu sumber kebenaran
+- [x] `WeeklyGoal` (default **20**) — kolom di `Users`
+- [x] Boleh hardcode default dulu + TODO Settings UI, asal satu sumber kebenaran — exposed via login/register `weeklyGoal`
 
 ### Definition of done
 
-- [ ] Complete / uncomplete mengisi `CompletedAt` benar
-- [ ] Migration diterapkan di Supabase
-- [ ] FE membaca field baru tanpa error
+- [x] Complete / uncomplete mengisi `CompletedAt` benar (unit tests)
+- [x] Migration diterapkan di Supabase
+- [x] FE membaca field baru tanpa error
 
 ---
 
@@ -169,20 +169,20 @@ Panduan teknis: `backend/SETUP.md`, `README.md`.
 
 ### Checklist
 
-- [ ] **Weekly Progress ring:** completed minggu ini / `WeeklyGoal` → %
-- [ ] **Today's Focus** (satu task):
+- [x] **Weekly Progress ring:** completed minggu ini / `WeeklyGoal` → %
+- [x] **Today's Focus** (satu task):
   - Aturan v1: unfinished → prefer `DueDate` hari ini (atau tanpa due) → `Priority` tertinggi
   - Tampilkan title + priority; **jangan** time slot palsu sebelum ada field start/end
-- [ ] **Productivity Chart:** completed per hari (Senin–Minggu minggu berjalan)
-- [ ] **Productivity Streak:** hari berturut ≥1 completion; putus jika 1 hari kosong
-- [ ] **Recent Tasks:** sort `UpdatedAt` desc
-- [ ] Greeting dinamis (pagi / siang / malam) + sisa task hari ini
+- [x] **Productivity Chart:** completed per hari (Senin–Minggu minggu berjalan)
+- [x] **Productivity Streak:** hari berturut ≥1 completion; putus jika 1 hari kosong
+- [x] **Recent Tasks:** sort `UpdatedAt` desc
+- [x] Greeting dinamis (pagi / siang / malam) + sisa task hari ini
 
 ### Definition of done
 
-- [ ] Ring, chart, streak konsisten dengan data completion
-- [ ] Today's Focus mengikuti aturan di plan
-- [ ] Tidak ada angka dummy di UI production
+- [x] Ring, chart, streak konsisten dengan data completion
+- [x] Today's Focus mengikuti aturan di plan
+- [x] Tidak ada angka dummy di UI production
 
 ---
 
@@ -325,8 +325,8 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 | Prasyarat (secrets + smoke CRUD) | Open | Lihat section Prasyarat |
 | 1 — App Shell | Done | `AppShell` sidebar gelap + konten terang; Login/Register diselaraskan |
 | 2 — Dashboard Batch A | Done | Summary, upcoming, recent, calendar+dots, Ctrl+K, +Task |
-| 3 — Data foundation | Not started | `CompletedAt`, `UpdatedAt`, `WeeklyGoal` |
-| 4 — Dashboard Batch B | Not started | Focus, weekly ring, chart, streak |
+| 3 — Data foundation | Done | `CompletedAt`/`UpdatedAt`/`WeeklyGoal` + migration applied |
+| 4 — Dashboard Batch B | Done | Focus, weekly ring, chart, streak, greeting |
 | 5 — Quick Notes | Not started | Entity Notes + widget |
 | 6 — Polish | Not started | Skeleton, empty, QA, skin Tasks/Categories |
 | 7 — Premium | Optional | Focus Mode, time tracking, dll. |

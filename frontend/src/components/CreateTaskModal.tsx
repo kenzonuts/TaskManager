@@ -49,6 +49,8 @@ export const CreateTaskModal = ({
         description: description.trim() || undefined,
         isCompleted: false,
         createdAt: new Date(),
+        updatedAt: new Date(),
+        completedAt: null,
         dueDate: dueDate ? new Date(dueDate) : undefined,
         priority,
         userId: user.userId,

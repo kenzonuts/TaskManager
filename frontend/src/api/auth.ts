@@ -5,6 +5,7 @@ export interface AuthResult {
   userId: string;
   username: string;
   email: string;
+  weeklyGoal: number;
 }
 
 export function login(email: string, password: string) {

@@ -11,6 +11,7 @@ export interface User {
   email: string;
   password: string;
   createdAt: Date;
+  weeklyGoal: number;
   categories: Category[];
   tasks: TaskItem[];
 }
@@ -35,6 +36,8 @@ export interface TaskItem {
   description?: string;
   isCompleted: boolean;
   createdAt: Date;
+  updatedAt: Date;
+  completedAt?: Date | null;
   dueDate?: Date;
   priority: PriorityLevel;
   userId: string;
