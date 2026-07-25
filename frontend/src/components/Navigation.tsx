@@ -6,7 +6,6 @@ import {
   Folder,
   LogOut,
   Menu,
-  X,
   User,
 }
 from 'lucide-react';

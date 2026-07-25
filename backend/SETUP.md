@@ -64,9 +64,12 @@ Swagger (Development): `http://localhost:5091`
 
 ```bash
 cd frontend
+cp .env.example .env   # sesuaikan VITE_API_BASE_URL jika perlu
 npm install
 npm run dev
 ```
+
+Default Vite: `http://localhost:5173` (sudah diizinkan di CORS API).
 
 ## Keamanan
 

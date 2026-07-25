@@ -155,22 +155,22 @@ Hilangkan naming lama: `NebulaCore`, `Kenzo`, `Bagelen Bakery`, `Kenzonuts`, typ
 
 ### Checklist
 
-- [ ] Tambah `VITE_API_BASE_URL` (env) — hilangkan hardcode `http://localhost:5091`
-- [ ] Buat `src/api/` (atau `services/`) + helper auth header terpusat
-- [ ] Login response FE selaras dengan API (`token`, `userId`, `username`, `email`) — kurangi decode JWT manual jika API sudah mengembalikan profil
+- [x] Tambah `VITE_API_BASE_URL` (env) — hilangkan hardcode `http://localhost:5091`
+- [x] Buat `src/api/` (atau `services/`) + helper auth header terpusat
+- [x] Login response FE selaras dengan API (`token`, `userId`, `username`, `email`) — kurangi decode JWT manual jika API sudah mengembalikan profil
 - [x] Auth scheme JWT standar `Bearer` di backend + Swagger (buang skema `Kenzo`) — sudah di Fase 1
-- [ ] Hapus dependency tidak terpakai (`@supabase/supabase-js` jika belum dipakai)
-- [ ] Bersihkan `console.log` debug
-- [ ] Login/Register masuk React Router (bukan toggle state di luar `Router`)
-- [ ] `[Authorize]` konsisten di endpoint sensitif (GetById / Delete category, dll.)
-- [ ] CORS dibatasi ke origin frontend (bukan `AllowAnyOrigin` di production)
-- [ ] Branding UI: logo/text → TaskManager
+- [x] Hapus dependency tidak terpakai (`@supabase/supabase-js` jika belum dipakai)
+- [x] Bersihkan `console.log` debug
+- [x] Login/Register masuk React Router (bukan toggle state di luar `Router`)
+- [x] `[Authorize]` konsisten di endpoint sensitif (GetById / Delete category, dll.)
+- [x] CORS dibatasi ke origin frontend (bukan `AllowAnyOrigin` di production)
+- [x] Branding UI: logo/text → TaskManager
 
 ### Definition of done
 
-- Satu cara panggil API dari FE
-- Tidak ada URL/port hardcoded di komponen
-- Auth flow rapi (register + login konsisten soal token)
+- [x] Satu cara panggil API dari FE
+- [x] Tidak ada URL/port hardcoded di komponen
+- [x] Auth flow rapi (register + login konsisten soal token)
 
 ---
 
@@ -184,7 +184,7 @@ Hilangkan naming lama: `NebulaCore`, `Kenzo`, `Bagelen Bakery`, `Kenzonuts`, typ
 - [ ] Test logika hapus kategori (tolak jika masih ada task belum selesai)
 - [ ] Global exception middleware di API (kurangi try/catch berulang di controller)
 - [ ] Lengkapi FluentValidation untuk Category / Task / Reminder
-- [ ] Pastikan register juga menyimpan token / auto-login selaras dengan login
+- [x] Pastikan register juga menyimpan token / auto-login selaras dengan login — sudah di Fase 3
 - [ ] Pindahkan DTO yang salah tempat (`TaskItem/Command/Dtos` → `TaskItem/Dtos`)
 - [ ] Hapus SMTP dari config jika tidak dipakai; atau implement reminder email dengan benar
 
@@ -279,7 +279,7 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 | 0 — Stabilisasi & keamanan | Mostly done | Sisa: buat project Supabase + set User Secrets + rotate SMTP |
 | 1 — Rebrand & struktur | Done | Build BE+FE hijau; smoke test CRUD menunggu secrets/DB |
 | 2 — Migrasi Supabase | Code done | Npgsql + InitialCreate siap; `database update` menunggu User Secrets |
-| 3 — Frontend hygiene | Not started | JWT Bearer sudah diganti di Fase 1 |
+| 3 — Frontend hygiene | Done | API client, Router auth, CORS, Authorize |
 | 4 — Fitur sisa | Not started | |
 | 5 — Docs & test | Not started | |
 | 6 — Supabase Auth | Optional | |
