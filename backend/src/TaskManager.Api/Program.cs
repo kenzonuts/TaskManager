@@ -10,6 +10,7 @@ using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 using FluentValidation.AspNetCore;
 using FluentValidation;
+using TaskManager.Api.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -102,6 +103,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
