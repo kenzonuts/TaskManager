@@ -9,6 +9,7 @@ namespace TaskManager.Infrastructure.Persistence
 
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Project> Projects { get; set; }
         public DbSet<TaskItem> Tasks { get; set; }
         public DbSet<Reminder> Reminders { get; set; }
         public DbSet<Note> Notes { get; set; }
@@ -35,6 +36,17 @@ namespace TaskManager.Infrastructure.Persistence
                     .OnDelete(DeleteBehavior.Cascade);
             });
 
+            modelBuilder.Entity<Project>(entity =>
+            {
+                entity.HasKey(p => p.ProjectId);
+                entity.Property(p => p.Name).IsRequired();
+                entity.Property(p => p.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
+                entity.HasOne(p => p.User)
+                    .WithMany(u => u.Projects)
+                    .HasForeignKey(p => p.UserId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+
             modelBuilder.Entity<TaskItem>(entity =>
             {
                 entity.HasKey(t => t.TaskId);
@@ -48,6 +60,10 @@ namespace TaskManager.Infrastructure.Persistence
                 entity.HasOne(t => t.Category)
                     .WithMany(c => c.Tasks)
                     .HasForeignKey(t => t.CategoryId)
+                    .OnDelete(DeleteBehavior.SetNull);
+                entity.HasOne(t => t.Project)
+                    .WithMany(p => p.Tasks)
+                    .HasForeignKey(t => t.ProjectId)
                     .OnDelete(DeleteBehavior.SetNull);
             });
 

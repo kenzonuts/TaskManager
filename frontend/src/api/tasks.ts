@@ -7,6 +7,7 @@ export type TaskWritePayload = {
   dueDate?: string | null;
   priority: number;
   categoryId?: string | null;
+  projectId?: string | null;
   estimatedMinutes?: number | null;
   scheduleStartMinutes?: number | null;
   scheduleEndMinutes?: number | null;
@@ -27,6 +28,7 @@ export function createTask(payload: TaskWritePayload) {
       dueDate: payload.dueDate,
       priority: payload.priority,
       categoryId: payload.categoryId || null,
+      projectId: payload.projectId || null,
       estimatedMinutes: payload.estimatedMinutes ?? null,
       scheduleStartMinutes: payload.scheduleStartMinutes ?? null,
       scheduleEndMinutes: payload.scheduleEndMinutes ?? null,
@@ -45,6 +47,7 @@ export function updateTask(taskId: string, payload: TaskWritePayload) {
       dueDate: payload.dueDate ?? null,
       priority: payload.priority,
       categoryId: payload.categoryId || null,
+      projectId: payload.projectId || null,
       estimatedMinutes: payload.estimatedMinutes ?? null,
       scheduleStartMinutes: payload.scheduleStartMinutes ?? null,
       scheduleEndMinutes: payload.scheduleEndMinutes ?? null,

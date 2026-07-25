@@ -12,6 +12,7 @@ namespace TaskManager.Domain.Data
         public int WeeklyGoal { get; set; } = 20;
 
         public ICollection<Category> Categories { get; set; } = new List<Category>();
+        public ICollection<Project> Projects { get; set; } = new List<Project>();
         public ICollection<TaskItem> Tasks { get; set; } = new List<TaskItem>();
         public ICollection<Note> Notes { get; set; } = new List<Note>();
     }

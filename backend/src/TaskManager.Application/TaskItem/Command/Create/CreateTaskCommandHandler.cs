@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using TaskManager.Domain.Enum;
@@ -14,15 +10,18 @@ namespace TaskManager.Application.TaskItem.Command.Create
     {
         private readonly IRepositoryTaskItem _taskRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IProjectRepository _projectRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         public CreateTaskCommandHandler(
             IRepositoryTaskItem taskRepository,
             ICategoryRepository categoryRepository,
+            IProjectRepository projectRepository,
             IHttpContextAccessor httpContextAccessor)
         {
             _taskRepository = taskRepository;
             _categoryRepository = categoryRepository;
+            _projectRepository = projectRepository;
             _httpContextAccessor = httpContextAccessor;
         }
 
@@ -34,11 +33,20 @@ namespace TaskManager.Application.TaskItem.Command.Create
             if (string.IsNullOrEmpty(userId))
                 throw new UnauthorizedAccessException("User not logged in");
 
+            var uid = Guid.Parse(userId);
+
             if (request.CategoryId.HasValue)
             {
                 var category = await _categoryRepository.GetByIdAsync(request.CategoryId.Value);
-                if (category == null || category.UserId != Guid.Parse(userId))
+                if (category == null || category.UserId != uid)
                     throw new UnauthorizedAccessException("You cannot add task to this category");
+            }
+
+            if (request.ProjectId.HasValue)
+            {
+                var project = await _projectRepository.GetByIdAsync(request.ProjectId.Value);
+                if (project == null || project.UserId != uid)
+                    throw new UnauthorizedAccessException("You cannot add task to this project");
             }
 
             var task = new Domain.Data.TaskItem
@@ -51,8 +59,9 @@ namespace TaskManager.Application.TaskItem.Command.Create
                 CompletedAt = null,
                 DueDate = request.DueDate,
                 Priority = (PriorityLevel)request.Priority,
-                UserId = Guid.Parse(userId),
+                UserId = uid,
                 CategoryId = request.CategoryId,
+                ProjectId = request.ProjectId,
                 IsCompleted = false,
                 EstimatedMinutes = request.EstimatedMinutes,
                 ScheduleStartMinutes = request.ScheduleStartMinutes,
@@ -65,5 +74,5 @@ namespace TaskManager.Application.TaskItem.Command.Create
 
             return task.TaskId;
         }
-    }    
+    }
 }

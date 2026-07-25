@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { User } from '../types';
 import * as authApi from '../api/auth';
-import { ApiError } from '../api/client';
+import { ApiError, AUTH_EXPIRED_EVENT, isTokenValid } from '../api/client';
 import { getSupabase, isSupabaseAuthEnabled } from '../lib/supabase';
 
 interface AuthContextType {
@@ -9,6 +9,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<boolean>;
   register: (username: string, email: string, password: string) => Promise<boolean>;
   logout: () => void;
+  updateLocalUser: (patch: Partial<User>) => void;
   isLoading: boolean;
   getAuthToken: () => string | null;
   authProvider: 'custom' | 'supabase';
@@ -51,7 +52,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
         const { data } = await supabase.auth.getSession();
         const session = data.session;
-        if (session?.access_token && session.user) {
+        if (session?.access_token && session.user && isTokenValid(session.access_token)) {
           localStorage.setItem('authToken', session.access_token);
           const meta = session.user.user_metadata ?? {};
           const nextUser: User = {
@@ -66,6 +67,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           };
           localStorage.setItem('taskManagerUser', JSON.stringify(nextUser));
           setUser(nextUser);
+        } else {
+          localStorage.removeItem('taskManagerUser');
+          localStorage.removeItem('authToken');
         }
         setIsLoading(false);
         return;
@@ -73,7 +77,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
       const storedUser = localStorage.getItem('taskManagerUser');
       const token = localStorage.getItem('authToken');
-      if (storedUser && token) {
+      if (storedUser && isTokenValid(token)) {
         const parsed = JSON.parse(storedUser) as User;
         if (!parsed.weeklyGoal || parsed.weeklyGoal <= 0) parsed.weeklyGoal = 20;
         setUser(parsed);
@@ -85,6 +89,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     };
 
     void boot();
+  }, []);
+
+  useEffect(() => {
+    const onExpired = () => setUser(null);
+    window.addEventListener(AUTH_EXPIRED_EVENT, onExpired);
+    return () => window.removeEventListener(AUTH_EXPIRED_EVENT, onExpired);
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
@@ -174,6 +184,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const updateLocalUser = (patch: Partial<User>) => {
+    setUser((prev) => {
+      if (!prev) return prev;
+      const next = { ...prev, ...patch };
+      localStorage.setItem('taskManagerUser', JSON.stringify(next));
+      return next;
+    });
+  };
+
   const getAuthToken = () => localStorage.getItem('authToken');
 
   return (
@@ -183,6 +202,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         login,
         register,
         logout,
+        updateLocalUser,
         isLoading,
         getAuthToken,
         authProvider,

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Category, PriorityLevel, TaskItem } from '../types';
-import { X, Calendar, Tag, Clock } from 'lucide-react';
+import { Category, PriorityLevel, Project, TaskItem } from '../types';
+import { X, Calendar, Tag, Clock, FolderKanban } from 'lucide-react';
 import { updateTask } from '../api/tasks';
+import * as projectsApi from '../api/projects';
 import { TaskRemindersPanel } from './TaskRemindersPanel';
 
 interface EditTaskModalProps {
@@ -44,11 +45,23 @@ export const EditTaskModal = ({
   const [dueDate, setDueDate] = useState('');
   const [priority, setPriority] = useState<PriorityLevel>(PriorityLevel.Medium);
   const [categoryId, setCategoryId] = useState('');
+  const [projectId, setProjectId] = useState('');
+  const [projects, setProjects] = useState<Project[]>([]);
   const [estimatedMinutes, setEstimatedMinutes] = useState('');
   const [scheduleStart, setScheduleStart] = useState('');
   const [scheduleEnd, setScheduleEnd] = useState('');
   const [isPinnedFocus, setIsPinnedFocus] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    void projectsApi
+      .getProjects()
+      .then((data) => {
+        if (Array.isArray(data)) setProjects(data);
+      })
+      .catch(() => setProjects([]));
+  }, [isOpen]);
 
   useEffect(() => {
     if (task) {
@@ -57,6 +70,7 @@ export const EditTaskModal = ({
       setDueDate(task.dueDate ? new Date(task.dueDate).toISOString().slice(0, 16) : '');
       setPriority(task.priority);
       setCategoryId(task.categoryId || '');
+      setProjectId(task.projectId || '');
       setEstimatedMinutes(
         task.estimatedMinutes != null ? String(task.estimatedMinutes) : ''
       );
@@ -84,6 +98,7 @@ export const EditTaskModal = ({
         dueDate: dueDate ? new Date(dueDate).toISOString() : null,
         priority,
         categoryId: categoryId || null,
+        projectId: projectId || null,
         estimatedMinutes: est != null && !Number.isNaN(est) ? est : null,
         scheduleStartMinutes: startMin,
         scheduleEndMinutes: endMin,
@@ -97,7 +112,9 @@ export const EditTaskModal = ({
         dueDate: dueDate ? new Date(dueDate) : undefined,
         priority,
         categoryId: categoryId || undefined,
+        projectId: projectId || undefined,
         category: categories.find((c) => c.categoryId === categoryId),
+        project: projects.find((p) => p.projectId === projectId),
         estimatedMinutes: est != null && !Number.isNaN(est) ? est : null,
         scheduleStartMinutes: startMin,
         scheduleEndMinutes: endMin,
@@ -223,6 +240,25 @@ export const EditTaskModal = ({
                 <option value={PriorityLevel.Medium}>Medium</option>
                 <option value={PriorityLevel.High}>High</option>
                 <option value={PriorityLevel.Critical}>Critical</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label className={labelClass}>Project</label>
+            <div className="relative">
+              <FolderKanban className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+              <select
+                value={projectId}
+                onChange={(e) => setProjectId(e.target.value)}
+                className={`${fieldClass} pl-10`}
+              >
+                <option value="">No Project</option>
+                {projects.map((project) => (
+                  <option key={project.projectId} value={project.projectId}>
+                    {project.name}
+                  </option>
+                ))}
               </select>
             </div>
           </div>

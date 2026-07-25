@@ -42,6 +42,7 @@ namespace TaskManager.Application.TaskItem.Queries.GetAll
                 IsCompleted = task.IsCompleted,
                 UserId = task.UserId,
                 CategoryId = task.CategoryId,
+                ProjectId = task.ProjectId,
                 EstimatedMinutes = task.EstimatedMinutes,
                 ScheduleStartMinutes = task.ScheduleStartMinutes,
                 ScheduleEndMinutes = task.ScheduleEndMinutes,

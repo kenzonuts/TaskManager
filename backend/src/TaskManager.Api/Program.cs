@@ -75,6 +75,7 @@ builder.Services.AddValidatorsFromAssembly(Assembly.Load("TaskManager.Applicatio
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IRepositoryTaskItem, RepositoryTaskItem>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IReminderRepository, ReminderRepository>();
 builder.Services.AddScoped<INoteRepository, NoteRepository>();

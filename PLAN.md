@@ -245,7 +245,11 @@ Kerjakan **hanya setelah** Phase 6 selesai.
 - [x] Pin manual Today's Focus
 - [x] Dark mode theme system (toggle nyata)
 - [x] In-app notifications dari Reminder
-- [ ] Projects (hanya jika Categories tidak cukup) — **dilewati** (Categories cukup)
+- [x] Projects (entity + CRUD + halaman; Categories tetap tersedia via Settings)
+- [x] Calendar page (bulan penuh + daftar deadline per hari)
+- [x] Statistics page
+- [x] Settings page (username, weekly goal, theme)
+- [x] Shell nav mirip mockup (Dashboard / Tasks / Projects / Calendar / Statistics / Settings)
 
 ---
 
@@ -329,8 +333,9 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 | 4 — Dashboard Batch B | Done | Focus, weekly ring, chart, streak, greeting |
 | 5 — Quick Notes | Done | Entity Notes + API + dashboard widget |
 | 6 — Polish | Done | Skeleton, errors, a11y search, QA/README |
-| 7 — Premium | Optional | Focus Mode, time tracking, dll. |
-| 8 — Supabase Auth | Optional | Tidak memblokir Phase 1–6 |
+| 7 — Premium | Done | Focus Mode, Pomodoro, tracking, dark mode, reminders, **Projects entity** |
+| 8 — Supabase Auth | Done | Dual provider Custom/Supabase |
+| Shell mockup B | Done | Nav Projects/Calendar/Statistics/Settings + pages |
 
 Update status: `Not started` → `In progress` → `Done`.
 

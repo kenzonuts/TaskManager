@@ -9,6 +9,10 @@ import { Register } from './pages/Register';
 import { Dashboard } from './pages/Dashboard';
 import { Tasks } from './pages/Tasks';
 import { Categories } from './pages/Categories';
+import { Projects } from './pages/Projects';
+import { CalendarPage } from './pages/Calendar';
+import { Statistics } from './pages/Statistics';
+import { SettingsPage } from './pages/Settings';
 
 const ProtectedLayout = () => {
   const { user, isLoading } = useAuth();
@@ -68,6 +72,10 @@ function AppRoutes() {
       <Route element={<ProtectedLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/tasks" element={<Tasks />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/statistics" element={<Statistics />} />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
       </Route>

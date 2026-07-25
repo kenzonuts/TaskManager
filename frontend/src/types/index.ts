@@ -23,6 +23,17 @@ export interface Category {
   tasks: TaskItem[];
 }
 
+export interface Project {
+  projectId: string;
+  name: string;
+  description?: string | null;
+  color?: string | null;
+  userId: string;
+  createdAt: Date;
+  taskCount?: number;
+  completedTaskCount?: number;
+}
+
 export interface Reminder {
   reminderId: string;
   taskId: string;
@@ -50,7 +61,9 @@ export interface TaskItem {
   priority: PriorityLevel;
   userId: string;
   categoryId?: string;
+  projectId?: string;
   category?: Category;
+  project?: Project;
   reminders: Reminder[];
   estimatedMinutes?: number | null;
   scheduleStartMinutes?: number | null;

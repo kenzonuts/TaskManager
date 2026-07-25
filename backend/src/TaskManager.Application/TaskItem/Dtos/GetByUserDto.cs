@@ -15,6 +15,7 @@ namespace TaskManager.Application.TaskItem.Dtos
         public bool IsCompleted { get; set; }
         public Guid UserId { get; set; }
         public Guid? CategoryId { get; set; }
+        public Guid? ProjectId { get; set; }
         public int? EstimatedMinutes { get; set; }
         public int? ScheduleStartMinutes { get; set; }
         public int? ScheduleEndMinutes { get; set; }

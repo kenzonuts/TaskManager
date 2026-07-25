@@ -55,6 +55,14 @@ namespace TaskManager.Api.Controllers
             return Ok(new { Message = "Password berhasil diperbarui" });
         }
 
+        [HttpPut("me/settings")]
+        [Authorize]
+        public async Task<IActionResult> UpdateSettings([FromBody] UpdateSettingsCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         [HttpDelete("{id:guid}")]
         [Authorize]
         public async Task<IActionResult> DeleteUser(Guid id)

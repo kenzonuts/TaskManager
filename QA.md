@@ -19,10 +19,25 @@ Run before merge/release. Check each item after API + frontend are running again
 
 ## Shell / navigation
 
-- [ ] Dark sidebar + light content on Dashboard / Tasks / Categories
+- [ ] Dark sidebar + light content on all main pages
+- [ ] Nav: Dashboard, Tasks, Projects, Calendar, Statistics, Settings
+- [ ] Dark mode toggle in sidebar footer
 - [ ] Mobile hamburger opens sidebar drawer
 - [ ] Global Search opens with `Ctrl+K` / `Cmd+K`; Esc closes; Tab stays in dialog
+- [ ] Dashboard header shows greeting; other pages show page title
 
+## Projects
+
+- [ ] Create / rename / delete project
+- [ ] Assign task to project on create/edit
+- [ ] Delete blocked while unfinished tasks remain
+
+## Calendar / Statistics / Settings
+
+- [ ] Calendar month view; select day → tasks due that day
+- [ ] Statistics shows ring, chart, streak, monthly from real data
+- [ ] Settings updates username + weekly goal; theme toggle works
+- [ ] Categories reachable from Settings
 ## Dashboard
 
 - [ ] Skeleton shows while loading

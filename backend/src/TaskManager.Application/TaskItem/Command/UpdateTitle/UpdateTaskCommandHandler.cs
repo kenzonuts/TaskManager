@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using TaskManager.Domain.Enum;
@@ -14,15 +10,18 @@ namespace TaskManager.Application.TaskItem.Command.UpdateTitle
     {
         private readonly IRepositoryTaskItem _taskRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IProjectRepository _projectRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         public UpdateTaskCommandHandler(
             IRepositoryTaskItem taskRepository,
             ICategoryRepository categoryRepository,
+            IProjectRepository projectRepository,
             IHttpContextAccessor httpContextAccessor)
         {
             _taskRepository = taskRepository;
             _categoryRepository = categoryRepository;
+            _projectRepository = projectRepository;
             _httpContextAccessor = httpContextAccessor;
         }
 
@@ -34,20 +33,27 @@ namespace TaskManager.Application.TaskItem.Command.UpdateTitle
             if (string.IsNullOrEmpty(userId))
                 throw new UnauthorizedAccessException("User not logged in");
 
+            var uid = Guid.Parse(userId);
             var task = await _taskRepository.GetByIdAsync(request.TaskId);
 
             if (task == null)
                 throw new KeyNotFoundException("Task not found");
 
-            if (task.UserId != Guid.Parse(userId))
+            if (task.UserId != uid)
                 throw new UnauthorizedAccessException("You cannot update this task");
 
-            // kalau ada CategoryId, cek kepemilikan
             if (request.CategoryId.HasValue)
             {
                 var category = await _categoryRepository.GetByIdAsync(request.CategoryId.Value);
-                if (category == null || category.UserId != Guid.Parse(userId))
+                if (category == null || category.UserId != uid)
                     throw new UnauthorizedAccessException("You cannot assign this category");
+            }
+
+            if (request.ProjectId.HasValue)
+            {
+                var project = await _projectRepository.GetByIdAsync(request.ProjectId.Value);
+                if (project == null || project.UserId != uid)
+                    throw new UnauthorizedAccessException("You cannot assign this project");
             }
 
             task.Title = request.Title;
@@ -55,6 +61,7 @@ namespace TaskManager.Application.TaskItem.Command.UpdateTitle
             task.DueDate = request.DueDate;
             task.Priority = (PriorityLevel)request.Priority;
             task.CategoryId = request.CategoryId;
+            task.ProjectId = request.ProjectId;
             task.EstimatedMinutes = request.EstimatedMinutes;
             task.ScheduleStartMinutes = request.ScheduleStartMinutes;
             task.ScheduleEndMinutes = request.ScheduleEndMinutes;
@@ -62,7 +69,7 @@ namespace TaskManager.Application.TaskItem.Command.UpdateTitle
             {
                 if (request.IsPinnedFocus.Value)
                 {
-                    var userTasks = await _taskRepository.GetAllByUserIdAsync(Guid.Parse(userId));
+                    var userTasks = await _taskRepository.GetAllByUserIdAsync(uid);
                     foreach (var t in userTasks.Where(t => t.IsPinnedFocus && t.TaskId != task.TaskId))
                     {
                         t.IsPinnedFocus = false;

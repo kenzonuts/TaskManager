@@ -8,6 +8,7 @@ import {
   ArrowRight,
   Circle,
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useFocusMode } from '../context/FocusModeContext';
 import { StatsCard } from '../components/StatsCard';
@@ -33,7 +34,6 @@ import {
   getRecentTasks,
   getTodaysFocus,
   getUpcomingDeadlines,
-  greetingForHour,
   monthlyCompletion,
   productivityByDay,
   remainingTasksToday,
@@ -44,6 +44,7 @@ import {
 export const Dashboard = () => {
   const { user } = useAuth();
   const { focusMode } = useFocusMode();
+  const navigate = useNavigate();
   const [tasks, setTasks] = useState<TaskItem[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [notes, setNotes] = useState<Note[]>([]);
@@ -169,8 +170,6 @@ export const Dashboard = () => {
     );
   }
 
-  const greeting = greetingForHour();
-
   if (focusMode) {
     return (
       <div className="mx-auto max-w-3xl space-y-6 px-4 py-8 sm:px-6">
@@ -200,9 +199,6 @@ export const Dashboard = () => {
   return (
     <div className="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6 lg:px-8">
       <div>
-        <h2 className="mb-1 text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">
-          {greeting}, {user?.username}!
-        </h2>
         <p className="text-zinc-500 dark:text-zinc-400">
           {dueTodayLeft === 0
             ? 'Have a productive day. No tasks due today.'
@@ -348,6 +344,7 @@ export const Dashboard = () => {
         <QuickActions
           onNewTask={() => setCreateOpen(true)}
           onNewNote={() => setFocusNoteInput(true)}
+          onNewProject={() => navigate('/projects')}
         />
       </div>
 

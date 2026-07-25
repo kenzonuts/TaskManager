@@ -21,10 +21,12 @@ public class CreateTaskCommandHandlerTests
             .Returns(Task.CompletedTask);
 
         var categoryRepo = new Mock<ICategoryRepository>();
+        var projectRepo = new Mock<IProjectRepository>();
 
         var handler = new CreateTaskCommandHandler(
             taskRepo.Object,
             categoryRepo.Object,
+            projectRepo.Object,
             TestHttp.ForUser(userId));
 
         var id = await handler.Handle(
@@ -57,6 +59,7 @@ public class CreateTaskCommandHandlerTests
 
         var taskRepo = new Mock<IRepositoryTaskItem>();
         var categoryRepo = new Mock<ICategoryRepository>();
+        var projectRepo = new Mock<IProjectRepository>();
         categoryRepo.Setup(r => r.GetByIdAsync(categoryId)).ReturnsAsync(new DomainCategory
         {
             CategoryId = categoryId,
@@ -67,6 +70,7 @@ public class CreateTaskCommandHandlerTests
         var handler = new CreateTaskCommandHandler(
             taskRepo.Object,
             categoryRepo.Object,
+            projectRepo.Object,
             TestHttp.ForUser(userId));
 
         await Assert.ThrowsAsync<UnauthorizedAccessException>(() =>

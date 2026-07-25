@@ -48,7 +48,7 @@ dotnet ef database update \
   --startup-project TaskManager.Api/TaskManager.Api.csproj
 ```
 
-Confirm tables in Supabase Table Editor: `Users`, `Categories`, `Tasks`, `Reminders`, `Notes`.
+Confirm tables in Supabase Table Editor: `Users`, `Categories`, `Projects`, `Tasks`, `Reminders`, `Notes`.
 
 ## 3. Run API
 
@@ -73,11 +73,13 @@ App: http://localhost:5173
 
 ### Dashboard features (UI rebuild)
 
-- Productivity shell (dark sidebar / light content)
+- Productivity shell (dark sidebar / light content) — nav: Dashboard, Tasks, Projects, Calendar, Statistics, Settings
 - Summary, weekly progress, Today's Focus, upcoming deadlines
 - Weekly chart, streak, mini calendar, global search (`Ctrl+K`)
-- Quick Notes + Quick Actions
+- Quick Notes + Quick Actions (New Task / Note / Project / Schedule)
 - Premium: Focus Mode, Pomodoro, time tracking, schedule slots, monthly completion, dark mode, reminder bell
+- Projects entity (CRUD) separate from Categories
+- Full Calendar, Statistics, and Settings pages
 
 ### Auth providers
 

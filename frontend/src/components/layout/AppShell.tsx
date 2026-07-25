@@ -3,7 +3,10 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard,
   CheckSquare,
-  Folder,
+  FolderKanban,
+  CalendarDays,
+  BarChart3,
+  Settings,
   LogOut,
   Menu,
   X,
@@ -16,16 +19,24 @@ import { useTheme } from '../../context/ThemeContext';
 import { useFocusMode } from '../../context/FocusModeContext';
 import { GlobalSearch } from '../GlobalSearch';
 import { NotificationBell } from '../NotificationBell';
+import { greetingForHour } from '../../utils/taskQueries';
 
 const navItems = [
   { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { path: '/tasks', label: 'Tasks', icon: CheckSquare },
-  { path: '/categories', label: 'Categories', icon: Folder },
+  { path: '/projects', label: 'Projects', icon: FolderKanban },
+  { path: '/calendar', label: 'Calendar', icon: CalendarDays },
+  { path: '/statistics', label: 'Statistics', icon: BarChart3 },
+  { path: '/settings', label: 'Settings', icon: Settings },
 ] as const;
 
 const pageTitles: Record<string, string> = {
   '/dashboard': 'Dashboard',
   '/tasks': 'Tasks',
+  '/projects': 'Projects',
+  '/calendar': 'Calendar',
+  '/statistics': 'Statistics',
+  '/settings': 'Settings',
   '/categories': 'Categories',
 };
 
@@ -42,6 +53,7 @@ type SidebarProps = {
 
 const Sidebar = ({ collapsed, onNavigate, onClose }: SidebarProps) => {
   const { logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   return (
@@ -51,7 +63,11 @@ const Sidebar = ({ collapsed, onNavigate, onClose }: SidebarProps) => {
           collapsed ? 'px-3' : 'px-5'
         }`}
       >
-        <div className={`flex min-w-0 items-center ${collapsed ? 'justify-center' : 'gap-3'}`}>
+        <div
+          className={`flex min-w-0 items-center ${
+            collapsed ? 'justify-center' : 'gap-3'
+          }`}
+        >
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-zinc-950">
             <CheckSquare className="h-5 w-5" strokeWidth={2.25} />
           </div>
@@ -90,7 +106,7 @@ const Sidebar = ({ collapsed, onNavigate, onClose }: SidebarProps) => {
                 collapsed ? 'justify-center px-2' : 'gap-3 px-3'
               } ${
                 active
-                  ? 'bg-white text-zinc-950'
+                  ? 'bg-white/15 text-white'
                   : 'text-zinc-400 hover:bg-white/10 hover:text-white'
               }`}
             >
@@ -101,7 +117,39 @@ const Sidebar = ({ collapsed, onNavigate, onClose }: SidebarProps) => {
         })}
       </nav>
 
-      <div className={`border-t border-white/10 ${collapsed ? 'p-2' : 'p-3'}`}>
+      <div className={`space-y-1 border-t border-white/10 ${collapsed ? 'p-2' : 'p-3'}`}>
+        <button
+          type="button"
+          title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          onClick={toggleTheme}
+          className={`flex w-full items-center rounded-lg py-2.5 text-sm font-medium text-zinc-400 transition-colors hover:bg-white/10 hover:text-white ${
+            collapsed ? 'justify-center px-2' : 'justify-between gap-3 px-3'
+          }`}
+        >
+          <span className="flex items-center gap-3">
+            {theme === 'dark' ? (
+              <Sun className="h-5 w-5 shrink-0" strokeWidth={1.75} />
+            ) : (
+              <Moon className="h-5 w-5 shrink-0" strokeWidth={1.75} />
+            )}
+            {!collapsed && (theme === 'dark' ? 'Light Mode' : 'Dark Mode')}
+          </span>
+          {!collapsed && (
+            <span
+              className={`relative h-5 w-9 rounded-full transition-colors ${
+                theme === 'dark' ? 'bg-white' : 'bg-zinc-600'
+              }`}
+            >
+              <span
+                className={`absolute top-0.5 h-4 w-4 rounded-full transition-all ${
+                  theme === 'dark'
+                    ? 'left-4 bg-zinc-900'
+                    : 'left-0.5 bg-white'
+                }`}
+              />
+            </span>
+          )}
+        </button>
         <button
           type="button"
           title="Logout"
@@ -123,15 +171,15 @@ const Sidebar = ({ collapsed, onNavigate, onClose }: SidebarProps) => {
 
 export const AppShell = () => {
   const { user } = useAuth();
-  const { theme, toggleTheme } = useTheme();
   const { focusMode, toggleFocusMode } = useFocusMode();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const pageTitle = pageTitles[location.pathname] ?? 'TaskManager';
   const closeMobile = () => setMobileOpen(false);
   const sidebarW = focusMode ? 'lg:w-20' : 'lg:w-64';
   const contentPl = focusMode ? 'lg:pl-20' : 'lg:pl-64';
+  const showDashboardGreeting = location.pathname === '/dashboard' && !focusMode;
+  const pageTitle = pageTitles[location.pathname] ?? 'TaskManager';
 
   return (
     <div className="min-h-screen bg-zinc-100 dark:bg-zinc-950">
@@ -156,8 +204,8 @@ export const AppShell = () => {
       )}
 
       <div className={`transition-[padding] duration-200 ${contentPl}`}>
-        <header className="sticky top-0 z-30 flex h-16 items-center justify-between gap-4 border-b border-zinc-200 bg-white/90 px-4 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/90 sm:px-6">
-          <div className="flex items-center gap-3">
+        <header className="sticky top-0 z-30 border-b border-zinc-200 bg-white/90 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/90">
+          <div className="flex h-16 items-center gap-4 px-4 sm:px-6">
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
@@ -166,49 +214,63 @@ export const AppShell = () => {
             >
               <Menu className="h-5 w-5" />
             </button>
-            <h1 className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-              {pageTitle}
-            </h1>
-          </div>
 
-          <div className="flex flex-1 items-center justify-end gap-2 sm:gap-3">
-            {!focusMode && <GlobalSearch />}
-            <button
-              type="button"
-              onClick={toggleFocusMode}
-              className={`rounded-lg p-2 transition-colors ${
-                focusMode
-                  ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'
-                  : 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800'
-              }`}
-              aria-pressed={focusMode}
-              title="Focus mode"
-            >
-              <Focus className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="rounded-lg p-2 text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </button>
-            <NotificationBell />
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-sm font-semibold text-white dark:bg-zinc-100 dark:text-zinc-900">
-                {userInitial(user?.username)}
+            {showDashboardGreeting ? (
+              <div className="min-w-0 flex-1">
+                <h1 className="truncate text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-xl">
+                  {greetingForHour()}, {user?.username}
+                </h1>
               </div>
-              {!focusMode && (
-                <div className="hidden min-w-0 sm:block">
-                  <p className="truncate text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                    {user?.username}
-                  </p>
-                  <p className="truncate text-xs text-zinc-500 dark:text-zinc-400">
-                    {user?.email}
-                  </p>
+            ) : (
+              <div className="min-w-0 flex-1">
+                <h1 className="truncate text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
+                  {pageTitle}
+                </h1>
+              </div>
+            )}
+
+            {!focusMode && (
+              <div className="hidden flex-1 justify-center md:flex">
+                <GlobalSearch />
+              </div>
+            )}
+
+            <div className="flex items-center justify-end gap-2 sm:gap-3">
+              <div className="md:hidden">
+                <GlobalSearch />
+              </div>
+              <button
+                type="button"
+                onClick={toggleFocusMode}
+                className={`rounded-lg p-2 transition-colors ${
+                  focusMode
+                    ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'
+                    : 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800'
+                }`}
+                aria-pressed={focusMode}
+                title="Focus mode"
+              >
+                <Focus className="h-5 w-5" />
+              </button>
+              <NotificationBell />
+              <Link
+                to="/settings"
+                className="flex items-center gap-3 rounded-lg p-1.5 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-sm font-semibold text-white dark:bg-zinc-100 dark:text-zinc-900">
+                  {userInitial(user?.username)}
                 </div>
-              )}
+                {!focusMode && (
+                  <div className="hidden min-w-0 sm:block">
+                    <p className="truncate text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                      {user?.username}
+                    </p>
+                    <p className="truncate text-xs text-zinc-500 dark:text-zinc-400">
+                      {user?.email}
+                    </p>
+                  </div>
+                )}
+              </Link>
             </div>
           </div>
         </header>
