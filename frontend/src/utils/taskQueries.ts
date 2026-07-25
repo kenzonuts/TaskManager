@@ -89,7 +89,7 @@ export const priorityLabels: Record<PriorityLevel, string> = {
   [PriorityLevel.Low]: 'Low',
   [PriorityLevel.Medium]: 'Medium',
   [PriorityLevel.High]: 'High',
-  [PriorityLevel.Critical]: 'Critical',
+  [PriorityLevel.Critical]: 'Urgent',
 };
 
 export const priorityBadgeClass: Record<PriorityLevel, string> = {

@@ -19,7 +19,7 @@ const priorityLabels = {
   [PriorityLevel.Low]: 'Low',
   [PriorityLevel.Medium]: 'Medium',
   [PriorityLevel.High]: 'High',
-  [PriorityLevel.Critical]: 'Critical',
+  [PriorityLevel.Critical]: 'Urgent',
 };
 
 export const TaskCard = ({ task, onToggle, onEdit }: TaskCardProps) => {
