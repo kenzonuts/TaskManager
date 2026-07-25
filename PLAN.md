@@ -180,19 +180,19 @@ Hilangkan naming lama: `NebulaCore`, `Kenzo`, `Bagelen Bakery`, `Kenzonuts`, typ
 
 ### Checklist
 
-- [ ] Wire Reminder di UI (backend sudah ada handler/controller)
-- [ ] Test logika hapus kategori (tolak jika masih ada task belum selesai)
-- [ ] Global exception middleware di API (kurangi try/catch berulang di controller)
-- [ ] Lengkapi FluentValidation untuk Category / Task / Reminder
+- [x] Wire Reminder di UI (panel di Edit Task modal: list / add / delete)
+- [x] Logika hapus kategori: tolak jika masih ada task belum selesai (handler sudah ada; error lewat middleware `{ error }`)
+- [x] Global exception middleware di API (kurangi try/catch berulang di controller)
+- [x] Lengkapi FluentValidation untuk Category / Task / Reminder
 - [x] Pastikan register juga menyimpan token / auto-login selaras dengan login — sudah di Fase 3
-- [ ] Pindahkan DTO yang salah tempat (`TaskItem/Command/Dtos` → `TaskItem/Dtos`)
-- [ ] Hapus SMTP dari config jika tidak dipakai; atau implement reminder email dengan benar
+- [x] Pindahkan DTO yang salah tempat (`TaskItem/Command/Dtos` → `TaskItem/Dtos`)
+- [x] Hapus SMTP dari config (tidak dipakai)
 
 ### Definition of done
 
-- Reminder usable end-to-end (atau secara sadar di-scope-out dengan catatan)
-- Delete category teruji
-- Error response konsisten
+- [x] Reminder usable end-to-end (via Edit Task)
+- [x] Delete category menolak unfinished tasks dengan pesan jelas
+- [x] Error response konsisten (`{ error }` / validation details)
 
 ---
 
@@ -280,7 +280,7 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 | 1 — Rebrand & struktur | Done | Build BE+FE hijau; smoke test CRUD menunggu secrets/DB |
 | 2 — Migrasi Supabase | Code done | Npgsql + InitialCreate siap; `database update` menunggu User Secrets |
 | 3 — Frontend hygiene | Done | API client, Router auth, CORS, Authorize |
-| 4 — Fitur sisa | Not started | |
+| 4 — Fitur sisa | Done | Reminder UI, middleware, validators, SMTP removed |
 | 5 — Docs & test | Not started | |
 | 6 — Supabase Auth | Optional | |
 
