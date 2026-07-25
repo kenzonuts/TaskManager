@@ -43,7 +43,7 @@ namespace TaskManager.Application.TaskItem.Command.Create
 
             var task = new Domain.Data.TaskItem
             {
-                
+                TaskId = Guid.NewGuid(),
                 Title = request.Title,
                 Description = request.Description,
                 CreatedAt = DateTime.UtcNow,

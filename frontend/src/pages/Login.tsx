@@ -1,13 +1,10 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { AlertCircle } from 'lucide-react';
 import Logo from '../Image/Logo.jpg';
 
-interface LoginProps {
-  onSwitchToRegister: () => void;
-}
-
-export const Login = ({ onSwitchToRegister }: LoginProps) => {
+export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -20,7 +17,6 @@ export const Login = ({ onSwitchToRegister }: LoginProps) => {
     setIsLoading(true);
 
     const success = await login(email, password);
-
     if (!success) {
       setError('Invalid email or password');
     }
@@ -35,7 +31,7 @@ export const Login = ({ onSwitchToRegister }: LoginProps) => {
       <div className="w-full max-w-md relative z-10">
         <div className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
           <div className="text-center mb-8">
-            <img src={Logo} alt="Logo" className="w-16 h-16 rounded-2xl mb-4 shadow-lg mx-auto" />
+            <img src={Logo} alt="TaskManager" className="w-16 h-16 rounded-2xl mb-4 shadow-lg mx-auto" />
             <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
             <p className="text-slate-300">Sign in to your TaskManager account</p>
           </div>
@@ -89,19 +85,16 @@ export const Login = ({ onSwitchToRegister }: LoginProps) => {
 
           <div className="mt-6 text-center">
             <p className="text-slate-300 text-sm">
-              Don't have an account?{' '}
-              <button
-                onClick={onSwitchToRegister}
-                className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
-              >
+              Don&apos;t have an account?{' '}
+              <Link to="/register" className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">
                 Create Account
-              </button>
+              </Link>
             </p>
           </div>
 
           <div className="mt-6 pt-6 border-t border-white/10">
             <p className="text-xs text-slate-400 text-center">
-              &copy; 2025 TaskManager. Semua hak cipta dilindungi.
+              &copy; 2026 TaskManager. Semua hak cipta dilindungi.
             </p>
           </div>
         </div>

@@ -26,8 +26,8 @@ namespace TaskManager.Api.Controllers
         {
             try
             {
-                var userId = await _mediator.Send(command);
-                return Ok(new { UserId = userId, Message = "Registrasi berhasil 🚀" });
+                var result = await _mediator.Send(command);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -40,8 +40,8 @@ namespace TaskManager.Api.Controllers
         {
             try
             {
-                var token = await _mediator.Send(command);
-                return Ok(new { Token = token, Message = "Login berhasil " });
+                var result = await _mediator.Send(command);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -69,12 +69,11 @@ namespace TaskManager.Api.Controllers
             if (!(bool)result)
                 return BadRequest("Gagal update password");
 
-            return Ok("Password berhasil diperbarui ");
+            return Ok(new { Message = "Password berhasil diperbarui" });
         }
-        
-        [HttpDelete("{id}")]
-        [Authorize]
 
+        [HttpDelete("{id:guid}")]
+        [Authorize]
         public async Task<IActionResult> DeleteUser(Guid id)
         {
             var result = await _mediator.Send(new DeleteUserCommand { UserId = id });
@@ -82,7 +81,7 @@ namespace TaskManager.Api.Controllers
             if (!result)
                 return NotFound("User tidak ditemukan");
 
-            return Ok("User berhasil dihapus");
+            return Ok(new { Message = "User berhasil dihapus" });
         }
     }
 }

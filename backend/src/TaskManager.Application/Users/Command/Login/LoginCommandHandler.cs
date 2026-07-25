@@ -1,14 +1,11 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using MediatR;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
+using TaskManager.Application.Users.Dtos;
 using TaskManager.Domain.Repositories;
 
 namespace TaskManager.Application.Users.Command.Login
 {
-    public class LoginCommandHandler : IRequestHandler<LoginCommand, string>
+    public class LoginCommandHandler : IRequestHandler<LoginCommand, AuthResultDto>
     {
         private readonly IUserRepository _userRepository;
         private readonly IConfiguration _config;
@@ -19,41 +16,19 @@ namespace TaskManager.Application.Users.Command.Login
             _config = config;
         }
 
-        public async Task<string> Handle(LoginCommand request, CancellationToken cancellationToken)
+        public async Task<AuthResultDto> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByEmailAsync(request.Email);
 
             if (user == null)
-                throw new UserNotFoundException("Email tidak ditemukan 🚫");
+                throw new UserNotFoundException("Email tidak ditemukan");
 
             bool passwordValid = BCrypt.Net.BCrypt.Verify(request.Password, user.Password);
 
             if (!passwordValid)
-                throw new InvalidPasswordException("Password salah 🚫");
+                throw new InvalidPasswordException("Password salah");
 
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, user.UserId.ToString()),
-                new Claim(JwtRegisteredClaimNames.UniqueName, user.Username),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-            };
-
-            var jwtKey = _config["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key tidak dikonfigurasi");
-            var jwtIssuer = _config["Jwt:Issuer"] ?? "TaskManager";
-            var jwtAudience = _config["Jwt:Audience"] ?? "TaskManager";
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-                issuer: jwtIssuer,
-                audience: jwtAudience,
-                claims: claims,
-                expires: DateTime.UtcNow.AddHours(2),
-                signingCredentials: creds
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return JwtTokenGenerator.CreateAuthResult(user, _config);
         }
     }
 

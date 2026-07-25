@@ -5,14 +5,12 @@ import { CategoryFilter } from '../components/CategoryFilter';
 import { CreateTaskModal } from '../components/CreateTaskModal';
 import { EditTaskModal } from '../components/EditTaskModal';
 import { Category, TaskItem } from '../types';
-import {
-  ListTodo,
-  Plus,
-}
-from 'lucide-react';
+import { ListTodo, Plus } from 'lucide-react';
+import { getCategories } from '../api/categories';
+import { getUserTasks, updateTaskCompletion } from '../api/tasks';
 
 export const Tasks = () => {
-  const { user, getAuthToken } = useAuth();
+  const { user } = useAuth();
   const [tasks, setTasks] = useState<TaskItem[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -22,138 +20,59 @@ export const Tasks = () => {
   const [isEditTaskModalOpen, setIsEditTaskModalOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<TaskItem | null>(null);
 
-  // Get URL parameters for filtering
   const urlParams = new URLSearchParams(window.location.search);
   const filterParam = urlParams.get('filter');
 
   useEffect(() => {
-    console.log('Tasks useEffect triggered, user:', user);
-    console.log('User ID:', user?.userId);
-
-    const fetchCategories = async () => {
-      if (!user) {
-        console.log('No user, skipping fetch categories');
-        return;
-      }
-
+    const load = async () => {
+      if (!user) return;
       try {
-        const token = getAuthToken();
-        console.log('Fetching categories with token:', token ? 'present' : 'missing');
-        const response = await fetch('http://localhost:5091/api/Categories', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            ...(token && { 'Authorization': `Bearer ${token}` }),
-          },
-        });
-
-        console.log('Categories fetch response status:', response.status);
-        if (response.ok) {
-          const categoriesData: Category[] = await response.json();
-          console.log('Categories data received:', categoriesData);
-          setCategories(categoriesData);
-        } else {
-          console.error('Failed to fetch categories:', response.status, response.statusText);
+        const [categoriesData, tasksData] = await Promise.all([
+          getCategories(),
+          getUserTasks(),
+        ]);
+        setCategories(categoriesData);
+        if (Array.isArray(tasksData)) {
+          setTasks(tasksData);
         }
-      } catch (error) {
-        console.error('Error fetching categories:', error);
+      } catch {
+        // leave empty on failure
       } finally {
         setLoading(false);
       }
     };
 
-    const fetchTasks = async () => {
-      if (!user) {
-        console.log('No user logged in, skipping fetch tasks');
-        return;
-      }
-
-      try {
-        const token = getAuthToken();
-        console.log('Fetching tasks with token:', token ? 'present' : 'missing');
-        console.log('Token value:', token);
-        const response = await fetch('http://localhost:5091/api/Tasks/GetUserTasks', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            ...(token && { 'Authorization': `Bearer ${token}` }),
-          },
-        });
-
-        console.log('Tasks fetch response status:', response.status);
-        console.log('Response headers:', Object.fromEntries(response.headers.entries()));
-        if (response.ok) {
-          const tasksData = await response.json();
-          console.log('Tasks data received:', tasksData);
-          console.log('Tasks data type:', typeof tasksData, Array.isArray(tasksData));
-          if (Array.isArray(tasksData)) {
-            setTasks(tasksData);
-          } else {
-            console.error('Tasks data is not an array:', tasksData);
-            alert('Tasks data format is incorrect. Expected array.');
-          }
-        } else {
-          console.error('Failed to fetch tasks:', response.status, response.statusText);
-          const errorText = await response.text();
-          console.error('Error response body:', errorText);
-          alert(`Failed to fetch tasks: ${response.status} ${response.statusText}\n${errorText}`);
-        }
-      } catch (error) {
-        console.error('Error fetching tasks:', error);
-        alert(`Error fetching tasks: ${error instanceof Error ? error.message : String(error)}`);
-      }
-    };
-
-    fetchCategories();
-    fetchTasks();
-  }, [user, getAuthToken]);
+    load();
+  }, [user]);
 
   const filteredTasks = useMemo(() => {
-    console.log('Filtering tasks, total tasks:', tasks.length);
-    console.log('User ID for filtering:', user?.userId);
-    console.log('Filter param:', filterParam);
-    let filtered = tasks.filter((task) => {
-      const matches = task.userId === user?.userId;
-      console.log(`Task ${task.taskId} userId: ${task.userId}, matches: ${matches}`);
-      return matches;
-    });
-    console.log('Tasks after user filter:', filtered.length);
+    let filtered = tasks.filter((task) => task.userId === user?.userId);
 
-    // Apply URL filter parameter
     if (filterParam === 'completed') {
       filtered = filtered.filter((task) => task.isCompleted);
-      console.log('Tasks after completed filter:', filtered.length);
     } else if (filterParam === 'pending') {
       filtered = filtered.filter((task) => !task.isCompleted);
-      console.log('Tasks after pending filter:', filtered.length);
     } else if (filterParam === 'overdue') {
-      filtered = filtered.filter((task) =>
-        !task.isCompleted && task.dueDate && new Date(task.dueDate) < new Date()
+      filtered = filtered.filter(
+        (task) => !task.isCompleted && task.dueDate && new Date(task.dueDate) < new Date()
       );
-      console.log('Tasks after overdue filter:', filtered.length);
     }
 
     if (selectedCategory) {
       filtered = filtered.filter((task) => task.categoryId === selectedCategory);
-      console.log('Tasks after category filter:', filtered.length);
     }
 
     if (!showCompleted && !filterParam) {
       filtered = filtered.filter((task) => !task.isCompleted);
-      console.log('Tasks after completed filter:', filtered.length);
     }
 
-    const sorted = filtered.sort((a, b) => {
+    return filtered.sort((a, b) => {
       if (a.isCompleted !== b.isCompleted) {
         return a.isCompleted ? 1 : -1;
       }
       return b.priority - a.priority;
     });
-    console.log('Final filtered tasks:', sorted.length);
-    return sorted;
   }, [tasks, selectedCategory, showCompleted, user, filterParam]);
-
-  const userCategories = categories;
 
   const taskCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -168,38 +87,19 @@ export const Tasks = () => {
   }, [tasks, user]);
 
   const handleToggleTask = async (taskId: string) => {
-    const task = tasks.find(t => t.taskId === taskId);
+    const task = tasks.find((t) => t.taskId === taskId);
     if (!task) return;
 
     const newCompletedStatus = !task.isCompleted;
-
     try {
-      const token = getAuthToken();
-      const response = await fetch(`http://localhost:5091/api/Tasks/${taskId}/complete`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(token && { 'Authorization': `Bearer ${token}` }),
-        },
-        body: JSON.stringify({
-          taskId: taskId,
-          isCompleted: newCompletedStatus,
-        }),
-      });
-
-      if (response.ok) {
-        setTasks((prev) =>
-          prev.map((task) =>
-            task.taskId === taskId ? { ...task, isCompleted: newCompletedStatus } : task
-          )
-        );
-      } else {
-        console.error('Failed to toggle task completion:', response.status);
-        alert('Gagal mengubah status penyelesaian tugas. Silakan coba lagi.');
-      }
-    } catch (error) {
-      console.error('Error toggling task completion:', error);
-      alert('Error mengubah status penyelesaian tugas. Silakan coba lagi.');
+      await updateTaskCompletion(taskId, newCompletedStatus);
+      setTasks((prev) =>
+        prev.map((t) =>
+          t.taskId === taskId ? { ...t, isCompleted: newCompletedStatus } : t
+        )
+      );
+    } catch {
+      alert('Gagal mengubah status penyelesaian tugas. Silakan coba lagi.');
     }
   };
 
@@ -207,7 +107,7 @@ export const Tasks = () => {
     setCategories((prev) => [...prev, newCategory]);
   };
 
-  const handleTaskCreated = (newTask: any) => {
+  const handleTaskCreated = (newTask: TaskItem) => {
     setTasks((prev) => [...prev, newTask]);
   };
 
@@ -218,16 +118,20 @@ export const Tasks = () => {
 
   const handleTaskUpdated = (updatedTask: TaskItem) => {
     setTasks((prev) =>
-      prev.map((task) =>
-        task.taskId === updatedTask.taskId ? updatedTask : task
-      )
+      prev.map((task) => (task.taskId === updatedTask.taskId ? updatedTask : task))
     );
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-white text-xl">Loading tasks...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40"></div>
-
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="mb-8">
@@ -238,7 +142,7 @@ export const Tasks = () => {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             <div className="lg:col-span-1">
               <CategoryFilter
-                categories={userCategories}
+                categories={categories}
                 selectedCategory={selectedCategory}
                 onSelectCategory={setSelectedCategory}
                 taskCounts={taskCounts}
@@ -251,7 +155,7 @@ export const Tasks = () => {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                   <h3 className="text-xl font-semibold text-white">
                     {selectedCategory
-                      ? userCategories.find((c) => c.categoryId === selectedCategory)?.name
+                      ? categories.find((c) => c.categoryId === selectedCategory)?.name
                       : 'All Tasks'}
                   </h3>
                   <div className="flex items-center gap-3">
@@ -287,7 +191,12 @@ export const Tasks = () => {
                     </div>
                   ) : (
                     filteredTasks.map((task) => (
-                      <TaskCard key={task.taskId} task={task} onToggle={handleToggleTask} onEdit={handleEditTask} />
+                      <TaskCard
+                        key={task.taskId}
+                        task={task}
+                        onToggle={handleToggleTask}
+                        onEdit={handleEditTask}
+                      />
                     ))
                   )}
                 </div>
@@ -300,7 +209,7 @@ export const Tasks = () => {
       <CreateTaskModal
         isOpen={isCreateTaskModalOpen}
         onClose={() => setIsCreateTaskModalOpen(false)}
-        categories={userCategories}
+        categories={categories}
         onTaskCreated={handleTaskCreated}
       />
 
@@ -310,7 +219,7 @@ export const Tasks = () => {
           setIsEditTaskModalOpen(false);
           setEditingTask(null);
         }}
-        categories={userCategories}
+        categories={categories}
         task={editingTask}
         onTaskUpdated={handleTaskUpdated}
       />

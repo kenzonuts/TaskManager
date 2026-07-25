@@ -7,51 +7,34 @@ import {
   Clock,
   AlertCircle,
   ListTodo,
-  LogOut,
-  Menu,
-  X,
-  User,
   ArrowRight,
-}
-from 'lucide-react';
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { TaskItem } from '../types';
+import { getUserTasks } from '../api/tasks';
 
 export const Dashboard = () => {
-  const { user, logout, getAuthToken } = useAuth();
+  const { user } = useAuth();
   const [tasks, setTasks] = useState<TaskItem[]>([]);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchTasks = async () => {
       if (!user) return;
-
       try {
-        const token = getAuthToken();
-        const response = await fetch('http://localhost:5091/api/Tasks/GetUserTasks', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            ...(token && { 'Authorization': `Bearer ${token}` }),
-          },
-        });
-
-        if (response.ok) {
-          const tasksData = await response.json();
-          if (Array.isArray(tasksData)) {
-            setTasks(tasksData);
-          }
+        const tasksData = await getUserTasks();
+        if (Array.isArray(tasksData)) {
+          setTasks(tasksData);
         }
-      } catch (error) {
-        console.error('Error fetching tasks:', error);
+      } catch {
+        // ignore; empty dashboard
       } finally {
         setLoading(false);
       }
     };
 
     fetchTasks();
-  }, [user, getAuthToken]);
+  }, [user]);
 
   const stats = useMemo(() => {
     const userTasks = tasks.filter((task) => task.userId === user?.userId);
@@ -69,7 +52,6 @@ export const Dashboard = () => {
     const userTasks = tasks.filter((task) => task.userId === user?.userId);
     return userTasks
       .sort((a, b) => {
-        // Sort by completion status first, then by priority, then by due date
         if (a.isCompleted !== b.isCompleted) {
           return a.isCompleted ? 1 : -1;
         }
@@ -81,7 +63,7 @@ export const Dashboard = () => {
         }
         return 0;
       })
-      .slice(0, 5); // Show only 5 recent tasks
+      .slice(0, 5);
   }, [tasks, user]);
 
   const handleToggleTask = (taskId: string) => {
@@ -92,12 +74,20 @@ export const Dashboard = () => {
     );
   };
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-24">
+        <div className="text-white text-xl">Loading dashboard...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-white mb-2">Welcome back, {user?.username}!</h2>
-          <p className="text-slate-300">Here's an overview of your tasks</p>
+          <p className="text-slate-300">Here&apos;s an overview of your tasks</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -134,7 +124,6 @@ export const Dashboard = () => {
           />
         </div>
 
-        {/* Recent Tasks Section */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl font-semibold text-white">Recent Tasks</h3>
@@ -167,12 +156,6 @@ export const Dashboard = () => {
               ))
             )}
           </div>
-        </div>
-
-        <div className="text-center py-12">
-          <CheckCircle2 className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-white mb-2">Welcome to your Dashboard</h3>
-          <p className="text-slate-300">Navigate to Tasks or Categories to manage your work</p>
         </div>
       </div>
     </div>

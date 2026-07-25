@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Category } from '../types';
 import { CreateCategoryButton } from '../components/CreateCategoryButton';
-import { Folder, Edit, Trash2, CheckCircle2, Loader2 } from 'lucide-react';
+import { Folder, Edit, Trash2, CheckCircle2 } from 'lucide-react';
+import * as categoriesApi from '../api/categories';
+import { ApiError } from '../api/client';
 
 export const Categories = () => {
-  const { user, getAuthToken } = useAuth();
+  const { user } = useAuth();
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingCategory, setEditingCategory] = useState<string | null>(null);
@@ -15,32 +17,18 @@ export const Categories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       if (!user) return;
-
       try {
-        const token = getAuthToken();
-        const response = await fetch('http://localhost:5091/api/Categories', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            ...(token && { 'Authorization': `Bearer ${token}` }),
-          },
-        });
-
-        if (response.ok) {
-          const categoriesData: Category[] = await response.json();
-          setCategories(categoriesData);
-        } else {
-          console.error('Failed to fetch categories:', response.status, response.statusText);
-        }
-      } catch (error) {
-        console.error('Error fetching categories:', error);
+        const categoriesData = await categoriesApi.getCategories();
+        setCategories(categoriesData);
+      } catch {
+        // keep empty list on failure
       } finally {
         setLoading(false);
       }
     };
 
     fetchCategories();
-  }, [user, getAuthToken]);
+  }, [user]);
 
   const handleCategoryCreated = (newCategory: Category) => {
     setCategories((prev) => [...prev, newCategory]);
@@ -53,77 +41,43 @@ export const Categories = () => {
 
   const handleSaveEdit = async (categoryId: string) => {
     if (!editName.trim()) return;
-
     setSavingCategory(categoryId);
 
     try {
-      const token = getAuthToken();
-      const response = await fetch(`http://localhost:5091/api/Categories/${categoryId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(token && { 'Authorization': `Bearer ${token}` }),
-        },
-        body: JSON.stringify({
-          categoryId: categoryId,
-          name: editName.trim(),
-        }),
-      });
-
-      if (response.ok) {
-        setCategories((prev) =>
-          prev.map((cat) =>
-            cat.categoryId === categoryId ? { ...cat, name: editName.trim() } : cat
-          )
-        );
-        setEditingCategory(null);
-        setEditName('');
-      } else {
-        console.error('Failed to update category:', response.status);
-        alert('Failed to update category. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error updating category:', error);
-      alert('Error updating category. Please try again.');
+      await categoriesApi.updateCategory(categoryId, editName.trim());
+      setCategories((prev) =>
+        prev.map((cat) =>
+          cat.categoryId === categoryId ? { ...cat, name: editName.trim() } : cat
+        )
+      );
+      setEditingCategory(null);
+      setEditName('');
+    } catch {
+      alert('Failed to update category. Please try again.');
     } finally {
       setSavingCategory(null);
     }
   };
 
   const handleDeleteCategory = async (categoryId: string) => {
-    if (!confirm('Apakah Anda yakin ingin menghapus kategori ini?".')) {
+    if (!confirm('Apakah Anda yakin ingin menghapus kategori ini?')) {
       return;
     }
 
     try {
-      const token = getAuthToken();
-      const response = await fetch(`http://localhost:5091/api/Categories/${categoryId}`, {
-        method: 'DELETE',
-        headers: {
-          ...(token && { 'Authorization': `Bearer ${token}` }),
-        },
-      });
-
-      if (response.ok) {
-        setCategories((prev) => prev.filter((cat) => cat.categoryId !== categoryId));
-      } else {
-        let errorMessage = 'Gagal menghapus kategori karena masih ada task yang menumpuk.';
-        if (response.status === 400) {
-          try {
-            const errorData = await response.json();
-            if (errorData.message && errorData.message.toLowerCase().includes('unfinished') || errorData.message.toLowerCase().includes('belum selesai')) {
-              errorMessage = 'Tidak dapat menghapus kategori karena masih ada tugas yang belum selesai.';
-            }
-          } catch (parseError) {
-            console.error('Error parsing error response:', parseError);
-          }
-        }
-        console.error('Failed to delete category:', response.status);
-        alert(errorMessage);
-      }
+      await categoriesApi.deleteCategory(categoryId);
+      setCategories((prev) => prev.filter((cat) => cat.categoryId !== categoryId));
     } catch (error) {
-      console.error('Error deleting category:', error);
-      alert('Error menghapus kategori. Silakan coba lagi.');
+      let errorMessage = 'Gagal menghapus kategori.';
+      if (error instanceof ApiError) {
+        const msg = error.message.toLowerCase();
+        if (msg.includes('unfinished') || msg.includes('belum selesai')) {
+          errorMessage = 'Tidak dapat menghapus kategori karena masih ada tugas yang belum selesai.';
+        } else if (error.message) {
+          errorMessage = error.message;
+        }
+      }
+      alert(errorMessage);
     }
   };
 
@@ -142,8 +96,6 @@ export const Categories = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40"></div>
-
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="mb-8">
@@ -183,6 +135,7 @@ export const Categories = () => {
                               if (e.key === 'Escape') handleCancelEdit();
                             }}
                             autoFocus
+                            disabled={savingCategory === category.categoryId}
                           />
                         ) : (
                           <span className="text-white font-medium">{category.name}</span>

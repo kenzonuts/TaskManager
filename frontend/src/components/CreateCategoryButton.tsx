@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Category } from '../types';
 import { Plus, X } from 'lucide-react';
+import { createCategory } from '../api/categories';
 
 interface CreateCategoryButtonProps {
   onCategoryCreated: (category: Category) => void;
 }
 
 export const CreateCategoryButton = ({ onCategoryCreated }: CreateCategoryButtonProps) => {
-  const { user, getAuthToken } = useAuth();
+  const { user } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [categoryName, setCategoryName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -22,32 +23,17 @@ export const CreateCategoryButton = ({ onCategoryCreated }: CreateCategoryButton
     setIsLoading(true);
 
     try {
-      const token = getAuthToken();
-      const response = await fetch('http://localhost:5091/api/Categories', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(token && { 'Authorization': `Bearer ${token}` }),
-        },
-        body: JSON.stringify({
-          name: categoryName.trim(),
-          userId: user.userId,
-        }),
+      const result = await createCategory(categoryName.trim());
+      onCategoryCreated({
+        categoryId: result.id,
+        name: categoryName.trim(),
+        userId: user.userId,
+        tasks: [],
       });
-
-      if (response.ok) {
-        const newCategory: Category = await response.json();
-        onCategoryCreated(newCategory);
-        setCategoryName('');
-        setIsModalOpen(false);
-      } else {
-        const errorText = await response.text();
-        console.error('Create category failed with status:', response.status, 'Response:', errorText);
-        setError('Failed to create category. Please try again.');
-      }
-    } catch (error) {
-      console.error('Create category failed:', error);
-      setError('Network error. Please check your connection.');
+      setCategoryName('');
+      setIsModalOpen(false);
+    } catch {
+      setError('Failed to create category. Please try again.');
     } finally {
       setIsLoading(false);
     }

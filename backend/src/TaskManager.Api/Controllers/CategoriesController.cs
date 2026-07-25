@@ -11,6 +11,7 @@ namespace TaskManager.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class CategoriesController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -21,7 +22,6 @@ namespace TaskManager.Api.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             var result = await _mediator.Send(new GetAllCategoriesQuery());
@@ -36,7 +36,6 @@ namespace TaskManager.Api.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create([FromBody] CreateCategoryCommand command)
         {
             var categoryId = await _mediator.Send(command);
@@ -44,7 +43,6 @@ namespace TaskManager.Api.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        [Authorize]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateCategoryCommand command)
         {
             if (id != command.CategoryId)
@@ -53,12 +51,12 @@ namespace TaskManager.Api.Controllers
             await _mediator.Send(command);
             return Ok(new { Message = "Category updated successfully" });
         }
+
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             await _mediator.Send(new DeleteCategoryCommand { CategoryId = id });
             return Ok(new { Message = "Category deleted successfully" });
         }
-
     }
 }

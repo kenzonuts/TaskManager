@@ -1,12 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { UserPlus, AlertCircle, CheckCircle } from 'lucide-react';
 
-interface RegisterProps {
-  onSwitchToLogin: () => void;
-}
-
-export const Register = ({ onSwitchToLogin }: RegisterProps) => {
+export const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -45,13 +42,11 @@ export const Register = ({ onSwitchToLogin }: RegisterProps) => {
     }
 
     setIsLoading(true);
-
     const success = await register(username, email, password);
-
     if (!success) {
-      setError('Email already exists');
-      setIsLoading(false);
+      setError('Registration failed. Email may already exist.');
     }
+    setIsLoading(false);
   };
 
   return (
@@ -101,7 +96,6 @@ export const Register = ({ onSwitchToLogin }: RegisterProps) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder=""
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent transition-all"
               />
             </div>
@@ -157,12 +151,9 @@ export const Register = ({ onSwitchToLogin }: RegisterProps) => {
           <div className="mt-6 text-center">
             <p className="text-slate-300 text-sm">
               Already have an account?{' '}
-              <button
-                onClick={onSwitchToLogin}
-                className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors"
-              >
+              <Link to="/login" className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors">
                 Sign In
-              </button>
+              </Link>
             </p>
           </div>
 

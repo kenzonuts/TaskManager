@@ -1,5 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { User } from '../types';
+import * as authApi from '../api/auth';
+import { ApiError } from '../api/client';
 
 interface AuthContextType {
   user: User | null;
@@ -12,131 +14,60 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+function toUser(result: authApi.AuthResult): User {
+  return {
+    userId: result.userId,
+    username: result.username,
+    email: result.email,
+    password: '',
+    createdAt: new Date(),
+    categories: [],
+    tasks: [],
+  };
+}
+
+function persistSession(result: authApi.AuthResult) {
+  localStorage.setItem('authToken', result.token);
+  const user = toUser(result);
+  localStorage.setItem('taskManagerUser', JSON.stringify(user));
+  return user;
+}
+
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('taskManagerUser');
-    if (storedUser) {
+    const token = localStorage.getItem('authToken');
+    if (storedUser && token) {
       setUser(JSON.parse(storedUser));
+    } else {
+      localStorage.removeItem('taskManagerUser');
+      localStorage.removeItem('authToken');
     }
     setIsLoading(false);
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
-      const response = await fetch('http://localhost:5091/api/Users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
-
-      if (response.ok) {
-        const userData = await response.json();
-      
-        if (userData.token) {
-          localStorage.setItem('authToken', userData.token);
-          try {
-            const payload = JSON.parse(atob(userData.token.split('.')[1]));
-            console.log('JWT payload:', payload);
-            const tokenUserId = payload.sub;
-            console.log('User ID from token:', tokenUserId);
-
-            const loggedInUser: User = {
-              userId: tokenUserId,
-              username: userData.username || payload.unique_name || email.split('@')[0],
-              email: userData.email || payload.email || email,
-              password: '',
-              createdAt: new Date(),
-              categories: [],
-              tasks: []
-            };
-            setUser(loggedInUser);
-            localStorage.setItem('taskManagerUser', JSON.stringify(loggedInUser));
-            return true;
-          } catch (tokenError) {
-            console.error('Error decoding token:', tokenError);
-            const loggedInUser: User = {
-              userId: userData.userId || crypto.randomUUID(),
-              username: userData.username || email.split('@')[0],
-              email: userData.email || email,
-              password: '',
-              createdAt: new Date(),
-              categories: [],
-              tasks: []
-            };
-            setUser(loggedInUser);
-            localStorage.setItem('taskManagerUser', JSON.stringify(loggedInUser));
-            return true;
-          }
-        } else {
-          const loggedInUser: User = {
-            userId: userData.userId || crypto.randomUUID(),
-            username: userData.username || email.split('@')[0],
-            email: userData.email || email,
-            password: '',
-            createdAt: new Date(),
-            categories: [],
-            tasks: []
-          };
-          setUser(loggedInUser);
-          localStorage.setItem('taskManagerUser', JSON.stringify(loggedInUser));
-          return true;
-        }
-      } else {
-        const errorText = await response.text();
-        console.error('Login failed with status:', response.status, 'Response:', errorText);
-        return false;
-      }
+      const result = await authApi.login(email, password);
+      setUser(persistSession(result));
+      return true;
     } catch (error) {
-      console.error('Login failed:', error);
+      if (!(error instanceof ApiError)) {
+        // network / unexpected
+      }
       return false;
     }
   };
 
   const register = async (username: string, email: string, password: string): Promise<boolean> => {
     try {
-      const response = await fetch('http://localhost:5091/api/Users/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username,
-          email,
-          password,
-        }),
-      });
-
-      if (response.ok) {
-        const userData = await response.json();
-        
-        const newUser: User = {
-          userId: userData.userId || crypto.randomUUID(),
-          username: userData.username || username,
-          email: userData.email || email,
-          password: '', 
-          createdAt: new Date(),
-          categories: [],
-          tasks: []
-        };
-        setUser(newUser);
-        localStorage.setItem('taskManagerUser', JSON.stringify(newUser));
-        return true;
-      } else {
-        // Log detail error untuk debugging
-        const errorText = await response.text();
-        console.error('Registration failed with status:', response.status, 'Response:', errorText);
-        return false;
-      }
-    } catch (error) {
-      console.error('Registration failed:', error);
+      const result = await authApi.register(username, email, password);
+      setUser(persistSession(result));
+      return true;
+    } catch {
       return false;
     }
   };
@@ -147,9 +78,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     localStorage.removeItem('authToken');
   };
 
-  const getAuthToken = () => {
-    return localStorage.getItem('authToken');
-  };
+  const getAuthToken = () => localStorage.getItem('authToken');
 
   return (
     <AuthContext.Provider value={{ user, login, register, logout, isLoading, getAuthToken }}>

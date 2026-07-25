@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Category, PriorityLevel } from '../types';
+import { Category, PriorityLevel, TaskItem } from '../types';
 import { X, Calendar, Tag, Clock } from 'lucide-react';
+import { createTask } from '../api/tasks';
 
 interface CreateTaskModalProps {
   isOpen: boolean;
   onClose: () => void;
   categories: Category[];
-  onTaskCreated: (newTask: any) => void;
+  onTaskCreated: (newTask: TaskItem) => void;
 }
 
 export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: CreateTaskModalProps) => {
-  const { getAuthToken, user } = useAuth();
+  const { user } = useAuth();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState('');
@@ -21,51 +22,41 @@ export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim()) return;
-
-    if (!user) {
-      alert('Pengguna belum login. Silakan login terlebih dahulu untuk membuat tugas.');
-      return;
-    }
+    if (!title.trim() || !user) return;
 
     setIsSubmitting(true);
     try {
-      const token = getAuthToken();
-      const response = await fetch('http://localhost:5091/api/Tasks', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(token && { 'Authorization': `Bearer ${token}` }),
-        },
-        body: JSON.stringify({
-          taskId: crypto.randomUUID(),
-          title: title.trim(),
-          description: description.trim() || undefined,
-          dueDate: dueDate ? new Date(dueDate).toISOString() : undefined,
-          priority,
-          isCompleted: false,
-          userId: user?.userId,
-          categoryId: categoryId || undefined,
-        }),
+      const result = await createTask({
+        title: title.trim(),
+        description: description.trim() || undefined,
+        dueDate: dueDate ? new Date(dueDate).toISOString() : null,
+        priority,
+        categoryId: categoryId || null,
       });
 
-      if (response.ok) {
-        const newTask = await response.json();
-        onTaskCreated(newTask);
-        onClose();
-        // Reset form
-        setTitle('');
-        setDescription('');
-        setDueDate('');
-        setPriority(PriorityLevel.Medium);
-        setCategoryId('');
-      } else {
-        console.error('Failed to create task:', response.status);
-        alert('Failed to create task. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error creating task:', error);
-      alert('Error creating task. Please try again.');
+      const newTask: TaskItem = {
+        taskId: result.id,
+        title: title.trim(),
+        description: description.trim() || undefined,
+        isCompleted: false,
+        createdAt: new Date(),
+        dueDate: dueDate ? new Date(dueDate) : undefined,
+        priority,
+        userId: user.userId,
+        categoryId: categoryId || undefined,
+        category: categories.find((c) => c.categoryId === categoryId),
+        reminders: [],
+      };
+
+      onTaskCreated(newTask);
+      onClose();
+      setTitle('');
+      setDescription('');
+      setDueDate('');
+      setPriority(PriorityLevel.Medium);
+      setCategoryId('');
+    } catch {
+      alert('Failed to create task. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -78,19 +69,14 @@ export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: 
       <div className="bg-slate-800 border border-white/20 rounded-xl p-6 w-full max-w-md">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-semibold text-white">Create New Task</h2>
-          <button
-            onClick={onClose}
-            className="text-slate-400 hover:text-white transition-colors"
-          >
+          <button onClick={onClose} className="text-slate-400 hover:text-white transition-colors">
             <X className="w-6 h-6" />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
-              Title *
-            </label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">Title *</label>
             <input
               type="text"
               value={title}
@@ -102,9 +88,7 @@ export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: 
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
-              Description
-            </label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">Description</label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -115,9 +99,7 @@ export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: 
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
-              Due Date
-            </label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">Due Date</label>
             <div className="relative">
               <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
@@ -130,9 +112,7 @@ export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: 
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
-              Priority
-            </label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">Priority</label>
             <div className="relative">
               <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
               <select
@@ -149,9 +129,7 @@ export const CreateTaskModal = ({ isOpen, onClose, categories, onTaskCreated }: 
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
-              Category
-            </label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">Category</label>
             <div className="relative">
               <Tag className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
               <select
