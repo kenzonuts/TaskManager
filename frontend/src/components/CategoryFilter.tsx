@@ -20,34 +20,35 @@ export const CategoryFilter = ({
   const totalTasks = Object.values(taskCounts).reduce((sum, count) => sum + count, 0);
 
   return (
-    <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-4">
-      <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-        <Folder className="w-5 h-5" />
+    <div className="rounded-xl border border-zinc-200 bg-white p-4">
+      <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-zinc-900">
+        <Folder className="h-5 w-5" />
         Categories
       </h2>
 
       <div className="space-y-2">
-        <div className="pb-4 border-b border-white/10">
+        <div className="border-b border-zinc-100 pb-4">
           <CreateCategoryButton onCategoryCreated={onCategoryCreated} />
         </div>
 
         <button
+          type="button"
           onClick={() => onSelectCategory(null)}
-          className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all ${
+          className={`flex w-full items-center justify-between rounded-lg px-4 py-3 transition-colors ${
             selectedCategory === null
-              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
-              : 'text-slate-300 hover:bg-white/10'
+              ? 'bg-zinc-900 text-white'
+              : 'text-zinc-700 hover:bg-zinc-50'
           }`}
         >
           <div className="flex items-center gap-3">
-            <Grid className="w-4 h-4" />
+            <Grid className="h-4 w-4" />
             <span className="font-medium">All Tasks</span>
           </div>
           <span
-            className={`px-2 py-1 rounded-md text-xs font-semibold ${
+            className={`rounded-md px-2 py-1 text-xs font-semibold ${
               selectedCategory === null
-                ? 'bg-cyan-500/30 text-cyan-200'
-                : 'bg-slate-500/20 text-slate-400'
+                ? 'bg-white/20 text-white'
+                : 'bg-zinc-100 text-zinc-600'
             }`}
           >
             {totalTasks}
@@ -56,23 +57,24 @@ export const CategoryFilter = ({
 
         {categories.map((category) => (
           <button
+            type="button"
             key={category.categoryId}
             onClick={() => onSelectCategory(category.categoryId)}
-            className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all ${
+            className={`flex w-full items-center justify-between rounded-lg px-4 py-3 transition-colors ${
               selectedCategory === category.categoryId
-                ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
-                : 'text-slate-300 hover:bg-white/10'
+                ? 'bg-zinc-900 text-white'
+                : 'text-zinc-700 hover:bg-zinc-50'
             }`}
           >
             <div className="flex items-center gap-3">
-              <Folder className="w-4 h-4" />
+              <Folder className="h-4 w-4" />
               <span className="font-medium">{category.name}</span>
             </div>
             <span
-              className={`px-2 py-1 rounded-md text-xs font-semibold ${
+              className={`rounded-md px-2 py-1 text-xs font-semibold ${
                 selectedCategory === category.categoryId
-                  ? 'bg-cyan-500/30 text-cyan-200'
-                  : 'bg-slate-500/20 text-slate-400'
+                  ? 'bg-white/20 text-white'
+                  : 'bg-zinc-100 text-zinc-600'
               }`}
             >
               {taskCounts[category.categoryId] || 0}

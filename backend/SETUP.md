@@ -30,12 +30,18 @@ dotnet user-secrets init   # sudah ada UserSecretsId di csproj
 ```
 
 ```bash
-dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=db.<ref>.supabase.co;Port=5432;Database=postgres;Username=postgres;Password=<DB_PASSWORD>;SSL Mode=Require;Trust Server Certificate=true"
+# Pooler Session mode (Port 5432) — cocok untuk EF migrate + API lokal
+dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=aws-0-....pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.<project-ref>;Password=<DB_PASSWORD>;SSL Mode=Require;Trust Server Certificate=true"
 dotnet user-secrets set "Jwt:Key" "ganti-dengan-secret-panjang-minimal-32-karakter"
 dotnet user-secrets set "Jwt:Issuer" "TaskManager"
 dotnet user-secrets set "Jwt:Audience" "TaskManager"
 ```
 
+Catatan:
+- User Secrets hanya terbaca jika `ASPNETCORE_ENVIRONMENT=Development` (default di `launchSettings.json`).
+- Untuk `dotnet ef`, export juga: `export ASPNETCORE_ENVIRONMENT=Development`
+- Pooler **Transaction** (port `6543`) sering gagal/timeout untuk migrasi EF — pakai **Session** port `5432`.
+- Direct host `db.<ref>.supabase.co` butuh IPv6 di beberapa jaringan; pooler biasanya IPv4.
 
 ## 3. Apply schema ke Supabase (Fase 2)
 

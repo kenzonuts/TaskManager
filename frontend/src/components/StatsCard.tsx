@@ -5,32 +5,26 @@ interface StatsCardProps {
   title: string;
   value: number;
   icon: LucideIcon;
-  color: string;
-  bgColor: string;
   filter?: string;
 }
 
-export const StatsCard = ({ title, value, icon: Icon, color, bgColor, filter }: StatsCardProps) => {
+export const StatsCard = ({ title, value, icon: Icon, filter }: StatsCardProps) => {
   const content = (
-    <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/10 transition-all duration-200 cursor-pointer">
+    <div className="rounded-xl border border-zinc-200 bg-white p-6 transition-shadow hover:shadow-sm">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-slate-400 text-sm mb-1">{title}</p>
-          <p className={`text-3xl font-bold ${color}`}>{value}</p>
+          <p className="mb-1 text-sm text-zinc-500">{title}</p>
+          <p className="text-3xl font-bold tracking-tight text-zinc-900">{value}</p>
         </div>
-        <div className={`${bgColor} p-3 rounded-xl`}>
-          <Icon className={`w-6 h-6 ${color}`} />
+        <div className="rounded-xl bg-zinc-900 p-3 text-white">
+          <Icon className="h-6 w-6" strokeWidth={1.75} />
         </div>
       </div>
     </div>
   );
 
   if (filter) {
-    return (
-      <Link to={`/tasks?filter=${filter}`}>
-        {content}
-      </Link>
-    );
+    return <Link to={`/tasks?filter=${filter}`}>{content}</Link>;
   }
 
   return content;

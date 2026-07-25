@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import { Navigation } from './components/Navigation';
+import { AppShell } from './components/layout/AppShell';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { Dashboard } from './pages/Dashboard';
@@ -13,8 +13,8 @@ const ProtectedLayout = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+      <div className="flex min-h-screen items-center justify-center bg-zinc-100">
+        <div className="text-lg text-zinc-600">Loading...</div>
       </div>
     );
   }
@@ -23,14 +23,7 @@ const ProtectedLayout = () => {
     return <Navigate to="/login" replace />;
   }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <Navigation />
-      <div className="pt-16">
-        <Outlet />
-      </div>
-    </div>
-  );
+  return <AppShell />;
 };
 
 const GuestOnly = ({ children }: { children: ReactNode }) => {
@@ -38,8 +31,8 @@ const GuestOnly = ({ children }: { children: ReactNode }) => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+      <div className="flex min-h-screen items-center justify-center bg-zinc-100">
+        <div className="text-lg text-zinc-600">Loading...</div>
       </div>
     );
   }

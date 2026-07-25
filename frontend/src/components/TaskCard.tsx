@@ -9,10 +9,10 @@ interface TaskCardProps {
 }
 
 const priorityColors = {
-  [PriorityLevel.Low]: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
-  [PriorityLevel.Medium]: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
-  [PriorityLevel.High]: 'bg-orange-500/20 text-orange-300 border-orange-500/30',
-  [PriorityLevel.Critical]: 'bg-red-500/20 text-red-300 border-red-500/30',
+  [PriorityLevel.Low]: 'bg-zinc-100 text-zinc-700 border-zinc-200',
+  [PriorityLevel.Medium]: 'bg-amber-50 text-amber-800 border-amber-200',
+  [PriorityLevel.High]: 'bg-orange-50 text-orange-800 border-orange-200',
+  [PriorityLevel.Critical]: 'bg-red-50 text-red-800 border-red-200',
 };
 
 const priorityLabels = {
@@ -44,15 +44,14 @@ export const TaskCard = ({ task, onToggle, onEdit }: TaskCardProps) => {
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
-    const currentX = e.clientX;
-    const distance = currentX - startX;
-    setDragDistance(Math.max(0, Math.min(distance, 80))); // Limit to 80px
+    const distance = e.clientX - startX;
+    setDragDistance(Math.max(0, Math.min(distance, 80)));
   };
 
   const handleMouseUp = () => {
     if (!isDragging) return;
     setIsDragging(false);
-    if (dragDistance > 40) { // Threshold for completion
+    if (dragDistance > 40) {
       onToggle(task.taskId);
     }
     setDragDistance(0);
@@ -66,8 +65,7 @@ export const TaskCard = ({ task, onToggle, onEdit }: TaskCardProps) => {
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return;
-    const currentX = e.touches[0].clientX;
-    const distance = currentX - startX;
+    const distance = e.touches[0].clientX - startX;
     setDragDistance(Math.max(0, Math.min(distance, 80)));
   };
 
@@ -83,7 +81,9 @@ export const TaskCard = ({ task, onToggle, onEdit }: TaskCardProps) => {
   return (
     <div
       ref={cardRef}
-      className={`group bg-white/5 backdrop-blur-sm border rounded-xl p-4 hover:bg-white/10 transition-all duration-200 ${task.isCompleted ? 'border-white/10 opacity-60' : 'border-white/20 hover:border-white/30'}`}
+      className={`group rounded-xl border bg-white p-4 transition-shadow hover:shadow-sm ${
+        task.isCompleted ? 'border-zinc-100 opacity-60' : 'border-zinc-200'
+      }`}
       style={{
         transform: `translateX(${dragDistance}px)`,
         transition: isDragging ? 'none' : 'transform 0.2s ease-out',
@@ -98,64 +98,66 @@ export const TaskCard = ({ task, onToggle, onEdit }: TaskCardProps) => {
     >
       <div className="flex items-start gap-3">
         <button
+          type="button"
           onClick={() => onToggle(task.taskId)}
           className="mt-1 flex-shrink-0 transition-transform hover:scale-110"
         >
           {task.isCompleted ? (
-            <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+            <CheckCircle2 className="h-6 w-6 text-emerald-600" />
           ) : (
-            <Circle className="w-6 h-6 text-slate-400 hover:text-cyan-400 transition-colors" />
+            <Circle className="h-6 w-6 text-zinc-400 hover:text-zinc-900" />
           )}
         </button>
 
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between mb-1">
+        <div className="min-w-0 flex-1">
+          <div className="mb-1 flex items-center justify-between">
             <h3
-              className={`font-semibold text-white transition-all ${
-                task.isCompleted ? 'line-through text-slate-400' : ''
+              className={`font-semibold text-zinc-900 transition-all ${
+                task.isCompleted ? 'text-zinc-400 line-through' : ''
               }`}
             >
               {task.title}
             </h3>
             <button
+              type="button"
               onClick={() => onEdit(task)}
-              className="text-slate-400 hover:text-cyan-400 transition-colors p-1 rounded hover:bg-white/10"
+              className="rounded p-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
               title="Edit task"
             >
-              <Edit className="w-4 h-4" />
+              <Edit className="h-4 w-4" />
             </button>
           </div>
 
           {task.description && (
-            <p className="text-sm text-slate-300 mb-3 line-clamp-2">{task.description}</p>
+            <p className="mb-3 line-clamp-2 text-sm text-zinc-500">{task.description}</p>
           )}
 
           <div className="flex flex-wrap items-center gap-2 text-xs">
             {task.category && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 bg-cyan-500/20 text-cyan-300 rounded-md border border-cyan-500/30">
-                <Tag className="w-3 h-3" />
+              <span className="inline-flex items-center gap-1 rounded-md border border-zinc-200 bg-zinc-50 px-2 py-1 text-zinc-700">
+                <Tag className="h-3 w-3" />
                 {task.category.name}
               </span>
             )}
 
             <span
-              className={`inline-flex items-center gap-1 px-2 py-1 rounded-md border ${
+              className={`inline-flex items-center gap-1 rounded-md border px-2 py-1 ${
                 priorityColors[task.priority]
               }`}
             >
-              <Clock className="w-3 h-3" />
+              <Clock className="h-3 w-3" />
               {priorityLabels[task.priority]}
             </span>
 
             {task.dueDate && (
               <span
-                className={`inline-flex items-center gap-1 px-2 py-1 rounded-md border ${
+                className={`inline-flex items-center gap-1 rounded-md border px-2 py-1 ${
                   isOverdue
-                    ? 'bg-red-500/20 text-red-300 border-red-500/30'
-                    : 'bg-slate-500/20 text-slate-300 border-slate-500/30'
+                    ? 'border-red-200 bg-red-50 text-red-700'
+                    : 'border-zinc-200 bg-zinc-50 text-zinc-600'
                 }`}
               >
-                <Calendar className="w-3 h-3" />
+                <Calendar className="h-3 w-3" />
                 {formatDate(task.dueDate)}
               </span>
             )}
