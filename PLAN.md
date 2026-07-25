@@ -73,45 +73,40 @@ Hilangkan naming lama: `NebulaCore`, `Kenzo`, `Bagelen Bakery`, `Kenzonuts`, typ
 
 ### Checklist — struktur
 
-- [ ] Rename `frondend` → `frontend`
-- [ ] Flatten `frontend/TaskManager/` → isi langsung di `frontend/`
-- [ ] Pindahkan / rename backend ke `backend/src/TaskManager.*`
-- [ ] Rename solution & project:
+- [x] Rename `frondend` → `frontend`
+- [x] Flatten `frontend/TaskManager/` → isi langsung di `frontend/`
+- [x] Pindahkan / rename backend ke `backend/src/TaskManager.*`
+- [x] Rename solution & project:
   - `NebulaCore` → `TaskManager.Api`
   - `NebulaCore.Application` → `TaskManager.Application`
   - `NebulaCore.Domain` → `TaskManager.Domain`
   - `NebulaCore.Infrastruktur` → `TaskManager.Infrastructure`
-- [ ] Update semua namespace, project reference, dan `using`
+- [x] Update semua namespace, project reference, dan `using`
 
 ### Checklist — naming & file kotor
 
-- [ ] Hapus / rename file dengan **spasi di akhir nama**, contoh:
-  - `CategoriesController .cs`
-  - `CreateCategoryCommandHandler .cs`
-  - `GetCategoryByIdQuery .cs`
-  - `UpdateTaskCompletionCommandHandler .cs`
-  - `LoginCommandHandler .cs`
-  - `RegisterCommandValidator .cs`
-  - `GetAllTasksQuery .cs`
-- [ ] Rename typo / nama membingungkan:
+- [x] Hapus / rename file dengan **spasi di akhir nama**
+- [x] Rename typo / nama membingungkan:
   - `TaskCategory` → `TasksController` (route: `/api/Tasks`)
   - `UserControllers.cs` → `UsersController.cs`
   - `UpdateComplate` → `UpdateCompletion`
   - Migration / DB name `TaskManagger` → tidak dipakai lagi (akan diganti di Fase 2)
-- [ ] Samakan namespace controller (`TaskManager.Api.Controllers`)
-- [ ] Samakan namespace repository (`TaskManager.Domain.Repositories`)
-- [ ] Hapus file sampah:
+- [x] Samakan namespace controller (`TaskManager.Api.Controllers`)
+- [x] Samakan namespace repository (`TaskManager.Domain.Repositories`)
+- [x] Hapus file sampah:
   - `Dashboard_backup.tsx`
-  - TODO yang sudah selesai (atau pindahkan sisa item ke PLAN ini)
+  - TODO yang sudah selesai
   - Dummy data yang tidak dipakai
-- [ ] Update copy UI / Swagger: title, description, branding → **TaskManager**
-- [ ] Update semua `fetch` frontend agar mengikuti route baru (`/api/Tasks`, dll.)
+- [x] Update copy UI / Swagger: title, description, branding → **TaskManager**
+- [x] Update semua `fetch` frontend agar mengikuti route baru (`/api/Tasks`, dll.)
+- [x] JWT scheme diganti ke `Bearer` (bonus, dari checklist Fase 3)
 
 ### Definition of done
 
-- Folder & naming konsisten `TaskManager`
-- `dotnet build` + `npm run build` sukses
-- Login + CRUD category/task masih jalan (masih di SQL Server lama **atau** skip jika langsung lanjut Fase 2 di mesin yang sama)
+- [x] Folder & naming konsisten `TaskManager`
+- [x] `dotnet build` sukses
+- [x] `npm run build` sukses
+- [ ] Login + CRUD category/task smoke test (butuh User Secrets + DB)
 
 ---
 
@@ -163,7 +158,7 @@ Hilangkan naming lama: `NebulaCore`, `Kenzo`, `Bagelen Bakery`, `Kenzonuts`, typ
 - [ ] Tambah `VITE_API_BASE_URL` (env) — hilangkan hardcode `http://localhost:5091`
 - [ ] Buat `src/api/` (atau `services/`) + helper auth header terpusat
 - [ ] Login response FE selaras dengan API (`token`, `userId`, `username`, `email`) — kurangi decode JWT manual jika API sudah mengembalikan profil
-- [ ] Auth scheme JWT standar `Bearer` di backend + Swagger (buang skema `Kenzo`)
+- [x] Auth scheme JWT standar `Bearer` di backend + Swagger (buang skema `Kenzo`) — sudah di Fase 1
 - [ ] Hapus dependency tidak terpakai (`@supabase/supabase-js` jika belum dipakai)
 - [ ] Bersihkan `console.log` debug
 - [ ] Login/Register masuk React Router (bukan toggle state di luar `Router`)
@@ -282,9 +277,9 @@ Untuk traffic tinggi / serverless, pertimbangkan **pooler** (biasanya port `6543
 | Fase | Status | Catatan |
 |------|--------|---------|
 | 0 — Stabilisasi & keamanan | Mostly done | Sisa: buat project Supabase + set User Secrets + rotate SMTP |
-| 1 — Rebrand & struktur | Not started | |
+| 1 — Rebrand & struktur | Done | Build BE+FE hijau; smoke test CRUD menunggu secrets/DB |
 | 2 — Migrasi Supabase | Not started | |
-| 3 — Frontend hygiene | Not started | |
+| 3 — Frontend hygiene | Not started | JWT Bearer sudah diganti di Fase 1 |
 | 4 — Fitur sisa | Not started | |
 | 5 — Docs & test | Not started | |
 | 6 — Supabase Auth | Optional | |
